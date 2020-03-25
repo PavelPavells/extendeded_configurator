@@ -23,19 +23,17 @@ class ModuleImage extends React.Component {
         //console.log(this.props)
         if(data.length === 0) {
             return (
-                <div><Loader /></div>
+                <Suspense fallback={<div><Loader /></div>}></Suspense>
             )
         }
         return (
-            <Suspense fallback={<div><Loader /></div>}>
-                <div className='wrapper-photo'>
-                    <img 
-                        src={data.page_view.model_main_photo} 
-                        className='wrapper-photo__image' 
-                        alt='' 
-                    />
-                </div>
-            </Suspense>
+            <div className='wrapper-photo'>
+                <img 
+                    src={data.page_view.model_main_photo} 
+                    className='wrapper-photo__image' 
+                    alt='' 
+                />
+            </div>
         )
     }
 }

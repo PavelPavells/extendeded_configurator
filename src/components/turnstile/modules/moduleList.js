@@ -23,18 +23,16 @@ class ModuleList extends React.Component {
         console.log(data)
         if (data.length === 0) {
             return (
-                <Loader />
+                <Suspense fallback={<div><Loader /></div>}></Suspense>
             )
         }
         return (
-            <Suspense fallback={<div><Loader /></div>}>
-                <div className='list'>
-                    <p className='list-description'>Состав модели:</p>
-                    {data.page_view.model_module_list.map((index, key) => (
-                        <div className='list-options' key={index.index}>{index.caption}</div>
-                    ))}
-                </div>
-            </Suspense>
+            <div className='list'>
+                <p className='list-description'>Состав модели:</p>
+                {data.page_view.model_module_list.map((index, key) => (
+                    <div className='list-options' key={index.index}>{index.caption}</div>
+                ))}
+            </div>
         )
     }
 }

@@ -1,0 +1,57 @@
+/** ***** turnstile ***** */
+.turnstile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 97vh;
+
+    /** ***** turnstile slider ***** */
+    .slider {
+        display: flex;
+        flex-direction: column;
+        min-width: 300px;
+        height: 100%;
+        margin-right: 40px;
+
+        &-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 384px;
+            height: 448px;
+            background-color: #f1f1f1;
+        }
+        &-list {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            //border: 1px solid red;
+        }
+    }
+
+    /** ***** turnstile slider ***** */
+    .basis {
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+        height: 100%;
+        //border: 1px solid green;
+
+        &-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 30%;
+            border: 1px solid red;
+        }
+        &-selectors {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 70%;
+            border: 1px solid orange;
+        }
+    }
+}

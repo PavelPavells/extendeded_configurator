@@ -10,6 +10,8 @@ import { fetchDataTurnstile } from '../../../actions/dataTurnstileActions';
 import './styles/moduleButtons.scss';
 
 class ModuleButtons extends React.Component {
+
+    /** ************* FETCHING DATA ************* */
     componentDidMount() {
         this.props.fetchDataTurnstile()
     }

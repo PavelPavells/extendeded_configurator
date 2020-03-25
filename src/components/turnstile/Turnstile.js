@@ -29,30 +29,28 @@ class Turnstile extends React.Component {
         //console.log(data)
         if(data.length === 0) {
             return (
-                <div><Loader /></div>
+                <Suspense fallback={<div><Loader /></div>}></Suspense>
             )
         }
         return (
-            <Suspense fallback={<div><Loader /></div>}>
-                <section className='turnstile'>
-                    <div className='slider'>
-                        <div className='slider-image'>
-                            <ModuleImage />
-                        </div>
-                        <div className='slider-list'>
-                            <ModuleList />
-                        </div>
+            <section className='turnstile'>
+                <div className='slider'>
+                    <div className='slider-image'>
+                        <ModuleImage />
                     </div>
-                    <div className='basis'>
-                        <div className='basis-buttons'>
-                            <ModuleButtons />
-                        </div>
-                        <div className='basis-selectors'>
-                            <ModuleSelectors />
-                        </div>
+                    <div className='slider-list'>
+                        <ModuleList />
                     </div>
-                </section>
-            </Suspense>
+                </div>
+                <div className='basis'>
+                    <div className='basis-buttons'>
+                        <ModuleButtons />
+                    </div>
+                    <div className='basis-selectors'>
+                        <ModuleSelectors />
+                    </div>
+                </div>
+            </section>
         )
     }
 }

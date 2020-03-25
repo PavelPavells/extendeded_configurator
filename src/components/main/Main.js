@@ -28,62 +28,60 @@ class Main extends React.Component {
         const { data } = this.props.dataMain.dataMain;
         if (data.length === 0) {
             return (
-                <div><Loader /></div>
+                <Suspense fallback={<div><Loader /></div>}></Suspense>
             )
         }
         return (
             /** ****************** MAIN BLOCK ****************** */
-            <Suspense fallback={<div><Loader /></div>}>
-                <section className='main'>
-                    <p className='main-header'>
-                        {data.page_view.caption}
-                    </p>
-                    <p className='main-description'>
-                        Выберите необходимую категорию оборудования
-                    </p>
+            <section className='main'>
+                <p className='main-header'>
+                    {data.page_view.caption}
+                </p>
+                <p className='main-description'>
+                    Выберите необходимую категорию оборудования
+                </p>
 
-                {/** ****************** MAIN WRAPPER BLOCK ****************** */}
-                    <div className='main-wrapper-blocks'>
-                        {data.page_view.device_buttons.slice(0, 1).map((index, key) => {
-                            return (
-                                <NavLink to='/main' key={index.index} className='main-block'>
-                                    <div className='main-block__image'>
-                                        <img src={barrier_photo} alt='' />
-                                    </div>
-                                    <div className='main-block__text'>
-                                        <p className='main-block__text-header'>
-                                            {index.caption}
-                                        </p>
-                                        <p className='main-block__text-description'>
-                                            Шлагбаумы и оборудование контроля проезда CARDDEX позволяют сформировать гибкие системы допуска, 
-                                            учета и контроля проезда автотранспортных средств с развитой инфраструктурой
-                                        </p>
-                                    </div>
-                                </NavLink>
-                            )
-                        })}
-                        {data.page_view.device_buttons.slice(1, 2).map((index, key) => {
-                            return (
-                                <NavLink to='/turnstile' key={index.index} className='main-block'>
-                                    <div className='main-block__image'>
-                                        <img src={turnstile_photo} alt='' />
-                                    </div>
-                                    <div className='main-block__text'>
-                                        <p className='main-block__text-header'>
-                                            {index.caption}
-                                        </p>
-                                        <p className='main-block__text-description'>
-                                            Турникеты и электронные проходные CARDDEX предоставляют широкий выбор средств, 
-                                            методов и организации контроля доступа на объекты, 
-                                            требующие наличия пропускной системы и учета времени посещений
-                                        </p>
-                                    </div>
-                                </NavLink>
-                            )
-                        })}
-                    </div>
-                </section>
-            </Suspense>
+            {/** ****************** MAIN WRAPPER BLOCK ****************** */}
+                <div className='main-wrapper-blocks'>
+                    {data.page_view.device_buttons.slice(0, 1).map((index, key) => {
+                        return (
+                            <NavLink to='/main' key={index.index} className='main-block'>
+                                <div className='main-block__image'>
+                                    <img src={barrier_photo} alt='' />
+                                </div>
+                                <div className='main-block__text'>
+                                    <p className='main-block__text-header'>
+                                        {index.caption}
+                                    </p>
+                                    <p className='main-block__text-description'>
+                                        Шлагбаумы и оборудование контроля проезда CARDDEX позволяют сформировать гибкие системы допуска, 
+                                        учета и контроля проезда автотранспортных средств с развитой инфраструктурой
+                                    </p>
+                                </div>
+                            </NavLink>
+                        )
+                    })}
+                    {data.page_view.device_buttons.slice(1, 2).map((index, key) => {
+                        return (
+                            <NavLink to='/turnstile' key={index.index} className='main-block'>
+                                <div className='main-block__image'>
+                                    <img src={turnstile_photo} alt='' />
+                                </div>
+                                <div className='main-block__text'>
+                                    <p className='main-block__text-header'>
+                                        {index.caption}
+                                    </p>
+                                    <p className='main-block__text-description'>
+                                        Турникеты и электронные проходные CARDDEX предоставляют широкий выбор средств, 
+                                        методов и организации контроля доступа на объекты, 
+                                        требующие наличия пропускной системы и учета времени посещений
+                                    </p>
+                                </div>
+                            </NavLink>
+                        )
+                    })}
+                </div>
+            </section>
         )
         
     }

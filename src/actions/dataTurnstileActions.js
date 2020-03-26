@@ -31,12 +31,12 @@ export const fetchDataTurnstile = () => {
                 app_id: 'APP_ID',
                 trigger: 1,
                 trigger_state: 1,
-                button_seria_state: 0,
+                button_seria_state: 1,
                 button_corpse_state: 0,
                 module_selectors: [
                     {
                       module: 0,
-                      state: 0
+                      state: 1
                     },
                     {
                       module: 1,

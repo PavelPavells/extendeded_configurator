@@ -20,13 +20,15 @@ class ModuleList extends React.Component {
     }
     render() {
         const { data } = this.props.mainTurnstile.dataTurnstile;
-        console.log(data)
+        //console.log(this.props)
         if (data.length === 0) {
             return (
                 <Suspense fallback={<div><Loader /></div>}></Suspense>
             )
         }
         return (
+            
+            /** ************* MODULE LIST ************* */
             <div className='list'>
                 <p className='list-description'>Состав модели:</p>
                 {data.page_view.model_module_list.map((index, key) => (

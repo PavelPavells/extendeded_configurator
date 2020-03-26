@@ -1,3 +1,6 @@
+/** ***** IMPORT GLOBAL STYLE ***** */
+@import '../../styles/styles.scss';
+
 /** ***** turnstile ***** */
 .turnstile {
     display: flex;
@@ -21,37 +24,31 @@
             align-items: center;
             width: 384px;
             height: 448px;
-            background-color: #f1f1f1;
+            background-color: $brandPantonGrey;
         }
         &-list {
             display: flex;
             justify-content: flex-start;
             align-items: center;
-            //border: 1px solid red;
         }
     }
 
-    /** ***** turnstile slider ***** */
+    /** ***** turnstile basis ***** */
     .basis {
         display: flex;
         flex-direction: column;
         width: 70%;
         height: 100%;
-        //border: 1px solid green;
 
         &-buttons {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 30%;
-            border: 1px solid red;
         }
         &-selectors {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 70%;
-            border: 1px solid orange;
         }
     }
 }

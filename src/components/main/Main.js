@@ -26,6 +26,7 @@ class Main extends React.Component {
 
     render() {
         const { data } = this.props.dataMain.dataMain;
+        //console.log(this.props)
         if (data.length === 0) {
             return (
                 <Suspense fallback={<div><Loader /></div>}></Suspense>

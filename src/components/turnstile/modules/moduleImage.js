@@ -27,6 +27,8 @@ class ModuleImage extends React.Component {
             )
         }
         return (
+            
+            /** ************* MODULE IMAGE ************* */
             <div className='wrapper-photo'>
                 <img 
                     src={data.page_view.model_main_photo} 

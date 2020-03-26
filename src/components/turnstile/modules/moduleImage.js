@@ -19,9 +19,10 @@ class ModuleImage extends React.Component {
         this.props.fetchDataTurnstile()
     }
     render() {
-        const { data } = this.props.mainTurnstile.dataTurnstile;
-        //console.log(this.props)
-        if(data.length === 0) {
+        /** ************* DATA FROM STORE ************* */
+        const { turnstile, isFetching } = this.props.data;
+
+        if(turnstile.data.length === 0 && !isFetching) {
             return (
                 <Suspense fallback={<div><Loader /></div>}></Suspense>
             )
@@ -31,7 +32,7 @@ class ModuleImage extends React.Component {
             /** ************* MODULE IMAGE ************* */
             <div className='wrapper-photo'>
                 <img 
-                    src={data.page_view.model_main_photo} 
+                    src={turnstile.data.page_view.model_main_photo} 
                     className='wrapper-photo__image' 
                     alt='' 
                 />
@@ -41,9 +42,9 @@ class ModuleImage extends React.Component {
 }
 ModuleImage.propTypes = {
     fetchDataTurnstile: PropTypes.func.isRequired,
-    mainTurnstile: PropTypes.object.isRequired
+    data: PropTypes.object.isRequired
 }
 const mapStateToProps = state => ({
-    mainTurnstile: state
+    data: state
 })
 export default connect(mapStateToProps, { fetchDataTurnstile })(ModuleImage)

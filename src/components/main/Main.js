@@ -25,9 +25,9 @@ class Main extends React.Component {
     }
 
     render() {
-        const { data } = this.props.dataMain.dataMain;
-        //console.log(this.props)
-        if (data.length === 0) {
+        const { main, isFetching } = this.props.data;
+        console.log(main)
+        if (main.data.length === 0 && !isFetching) {
             return (
                 <Suspense fallback={<div><Loader /></div>}></Suspense>
             )
@@ -36,15 +36,14 @@ class Main extends React.Component {
             /** ****************** MAIN BLOCK ****************** */
             <section className='main'>
                 <p className='main-header'>
-                    {data.page_view.caption}
+                    {main.data.page_view.caption}
                 </p>
                 <p className='main-description'>
                     Выберите необходимую категорию оборудования
                 </p>
 
-            {/** ****************** MAIN WRAPPER BLOCK ****************** */}
                 <div className='main-wrapper-blocks'>
-                    {data.page_view.device_buttons.slice(0, 1).map((index, key) => {
+                    {main.data.page_view.device_buttons.slice(0, 1).map((index, key) => {
                         return (
                             <NavLink to='/main' key={index.index} className='main-block'>
                                 <div className='main-block__image'>
@@ -62,7 +61,7 @@ class Main extends React.Component {
                             </NavLink>
                         )
                     })}
-                    {data.page_view.device_buttons.slice(1, 2).map((index, key) => {
+                    {main.data.page_view.device_buttons.slice(1, 2).map((index, key) => {
                         return (
                             <NavLink to='/turnstile' key={index.index} className='main-block'>
                                 <div className='main-block__image'>
@@ -89,9 +88,9 @@ class Main extends React.Component {
 }
 Main.propTypes = {
     fetchDataMain: PropTypes.func.isRequired,
-    dataMain: PropTypes.object.isRequired
+    data: PropTypes.object.isRequired
 }
 const mapStateToProps = state => ({
-    dataMain: state
+    data: state
 })
 export default connect( mapStateToProps, { fetchDataMain } )(Main);

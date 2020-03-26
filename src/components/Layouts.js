@@ -1,13 +1,7 @@
 /** ************* IMPORT DEPENDENCIES ************* */
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
-/** ************* IMPORT ACTIONS FROM ACTION FOLDER ************* */
-//import { 
-//    
-//} from '../../../actions/';
 
 /** ************* IMPORT __UTILS__ FOR LAYOUT COMPONENT ************* */
 import Loader from '../__utils__/Loader/Loader';
@@ -21,11 +15,6 @@ const Barrier = lazy(() => import('./barrier/Barrier'));
 const Turnstile = lazy(() => import('./turnstile/Turnstile'));
 
 class Layout extends React.Component {
-
-    /** ************* HANDLE CHANGE ************* */
-    handleChange = event => {
-        event.preventDefault();
-    }
 
     render() {
         return(
@@ -43,13 +32,4 @@ class Layout extends React.Component {
         )
     }
 }
-Layout.propTypes = {
-    some: PropTypes.object
-}
-const mapStateToProps = state => ({
-    //SOMETHING
-})
-const mapDispatchToProps = {
-    //SOMETHING
-}
-export default connect(mapStateToProps, mapDispatchToProps)(Layout)
+export default connect( null, null )(Layout);

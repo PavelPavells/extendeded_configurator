@@ -40,9 +40,10 @@ class ModuleButtons extends React.Component {
         event.preventDefault();
     }
     render() {
-        const { data } = this.props.mainTurnstile.dataTurnstile;
-        //console.log(data)
-        if(data.length === 0) {
+        /** ************* DATA FROM STORE ************* */
+        const { turnstile, isFetching } = this.props.data;
+
+        if(turnstile.data.length === 0 && !isFetching) {
             return (
                 <Suspense fallback={<div><Loader /></div>}></Suspense>
             )
@@ -58,11 +59,12 @@ class ModuleButtons extends React.Component {
                         <div className='top-captions__description'>Итоговая стоимость</div>
                     </div>
                     <div className='top-select'>
-                    <div className='top-select__model'>{data.page_view.model_name}</div>
+                    <div className='top-select__model'>{turnstile.data.page_view.model_name}</div>
                         <div className='top-select__seria'>
 
                             {/** ====================== STR BLOCK ====================== */}
-                            {data.page_view.btn_seria === 0
+                            
+                            {turnstile.data.page_view.btn_seria === 0
                                 ?
                                 <>
                                     <div onClick={this.handleClickSeriaSTR} className='top-select__seria-str open'>STR</div>
@@ -72,9 +74,10 @@ class ModuleButtons extends React.Component {
                                     <div onClick={this.handleClickSeriaSTR} className='top-select__seria-str'>STR</div>
                                 </>
                             }
-
+                        
                             {/** ====================== STX BLOCK ====================== */}
-                            {data.page_view.btn_seria === 1
+                            
+                            {turnstile.data.page_view.btn_seria === 1
                                 ?
                                 <>
                                     <div onClick={this.handleClickSeriaSTX} className='top-select__seria-stx open'>STX</div>
@@ -85,11 +88,11 @@ class ModuleButtons extends React.Component {
                                 </>
                             }
                         </div>
-                        <div className='top-select__price'>{data.page_view.model_price}</div>
+                        <div className='top-select__price'>{turnstile.data.page_view.model_price}</div>
                     </div>
                     <div className='top-info'>
                         <a
-                            href={data.page_view.download_broshure_button_link} 
+                            href={turnstile.data.page_view.download_broshure_button_link} 
                             className='top-info__docs' 
                             target='_blank'
                             rel='noopener noreferrer'
@@ -97,19 +100,20 @@ class ModuleButtons extends React.Component {
                             ПОДРОБНЕЕ О МОДЕЛИ
                         </a>
                         <a 
-                            href={data.page_view.model_base_model}
+                            href={turnstile.data.page_view.model_base_model}
                             className='top-info__base'
                             target='_blank'
                             rel='noopener noreferrer'
                         >
-                            БАЗОВАЯ МОДЕЛЬ {data.page_view.model_module_list.length - 1 >= 1 ? '(' + data.page_view.model_module_list[0].price + ')' : null}
+                    
+                            БАЗОВАЯ МОДЕЛЬ {turnstile.data.page_view.model_module_list.length - 1 >= 1 ? '(' + turnstile.data.page_view.model_module_list[0].price + ')' : null}
                         </a>
                     </div>
                     <div className='top-options'>
                         <div className='top-options__value'>
-                            {data.page_view.model_module_list.length - 1 === 1 ? String('+') + (data.page_view.model_module_list.length - 1) + ' ОПЦИЯ' : null}
-                            {data.page_view.model_module_list.length - 1 > 1 ? String('+') + (data.page_view.model_module_list.length - 1) + ' ОПЦИИ' : null}
-                            {data.page_view.model_module_list.length - 1 >= 5 ? String('+') + (data.page_view.model_module_list.length - 1) + ' ОПЦИЙ' : null}
+                            {turnstile.data.page_view.model_module_list.length - 1 === 1 ? String('+') + (turnstile.data.page_view.model_module_list.length - 1) + ' ОПЦИЯ' : null}
+                            {turnstile.data.page_view.model_module_list.length - 1 > 1 ? String('+') + (turnstile.data.page_view.model_module_list.length - 1) + ' ОПЦИИ' : null}
+                            {turnstile.data.page_view.model_module_list.length - 1 >= 5 ? String('+') + (turnstile.data.page_view.model_module_list.length - 1) + ' ОПЦИЙ' : null}
                         </div>
                         <div className='top-options__reset'>СБРОСИТЬ</div>
                     </div>
@@ -119,7 +123,7 @@ class ModuleButtons extends React.Component {
                     <div className='bottom-buttons'>
 
                         {/** ====================== COMPACT BLOCK ====================== */}
-                        {data.page_view.btn_corpse === 0
+                        {turnstile.data.page_view.btn_corpse === 0
                             ?
                             <>
                                 <div onClick={this.handleClickExecutionCompact} className='bottom-buttons__compact open'>Компактный</div>
@@ -131,7 +135,7 @@ class ModuleButtons extends React.Component {
                         }
 
                         {/** ====================== THUMB BLOCK ====================== */}
-                        {data.page_view.btn_corpse === 1
+                        {turnstile.data.page_view.btn_corpse === 1
                             ?
                             <>
                                 <div onClick={this.handleClickExecutionThumb} className='bottom-buttons__thumb open'>Тумбовый</div>
@@ -149,9 +153,9 @@ class ModuleButtons extends React.Component {
 }
 ModuleButtons.propTypes = {
     fetchDataTurnstile: PropTypes.func.isRequired,
-    mainTurnstile: PropTypes.object.isRequired
+    data: PropTypes.object.isRequired
 }
 const mapStateToProps = state => ({
-    mainTurnstile: state
+    data: state
 })
 export default connect(mapStateToProps, { fetchDataTurnstile })(ModuleButtons)

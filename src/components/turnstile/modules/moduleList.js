@@ -19,9 +19,10 @@ class ModuleList extends React.Component {
         this.props.fetchDataTurnstile()
     }
     render() {
-        const { data } = this.props.mainTurnstile.dataTurnstile;
-        //console.log(this.props)
-        if (data.length === 0) {
+        /** ************* DATA FROM STORE ************* */
+        const { turnstile, isFetching } = this.props.data;
+
+        if(turnstile.data.length === 0 && !isFetching) {
             return (
                 <Suspense fallback={<div><Loader /></div>}></Suspense>
             )
@@ -31,7 +32,7 @@ class ModuleList extends React.Component {
             /** ************* MODULE LIST ************* */
             <div className='list'>
                 <p className='list-description'>Состав модели:</p>
-                {data.page_view.model_module_list.map((index, key) => (
+                {turnstile.data.page_view.model_module_list.map((index, key) => (
                     <div className='list-options' key={index.index}>{index.caption}</div>
                 ))}
             </div>
@@ -39,9 +40,10 @@ class ModuleList extends React.Component {
     }
 }
 ModuleList.propTypes = {
-    fetchDataTurnstile: PropTypes.func.isRequired
+    fetchDataTurnstile: PropTypes.func.isRequired,
+    data: PropTypes.object.isRequired
 }
 const mapStateToProps = state => ({
-    mainTurnstile: state
+    data: state
 })
 export default connect(mapStateToProps, { fetchDataTurnstile })(ModuleList)

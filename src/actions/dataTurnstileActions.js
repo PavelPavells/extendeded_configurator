@@ -29,9 +29,9 @@ export const fetchDataTurnstile = () => {
         try {
             await axios.post(`${site}/turnstile`, {
                 app_id: 'APP_ID',
-                trigger: 1,
+                trigger: 2,
                 trigger_state: 1,
-                button_seria_state: 1,
+                button_seria_state: 0,
                 button_corpse_state: 0,
                 module_selectors: [
                     {
@@ -44,7 +44,7 @@ export const fetchDataTurnstile = () => {
                     },
                     {
                       module: 2,
-                      state: 0
+                      state: 1
                     },
                     {
                       module: 3,

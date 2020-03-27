@@ -4,7 +4,9 @@
 .selectors {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     width: 100%;
+    height: 100%;
 
     &-text {
         font-size: 12px;
@@ -19,6 +21,19 @@
         padding: 7px;
         font-size: 14px;
 
+        &__left {
+            display: flex;
+            align-items: center;
+            border: 1px solid red;
+            width: 75%;
+        }
+
+        &__right {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
         &:hover {
             border-radius: 25px;
             background-color: $brandPantonHover;
@@ -29,63 +44,68 @@
             min-width: 30px;
             height: 30px;
             margin-right: 1%;
-            //background: url('../../../../images/icon/shape.svg') no-repeat 50%;
         }
         .ep {
             display: block;
             min-width: 30px;
             height: 30px;
             margin-right: 1%;
-            background: url('../../../../images/icon/shape.svg') no-repeat 50%;
+            background: url('../../../../images/icon/shape.svg') no-repeat center;
         }
         .emmarine {
             display: block;
             min-width: 30px;
             height: 30px;
             margin-right: 1%;
-            background: url('../../../../images/icon/emmarin.svg') no-repeat 50%;
+            background: url('../../../../images/icon/emmarin.svg') no-repeat center;
         }
         .mifire {
             display: block;
             min-width: 30px;
             height: 30px;
             margin-right: 1%;
-            background: url('../../../../images/icon/mifare.svg') no-repeat 50%;
+            background: url('../../../../images/icon/mifare.svg') no-repeat center;
         }
         .bio {
             display: block;
             min-width: 30px;
             height: 30px;
             margin-right: 1%;
-            background: url('../../../../images/icon/biometric.svg') no-repeat 50%;
+            background: url('../../../../images/icon/biometric.svg') no-repeat center;
         }
         .time {
             display: block;
             min-width: 30px;
             height: 30px;
             margin-right: 1%;
-            background: url('../../../../images/icon/time.svg') no-repeat 50%;
+            background: url('../../../../images/icon/time.svg') no-repeat center;
         }
         .one-visits {
             display: block;
             min-width: 30px;
             height: 30px;
             margin-right: 1%;
-            background: url('../../../../images/icon/one-time-control.svg') no-repeat 50%;
+            background: url('../../../../images/icon/one-time-control.svg') no-repeat center;
         }
         .guest-access {
             display: block;
             min-width: 30px;
             height: 30px;
             margin-right: 1%;
-            background: url('../../../../images/icon/guest-access.svg') no-repeat 50%;
+            background: url('../../../../images/icon/guest-access.svg') no-repeat center;
         }
         .steel {
             display: block;
             min-width: 30px;
             height: 30px;
             margin-right: 1%;
-            background: url('../../../../images/icon/stainless-case.svg') no-repeat 50%;
+            background: url('../../../../images/icon/stainless-case.svg') no-repeat center;
+        }
+        &__price {
+            margin-right: 10px;
+            font-size: 10px;
+            font-weight: 500;
+            color: $brandPantonBlue;
         }
         &__text {
             font-size: 14px;
@@ -93,7 +113,26 @@
             color: $brandPantonText;
         }
         &__info {
-            display: none;
+            //display: none;
+            margin-top: 1px;
+            margin-left: 10px;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            color: $brandPantonBlue;
+            &:hover {
+                margin-left: 10px;
+                width: 20px;
+                height: 10px;
+                background: url('../../../../images/icon/arrow-more.svg') no-repeat center;
+            }
+        }
+        &__arrow {
+            //display: none;
+            margin-left: 10px;
+            width: 20px;
+            height: 10px;
+            background: url('../../../../images/icon/arrow-more.svg') no-repeat center;
         }
     }
 }
@@ -104,39 +143,39 @@
 
 .onoffswitch {
     position: relative; min-width: 50px;
-    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+        -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
     }
     .onoffswitch-checkbox {
-    display: none;
+        display: none;
     }
     .onoffswitch-label {
-    display: block; overflow: hidden; cursor: pointer;
-    border-radius: 15.5px;
+        display: block; overflow: hidden; cursor: pointer;
+        border-radius: 15.5px;
     }
     .onoffswitch-inner {
-    display: block; width: 200%; margin-left: -100%;
-    -webkit-transition: margin 0.1s ease-in 0s;
-    -o-transition: margin 0.1s ease-in 0s;
-    transition: margin 0.1s ease-in 0s;
+        display: block; width: 200%; margin-left: -100%;
+        -webkit-transition: margin 0.1s ease-in 0s;
+        -o-transition: margin 0.1s ease-in 0s;
+        transition: margin 0.1s ease-in 0s;
     }
     .onoffswitch-inner:before, .onoffswitch-inner:after {
-    display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
-    font-size: 10px; color: white; font-family: 'Gotham Pro'; font-weight: bold;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+        display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
+        font-size: 10px; color: white; font-family: 'Gotham Pro'; font-weight: bold;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
     }
     .onoffswitch-inner:before {
-    content: "";
-    padding-left: 7px;
-    background-color: #1d68d9; 
-    color: #FFFFFF;
+        content: "";
+        padding-left: 7px;
+        background-color: #1d68d9; 
+        color: #FFFFFF;
     }
     .onoffswitch-inner:after {
-    content: "";
-    padding-right: 7px;
-    background-color: #ebeff3; 
-    color: #666666;
-    text-align: right;
+        content: "";
+        padding-right: 7px;
+        background-color: #ebeff3; 
+        color: #666666;
+        text-align: right;
     }
 .onoffswitch-switch {
     display: block; 

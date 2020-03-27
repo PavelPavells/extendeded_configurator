@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
 /** ************* IMPORT COMPONENTS ************* */
-import Layouts from './components/Layouts';
+import Layouts from './containers/Layouts';
 
 /** ************* IMPORT STORE ************* */
 import store from './store/store';
@@ -13,10 +13,7 @@ import store from './store/store';
 import './App.scss';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+
   render() {
     return (
       <Provider store={store}>

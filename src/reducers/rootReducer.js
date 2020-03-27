@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import dataReducer from './dataMainReducer';
-import dataTurnstile from './dataTurnstileReducer';
+import dataMainReducer from './dataMainReducer';
+import dataTurnstileReducer from './dataTurnstileReducer';
 
 export default combineReducers({
-    dataMain: dataReducer,
-    dataTurnstile: dataTurnstile
+    main: dataMainReducer,
+    turnstile: dataTurnstileReducer
 })

@@ -21,6 +21,19 @@
         padding: 7px;
         font-size: 14px;
 
+        &__left {
+            display: flex;
+            align-items: center;
+            border: 1px solid red;
+            width: 75%;
+        }
+
+        &__right {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
         &:hover {
             border-radius: 25px;
             background-color: $brandPantonHover;
@@ -88,13 +101,38 @@
             margin-right: 1%;
             background: url('../../../../images/icon/stainless-case.svg') no-repeat center;
         }
+        &__price {
+            margin-right: 10px;
+            font-size: 10px;
+            font-weight: 500;
+            color: $brandPantonBlue;
+        }
         &__text {
             font-size: 14px;
             line-height: 1.29;
             color: $brandPantonText;
         }
         &__info {
-            display: none;
+            //display: none;
+            margin-top: 1px;
+            margin-left: 10px;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            color: $brandPantonBlue;
+            &:hover {
+                margin-left: 10px;
+                width: 20px;
+                height: 10px;
+                background: url('../../../../images/icon/arrow-more.svg') no-repeat center;
+            }
+        }
+        &__arrow {
+            //display: none;
+            margin-left: 10px;
+            width: 20px;
+            height: 10px;
+            background: url('../../../../images/icon/arrow-more.svg') no-repeat center;
         }
     }
 }

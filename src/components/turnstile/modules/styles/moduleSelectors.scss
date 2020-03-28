@@ -21,10 +21,36 @@
         padding: 7px;
         font-size: 14px;
 
+        &:hover {
+            border-radius: 25px;
+            background-color: $brandPantonHover;
+
+            .selectors-module__info {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 1px;
+                margin-left: 10px;
+                font-size: 10px;
+                font-weight: 500;
+                letter-spacing: 0.5px;
+                color: $brandPantonBlue;
+                cursor: default;
+    
+                &:hover {
+                    .selectors-module__info-arrow {
+                        margin-left: 10px;
+                        width: 15px;
+                        height: 7px;
+                        background: url('../../../../images/icon/arrow-more.svg') no-repeat center;
+                    }
+                }
+            }
+        }
+
         &__left {
             display: flex;
             align-items: center;
-            border: 1px solid red;
             width: 75%;
         }
 
@@ -34,73 +60,13 @@
             align-items: center;
         }
 
-        &:hover {
-            border-radius: 25px;
-            background-color: $brandPantonHover;
-        }
-
         &__icon {
             display: block;
             min-width: 30px;
             height: 30px;
             margin-right: 1%;
         }
-        .ep {
-            display: block;
-            min-width: 30px;
-            height: 30px;
-            margin-right: 1%;
-            background: url('../../../../images/icon/shape.svg') no-repeat center;
-        }
-        .emmarine {
-            display: block;
-            min-width: 30px;
-            height: 30px;
-            margin-right: 1%;
-            background: url('../../../../images/icon/emmarin.svg') no-repeat center;
-        }
-        .mifire {
-            display: block;
-            min-width: 30px;
-            height: 30px;
-            margin-right: 1%;
-            background: url('../../../../images/icon/mifare.svg') no-repeat center;
-        }
-        .bio {
-            display: block;
-            min-width: 30px;
-            height: 30px;
-            margin-right: 1%;
-            background: url('../../../../images/icon/biometric.svg') no-repeat center;
-        }
-        .time {
-            display: block;
-            min-width: 30px;
-            height: 30px;
-            margin-right: 1%;
-            background: url('../../../../images/icon/time.svg') no-repeat center;
-        }
-        .one-visits {
-            display: block;
-            min-width: 30px;
-            height: 30px;
-            margin-right: 1%;
-            background: url('../../../../images/icon/one-time-control.svg') no-repeat center;
-        }
-        .guest-access {
-            display: block;
-            min-width: 30px;
-            height: 30px;
-            margin-right: 1%;
-            background: url('../../../../images/icon/guest-access.svg') no-repeat center;
-        }
-        .steel {
-            display: block;
-            min-width: 30px;
-            height: 30px;
-            margin-right: 1%;
-            background: url('../../../../images/icon/stainless-case.svg') no-repeat center;
-        }
+
         &__price {
             margin-right: 10px;
             font-size: 10px;
@@ -112,29 +78,68 @@
             line-height: 1.29;
             color: $brandPantonText;
         }
-        &__info {
-            //display: none;
-            margin-top: 1px;
-            margin-left: 10px;
-            font-size: 10px;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            color: $brandPantonBlue;
-            &:hover {
-                margin-left: 10px;
-                width: 20px;
-                height: 10px;
-                background: url('../../../../images/icon/arrow-more.svg') no-repeat center;
-            }
-        }
-        &__arrow {
-            //display: none;
-            margin-left: 10px;
-            width: 20px;
-            height: 10px;
-            background: url('../../../../images/icon/arrow-more.svg') no-repeat center;
+         &__info {
+            display: none;
         }
     }
+}
+/**  ======================= MODULE ICONS STYLES ========================  */
+
+.ep {
+    display: block;
+    min-width: 30px;
+    height: 30px;
+    margin-right: 1%;
+    background: url('../../../../images/icon/shape.svg') no-repeat center;
+}
+.emmarine {
+    display: block;
+    min-width: 30px;
+    height: 30px;
+    margin-right: 1%;
+    background: url('../../../../images/icon/emmarin.svg') no-repeat center;
+}
+.mifire {
+    display: block;
+    min-width: 30px;
+    height: 30px;
+    margin-right: 1%;
+    background: url('../../../../images/icon/mifare.svg') no-repeat center;
+}
+.bio {
+    display: block;
+    min-width: 30px;
+    height: 30px;
+    margin-right: 1%;
+    background: url('../../../../images/icon/biometric.svg') no-repeat center;
+}
+.time {
+    display: block;
+    min-width: 30px;
+    height: 30px;
+    margin-right: 1%;
+    background: url('../../../../images/icon/time.svg') no-repeat center;
+}
+.one-visits {
+    display: block;
+    min-width: 30px;
+    height: 30px;
+    margin-right: 1%;
+    background: url('../../../../images/icon/one-time-control.svg') no-repeat center;
+}
+.guest-access {
+    display: block;
+    min-width: 30px;
+    height: 30px;
+    margin-right: 1%;
+    background: url('../../../../images/icon/guest-access.svg') no-repeat center;
+}
+.steel {
+    display: block;
+    min-width: 30px;
+    height: 30px;
+    margin-right: 1%;
+    background: url('../../../../images/icon/stainless-case.svg') no-repeat center;
 }
 
 /**  ======================= SWITCHERS ========================  */

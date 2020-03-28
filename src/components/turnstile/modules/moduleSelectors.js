@@ -35,8 +35,10 @@ class ModuleSelectors extends React.Component {
                     <div className='selectors-module__left'>
                         <div className='selectors-module__icon ep'></div>
                         <div className='selectors-module__text'>Универсальный сетевой контроллер расширения EP-2000</div>
-                        <div className='selectors-module__info'>ПОДРОБНЕЕ</div>
-                        <div className='selectors-module__arrow'></div>
+                        <div className='selectors-module__info'>
+                            <div className='selectors-module__info-text'>ПОДРОБНЕЕ</div>
+                            <div className='selectors-module__info-arrow'></div>
+                        </div>
                     </div>
                     <div className='selectors-module__right'>
                         <div className='selectors-module__price'>
@@ -55,8 +57,10 @@ class ModuleSelectors extends React.Component {
                     <div className='selectors-module__left'>
                         <div className='selectors-module__icon emmarine'></div>
                         <div className='selectors-module__text'>RFID идентификаторы EMMarine 125kHZ</div>
-                        <div className='selectors-module__info'>ПОДРОБНЕЕ</div>
-                        <div className='selectors-module__arrow'></div>
+                        <div className='selectors-module__info'>
+                            <div className='selectors-module__info-text'>ПОДРОБНЕЕ</div>
+                            <div className='selectors-module__info-arrow'></div>
+                        </div>
                     </div>
                     <div className='selectors-module__right'>
                         <div className='selectors-module__price'>
@@ -77,8 +81,10 @@ class ModuleSelectors extends React.Component {
                     <div className='selectors-module__left'>
                         <div className='selectors-module__icon mifire'></div>
                         <div className='selectors-module__text'>RFID идентификаторы Mifire 13.56MHz</div>
-                        <div className='selectors-module__info'>ПОДРОБНЕЕ</div>
-                        <div className='selectors-module__arrow'></div>
+                        <div className='selectors-module__info'>
+                            <div className='selectors-module__info-text'>ПОДРОБНЕЕ</div>
+                            <div className='selectors-module__info-arrow'></div>
+                        </div>
                     </div>
                     <div className='selectors-module__right'>
                         <div className='selectors-module__price'>
@@ -99,8 +105,10 @@ class ModuleSelectors extends React.Component {
                     <div className='selectors-module__left'>
                         <div className='selectors-module__icon bio'></div>
                         <div className='selectors-module__text'>Биометрическая идентификация по отпечаткам пальцев</div>
-                        <div className='selectors-module__info'>ПОДРОБНЕЕ</div>
-                        <div className='selectors-module__arrow'></div>
+                        <div className='selectors-module__info'>
+                            <div className='selectors-module__info-text'>ПОДРОБНЕЕ</div>
+                            <div className='selectors-module__info-arrow'></div>
+                        </div>
                     </div>
                     <div className='selectors-module__right'>
                         <div className='selectors-module__price'>
@@ -122,8 +130,10 @@ class ModuleSelectors extends React.Component {
                     <div className='selectors-module__left'>
                         <div className='selectors-module__icon time'></div>
                         <div className='selectors-module__text'>Информационный дисплей учета рабочего времени</div>
-                        <div className='selectors-module__info'>ПОДРОБНЕЕ</div>
-                        <div className='selectors-module__arrow'></div>
+                        <div className='selectors-module__info'>
+                            <div className='selectors-module__info-text'>ПОДРОБНЕЕ</div>
+                            <div className='selectors-module__info-arrow'></div>
+                        </div>
                     </div>
                     <div className='selectors-module__right'>
                         <div className='selectors-module__price'>
@@ -146,8 +156,10 @@ class ModuleSelectors extends React.Component {
                     <div className='selectors-module__left'>
                         <div className='selectors-module__icon one-visits'></div>
                         <div className='selectors-module__text'>Контроль разовых посещений по 2D штрих-кодам</div>
-                        <div className='selectors-module__info'>ПОДРОБНЕЕ</div>
-                        <div className='selectors-module__arrow'></div>
+                        <div className='selectors-module__info'>
+                            <div className='selectors-module__info-text'>ПОДРОБНЕЕ</div>
+                            <div className='selectors-module__info-arrow'></div>
+                        </div>
                     </div>
                     <div className='selectors-module__right'>
                         <div className='selectors-module__price'>
@@ -171,8 +183,10 @@ class ModuleSelectors extends React.Component {
                     <div className='selectors-module__left'>
                         <div className='selectors-module__icon guest-access'></div>
                         <div className='selectors-module__text'>Гостевой доступ по 2D штрих-кодам</div>
-                        <div className='selectors-module__info'>ПОДРОБНЕЕ</div>
-                        <div className='selectors-module__arrow'></div>
+                        <div className='selectors-module__info'>
+                            <div className='selectors-module__info-text'>ПОДРОБНЕЕ</div>
+                            <div className='selectors-module__info-arrow'></div>
+                        </div>
                     </div>
                     <div className='selectors-module__right'>
                         <div className='selectors-module__price'>
@@ -197,8 +211,10 @@ class ModuleSelectors extends React.Component {
                     <div className='selectors-module__left'>
                         <div className='selectors-module__icon steel'></div>
                         <div className='selectors-module__text'>Корпус кожуха из нержавеющей стали</div>
-                        <div className='selectors-module__info'>ПОДРОБНЕЕ</div>
-                        <div className='selectors-module__arrow'></div>
+                        <div className='selectors-module__info'>
+                            <div className='selectors-module__info-text'>ПОДРОБНЕЕ</div>
+                            <div className='selectors-module__info-arrow'></div>
+                        </div>
                     </div>
                     <div className='selectors-module__right'>
                         <div className='selectors-module__price'>

@@ -5,19 +5,20 @@ import site from '../constants/constants';
 import { 
     FETCHING_DATA_TURNSTILE_REQUEST, 
     FETCHING_DATA_TURNSTILE_SUCCESS, 
-    FETCHING_DATA_TURNSTILE_FAILURE 
+    FETCHING_DATA_TURNSTILE_FAILURE,
+    TOGGLE_MODAL_TURNSTILE 
 } from '../constants/constants';
 
-/** ********** FUNCTION FOR FETCH REQUEST ********** */
+/** ********** ACTION FOR FETCH REQUEST ********** */
 export const fetchingDataTurnstileRequest = () => ({ type: FETCHING_DATA_TURNSTILE_REQUEST });
 
-/** ********** FUNCTION FOR FETCH SUCCESS ********** */
+/** ********** ACTION FOR FETCH SUCCESS ********** */
 export const fetchingDataTurnstileSuccess = data => ({
     type: FETCHING_DATA_TURNSTILE_SUCCESS,
     payload: data.data
 })
 
-/** ********** FUNCTION FOR FETCH_FAILURE ********** */
+/** ********** ACTION FOR FETCH_FAILURE ********** */
 export const fetchingDataTurnstileFailure = error => ({
     type: FETCHING_DATA_TURNSTILE_FAILURE,
     payload: error
@@ -77,6 +78,9 @@ export const fetchDataTurnstile = () => {
         }
     }
 }
+
+/** ********** ACTIONS FOR TOGGLE POPUP WINDOW ********** */
+export const togglePopupWindowTurnstile = () => ({ type: TOGGLE_MODAL_TURNSTILE })
 
 // import { ADD_USER } from './types';
 // import axios from 'axios';

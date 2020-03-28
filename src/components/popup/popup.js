@@ -1,0 +1,123 @@
+/** ************* IMPORT DEPENDENCIES ************* */
+import React, { Suspense } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+
+/** ************* IMPORT ACTIONS FROM ACTION FOLDER ************* */
+//import { togglePopupWindowTurnstile } from '../../actions/dataTurnstileActions';
+
+/** ************* IMPORT __UTILS__ FOR LAYOUT COMPONENT ************* */
+import Loader from "../../__utils__/Loader/Loader";
+
+/** ************* IMPORT STYLES FOR LAYOUT COMPONENT ************* */
+import photo from "../../images/str-compact1.png";
+
+/** ************* IMPORT STYLES FOR LAYOUT COMPONENT ************* */
+import "./popup.scss";
+
+class Popup extends React.Component {
+
+  /** ************* HANDLE CLOSE MODAL ************* */
+  handleCloseModal = event => {
+    //this.props.togglePopupWindowTurnstile()
+  };
+
+  /** ************* TOGGLE MAIN INFO ************* */
+  handleToggleMainInfo = event => {
+    //this.props.togglePopupWindowTurnstile()
+  };
+  render() {
+    /** ************* DATA FROM STORE ************* */
+    const { turnstile, isFetching } = this.props.data;
+    console.log(turnstile.data);
+    if (turnstile.data.length === 0 && !isFetching) {
+      return (
+        <Suspense
+          fallback={
+            <div>
+              <Loader />
+            </div>
+          }
+        ></Suspense>
+      );
+    }
+    return (
+      <section className="popup">
+        <div className="left">
+          <div className="left__image">
+            <img className="image" src={photo} alt="" />
+          </div>
+        </div>
+        <div className="right">
+          <div className="right-header">
+            <div className="right-header__icon"></div>
+            <div className="right-header__description">
+              <p>Универсальный сетевой контроллер расширения EP-2000</p>
+            </div>
+            <div className="right-header__close"></div>
+          </div>
+          <div className="right-main">
+            <div className="right-main__info">
+              <p>
+                Модуль расширения “EP-2000” предназначен для расширения
+                функционала турникетов CARDDEX.
+              </p>
+              <strong>Данный модуль оснащен интерфейсами:</strong>
+              <ul>
+                <li>Ethernet;</li>
+                <li>RS-485;</li>
+                <li>UART;</li>
+                <li>I2C.</li>
+              </ul>
+              <p>
+                Также оснащен дополнительным выходом для подключения различных
+                исполнительных устройств. Встроенное ПО СКУД “CARDDEX IMS/AR” с
+                функцией “Учет рабочего времени” избавляет от необходимости
+                использовать внешние серверы программного обеспечения.
+              </p>
+              <strong>
+                Широкий набор встроенных каналов подключения позволяет
+                обеспечить:
+              </strong>
+              <ul>
+                <li>
+                  одновременную работу с внешними считывателями бесконтактных
+                  карт, биометрическими сканерами отпечатков пальцев или
+                  универсальным 2D сканером QR-кодов;
+                </li>
+                <li>
+                  подключение до 32 дверных контроллеров CARDDEX по “общей шине”
+                  RS-485;
+                </li>
+                <li>
+                  подключение секции “Антипаника” с электромагнитным замком.
+                </li>
+              </ul>
+              <strong>
+                Энергонезависимая память контроллера позволяет хранить:
+              </strong>
+              <ul>
+                <li>50 000 бесконтактных ключей;</li>
+                <li>500 отпечатков пальцев;</li>
+                <li>5 000 QR-кодов;</li>
+                <li>250 000 событий;</li>
+              </ul>
+            </div>
+          </div>
+          <div className="right-footer">
+            <div className="right-footer__price">13123 Р</div>
+            <div className="right-footer__btn">Закрыть</div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+}
+Popup.propTypes = {
+  fetchDataTurnstile: PropTypes.func.isRequired,
+  data: PropTypes.object.isRequired
+};
+const mapStateToProps = state => ({
+  data: state
+});
+export default connect(mapStateToProps, null)(Popup);

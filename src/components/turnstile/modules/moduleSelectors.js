@@ -4,7 +4,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 /** ************* IMPORT ACTIONS FROM ACTION FOLDER ************* */
-import { fetchDataTurnstile } from '../../../actions/dataTurnstileActions';
+import { 
+    fetchDataTurnstile, 
+    togglePopupWindowTurnstile 
+} from '../../../actions/dataTurnstileActions';
 
 /** ************* IMPORT STYLES FOR MODULE SELECTORS IN TURNSTILE COMPONENT ************* */
 import './styles/moduleSelectors.scss';
@@ -12,17 +15,31 @@ import './styles/moduleSelectors.scss';
 /** ************* IMPORT __UTILS__ FOR TURNSTILE COMPONENT ************* */
 const Loader = lazy(() => import('../../../__utils__/Loader/Loader'));
 
+/** ************* IMPORT POPUP COMPONENT ************* */
+const PopUp = lazy(() => import('../../popup/popup'));
+
 
 class ModuleSelectors extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            modal: false
+        }
+    }
 
     /** ************* FETCHING DATA ************* */
     componentDidMount() {
         this.props.fetchDataTurnstile()
     }
+
+    /** ************* TOGGLE MODAL ************* */
+    handleModal = event => {
+        this.props.togglePopupWindowTurnstile()
+    }
     render() {
         /** ************* DATA FROM STORE ************* */
         const { turnstile, isFetching } = this.props.data;
-        console.log(turnstile.data)
+        console.log(turnstile)
         if(turnstile.data.length === 0 && !isFetching) {
             return (
                 <Suspense fallback={<div><Loader /></div>}></Suspense>
@@ -36,7 +53,10 @@ class ModuleSelectors extends React.Component {
                         <div className='selectors-module__icon ep'></div>
                         <div className='selectors-module__text'>Универсальный сетевой контроллер расширения EP-2000</div>
                         <div className='selectors-module__info'>
-                            <div className='selectors-module__info-text'>ПОДРОБНЕЕ</div>
+                            <div className='selectors-module__info-text'>
+                                <div onClick={this.handleModal}>ПОДРОБНЕЕ</div>
+                                {turnstile.modal ? <PopUp /> : null}
+                            </div>
                             <div className='selectors-module__info-arrow'></div>
                         </div>
                     </div>
@@ -247,4 +267,4 @@ ModuleSelectors.propTypes = {
 const mapStateToProps = state => ({
     data: state
 })
-export default connect(mapStateToProps, { fetchDataTurnstile })(ModuleSelectors)
+export default connect(mapStateToProps, { fetchDataTurnstile, togglePopupWindowTurnstile })(ModuleSelectors)

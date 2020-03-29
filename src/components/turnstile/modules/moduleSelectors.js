@@ -29,7 +29,12 @@ class ModuleSelectors extends React.Component {
 
     /** ************* FETCHING DATA ************* */
     componentDidMount() {
-        this.props.fetchDataTurnstile()
+        this.props.fetchDataTurnstile();
+        //document.addEventListener('keydown', event => {
+        //    if(event.keyCode === 27) {
+        //      this.handleModal();
+        //    }
+        //});
     }
 
     /** ************* TOGGLE MODAL ************* */
@@ -39,7 +44,7 @@ class ModuleSelectors extends React.Component {
     render() {
         /** ************* DATA FROM STORE ************* */
         const { turnstile, isFetching } = this.props.data;
-        console.log(turnstile)
+        //console.log(turnstile)
         if(turnstile.data.length === 0 && !isFetching) {
             return (
                 <Suspense fallback={<div><Loader /></div>}></Suspense>
@@ -78,7 +83,10 @@ class ModuleSelectors extends React.Component {
                         <div className='selectors-module__icon emmarine'></div>
                         <div className='selectors-module__text'>RFID идентификаторы EMMarine 125kHZ</div>
                         <div className='selectors-module__info'>
-                            <div className='selectors-module__info-text'>ПОДРОБНЕЕ</div>
+                            <div className='selectors-module__info-text'>
+                                <div onClick={this.handleModal}>ПОДРОБНЕЕ</div>
+                                {turnstile.modal ? <PopUp turnstile={turnstile} /> : null}
+                            </div>
                             <div className='selectors-module__info-arrow'></div>
                         </div>
                     </div>
@@ -102,7 +110,10 @@ class ModuleSelectors extends React.Component {
                         <div className='selectors-module__icon mifire'></div>
                         <div className='selectors-module__text'>RFID идентификаторы Mifire 13.56MHz</div>
                         <div className='selectors-module__info'>
-                            <div className='selectors-module__info-text'>ПОДРОБНЕЕ</div>
+                            <div className='selectors-module__info-text'>
+                                <div onClick={this.handleModal}>ПОДРОБНЕЕ</div>
+                                {turnstile.modal ? <PopUp /> : null}
+                            </div>
                             <div className='selectors-module__info-arrow'></div>
                         </div>
                     </div>
@@ -126,7 +137,10 @@ class ModuleSelectors extends React.Component {
                         <div className='selectors-module__icon bio'></div>
                         <div className='selectors-module__text'>Биометрическая идентификация по отпечаткам пальцев</div>
                         <div className='selectors-module__info'>
-                            <div className='selectors-module__info-text'>ПОДРОБНЕЕ</div>
+                            <div className='selectors-module__info-text'>
+                                <div onClick={this.handleModal}>ПОДРОБНЕЕ</div>
+                                {turnstile.modal ? <PopUp /> : null}
+                            </div>
                             <div className='selectors-module__info-arrow'></div>
                         </div>
                     </div>

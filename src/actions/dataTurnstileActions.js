@@ -6,7 +6,8 @@ import {
     FETCHING_DATA_TURNSTILE_REQUEST, 
     FETCHING_DATA_TURNSTILE_SUCCESS, 
     FETCHING_DATA_TURNSTILE_FAILURE,
-    TOGGLE_MODAL_TURNSTILE 
+    TOGGLE_MODAL_TURNSTILE,
+    TOGGLE_MODAL_TURNSTILE_MAIN_INFO
 } from '../constants/constants';
 
 /** ********** ACTION FOR FETCH REQUEST ********** */
@@ -81,6 +82,9 @@ export const fetchDataTurnstile = () => {
 
 /** ********** ACTIONS FOR TOGGLE POPUP WINDOW ********** */
 export const togglePopupWindowTurnstile = () => ({ type: TOGGLE_MODAL_TURNSTILE })
+
+/** ********** ACTIONS FOR TOGGLE POPUP WINDOW MAIN INFO ********** */
+export const togglePopupWindowMainInfoTurnstile = () => ({ type: TOGGLE_MODAL_TURNSTILE_MAIN_INFO })
 
 // import { ADD_USER } from './types';
 // import axios from 'axios';

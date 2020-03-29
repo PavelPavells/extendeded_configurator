@@ -4,7 +4,10 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 /** ************* IMPORT ACTIONS FROM ACTION FOLDER ************* */
-//import { togglePopupWindowTurnstile } from '../../actions/dataTurnstileActions';
+import { 
+  togglePopupWindowTurnstile, 
+  togglePopupWindowMainInfoTurnstile 
+} from '../../actions/dataTurnstileActions';
 
 /** ************* IMPORT __UTILS__ FOR LAYOUT COMPONENT ************* */
 import Loader from "../../__utils__/Loader/Loader";
@@ -17,19 +20,31 @@ import "./popup.scss";
 
 class Popup extends React.Component {
 
+  /** ************* FETCHING DATA ************* */
+  componentDidMount() {
+    //this.props.fetchDataTurnstile();
+  }
+
   /** ************* HANDLE CLOSE MODAL ************* */
   handleCloseModal = event => {
-    //this.props.togglePopupWindowTurnstile()
+    this.props.togglePopupWindowTurnstile();
+
+    document.addEventListener('keydown', event => {
+      if(event.keyCode === 27) {
+        this.handleCloseModal();
+      }
+   });
   };
 
   /** ************* TOGGLE MAIN INFO ************* */
   handleToggleMainInfo = event => {
-    //this.props.togglePopupWindowTurnstile()
+    this.props.togglePopupWindowMainInfoTurnstile()
   };
+
   render() {
     /** ************* DATA FROM STORE ************* */
     const { turnstile, isFetching } = this.props.data;
-    console.log(turnstile.data);
+    console.log(turnstile);
     if (turnstile.data.length === 0 && !isFetching) {
       return (
         <Suspense
@@ -53,8 +68,14 @@ class Popup extends React.Component {
             <div className="right-header__icon"></div>
             <div className="right-header__description">
               <p>Универсальный сетевой контроллер расширения EP-2000</p>
+              {turnstile.info === false 
+                ? 
+                  <div onClick={this.handleToggleMainInfo} className='right-header__description-toggle'>ХАРАКТЕРИСТИКИ</div> 
+                : 
+                  <div onClick={this.handleToggleMainInfo} className='right-header__description-toggle'>ПОКАЗАТЬ ОПИСАНИЕ</div>
+              }
             </div>
-            <div className="right-header__close"></div>
+            <div onClick={this.handleCloseModal} className="right-header__close"></div>
           </div>
           <div className="right-main">
             <div className="right-main__info">
@@ -114,10 +135,18 @@ class Popup extends React.Component {
   }
 }
 Popup.propTypes = {
-  fetchDataTurnstile: PropTypes.func.isRequired,
+  fetchDataTurnstile: PropTypes.func,
+  togglePopupWindowTurnstile: PropTypes.func.isRequired,
+  togglePopupWindowMainInfoTurnstile: PropTypes.func.isRequired,
   data: PropTypes.object.isRequired
 };
 const mapStateToProps = state => ({
   data: state
 });
-export default connect(mapStateToProps, null)(Popup);
+export default connect(
+  mapStateToProps, 
+  { 
+    togglePopupWindowTurnstile, 
+    togglePopupWindowMainInfoTurnstile 
+  }
+)(Popup);

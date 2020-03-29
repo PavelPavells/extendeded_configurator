@@ -65,11 +65,23 @@
       }
 
       &__description {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
         width: 80%;
         font-weight: normal;
         font-size: 18px;
         line-height: 1.28;
-        color: #293440;
+        color: $brandPantonText;
+
+        &-toggle {
+          margin-left: 10px;
+          font-size: 10px;
+          font-weight: 500;
+          line-height: 1;
+          letter-spacing: 0.5px;
+          color: $brandPantonBlue;
+        }
       }
 
       &__close {

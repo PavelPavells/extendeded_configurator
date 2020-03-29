@@ -3,13 +3,15 @@ import {
     FETCHING_DATA_TURNSTILE_REQUEST, 
     FETCHING_DATA_TURNSTILE_SUCCESS, 
     FETCHING_DATA_TURNSTILE_FAILURE,
-    TOGGLE_MODAL_TURNSTILE
+    TOGGLE_MODAL_TURNSTILE,
+    TOGGLE_MODAL_TURNSTILE_MAIN_INFO
 } from '../constants/constants';
 
 const initialState = {
     isFetching: false,
     errorMessage: '',
     modal: false,
+    info: false,
     data: []
 }
 
@@ -23,7 +25,9 @@ export default function(state = initialState, action) {
         case FETCHING_DATA_TURNSTILE_SUCCESS:
             return { ...state, isFetching: false, data: action.payload }
         case TOGGLE_MODAL_TURNSTILE:
-            return {...state, modal: true}
+            return {...state, isFetching: false, modal: !state.modal}
+        case TOGGLE_MODAL_TURNSTILE_MAIN_INFO:
+            return { ...state, isFetching: false, info: !state.info }
         default: return state;
     }
 }

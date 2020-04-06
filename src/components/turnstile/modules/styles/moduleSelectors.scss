@@ -1,6 +1,7 @@
 /** ***** IMPORT GLOBAL STYLE ***** */
 @import '../../../../styles/styles.scss';
 
+/** ***** selctors styles ***** */
 .selectors {
     display: flex;
     flex-direction: column;
@@ -142,6 +143,11 @@
     background: url('../../../../images/icon/stainless-case.svg') no-repeat center;
 }
 
+/**  ======================= DISABLED SELECTORS ========================  */
+.none {
+    opacity: 0.5;
+}
+  
 /**  ======================= SWITCHERS ========================  */
 
 // ================= 1 ================= //

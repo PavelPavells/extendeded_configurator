@@ -15,34 +15,152 @@ const Loader = lazy(() => import('../../../__utils__/Loader/Loader'));
 
 class ModuleButtons extends React.Component {
 
+    state = {
+        app_id: 'id',
+        trigger: 1,
+        trigger_state: 0,
+        seria: 0,
+    }
+
     /** ************* FETCHING DATA ************* */
     componentDidMount() {
-        this.props.fetchDataTurnstile()
+        console.log(this.props)
+        //const { page_view } = this.props.data.turnstile.data;
+        //const { trigger_state } = this.state;
+        let data = {
+            app_id: 'id',
+            trigger: 1,
+            trigger_state: 0,
+            seria: 0,
+            button_seria_state: 0,
+            button_corpse_state: 0,
+            selectOne: 0,
+            selectTwo: 0,
+            selectThree: 0,
+            selectFour: 0,
+            selectFive: 0,
+            selectSix: 0,
+            selectSeven: 0,
+            selectEight: 0
+        }
+        this.props.fetchDataTurnstile(data);
+        //console.log(page_view)
     }
 
     /** ************* HANDLE CLICK SERIA STR ************* */
-    handleClickSeriaSTR = event => {
-        event.preventDefault()
+    handleClickSeriaSTR = () => {
+        const { page_view } = this.props.data.turnstile.data;
+        console.log(page_view)
+            let data = {
+                app_id: 'id',
+                trigger: 1,
+                trigger_state: 0,
+                seria: 0,
+                button_seria_state: 0,
+                button_corpse_state: page_view.btn_corpse,
+                // selectOne: page_view ? page_view.module_selectors[0].state : 0,
+                // selectTwo: page_view ? page_view.module_selectors[1].state : 0,
+                // selectThree: page_view ? page_view.module_selectors[2].state : 0,
+                // selectFour: page_view ? page_view.module_selectors[3].state : 0,
+                // selectFive: page_view ? page_view.module_selectors[4].state : 0,
+                // selectSix: page_view ? page_view.module_selectors[5].state : 0,
+                // selectSeven: page_view ? page_view.module_selectors[6].state : 0,
+                // selectEight: page_view ? page_view.module_selectors[7].state : 0
+
+            }
+            this.props.fetchDataTurnstile(data);
     }
 
     /** ************* HANDLE CLICK SERIA STX ************* */
-    handleClickSeriaSTX = event => {
-        event.preventDefault();
+    handleClickSeriaSTX = () => {
+        const { page_view } = this.props.data.turnstile.data;
+        console.log(page_view)
+            let data = {
+                app_id: 'id',
+                trigger: 2,
+                trigger_state: 0,
+                seria: 0,
+                button_seria_state: 1,
+                button_corpse_state: page_view.btn_corpse,
+                // selectOne: page_view ? page_view.module_selectors[0].state : 0,
+                // selectTwo: page_view ? page_view.module_selectors[1].state : 0,
+                // selectThree: page_view ? page_view.module_selectors[2].state : 0,
+                // selectFour: page_view ? page_view.module_selectors[3].state : 0,
+                // selectFive: page_view ? page_view.module_selectors[4].state : 0,
+                // selectSix: page_view ? page_view.module_selectors[5].state : 0,
+                // selectSeven: page_view ? page_view.module_selectors[6].state : 0,
+                // selectEight: page_view ? page_view.module_selectors[7].state : 0
+            }
+            this.props.fetchDataTurnstile(data);
     }
 
     /** ************* HANDLE CLICK SERIA STR ************* */
-    handleClickExecutionCompact = event => {
-        event.preventDefault();
+    handleClickExecutionCompact = () => {
+        const { page_view } = this.props.data.turnstile.data;
+        console.log(page_view)
+            let data = {
+                app_id: 'id',
+                trigger: 3,
+                trigger_state: 0,
+                seria: 0,
+                button_seria_state: page_view.btn_seria,
+                button_corpse_state: 0,
+                // selectOne: page_view ? page_view.module_selectors[0].state : 0,
+                // selectTwo: page_view ? page_view.module_selectors[1].state : 0,
+                // selectThree: page_view ? page_view.module_selectors[2].state : 0,
+                // selectFour: page_view ? page_view.module_selectors[3].state : 0,
+                // selectFive: page_view ? page_view.module_selectors[4].state : 0,
+                // selectSix: page_view ? page_view.module_selectors[5].state : 0,
+                // selectSeven: page_view ? page_view.module_selectors[6].state : 0,
+                // selectEight: page_view ? page_view.module_selectors[7].state : 0
+            }
+            this.props.fetchDataTurnstile(data);
     }
 
     /** ************* HANDLE CLICK SERIA STR ************* */
-    handleClickExecutionThumb = event => {
-        event.preventDefault();
+    handleClickExecutionThumb = () => {
+        const { page_view } = this.props.data.turnstile.data;
+        console.log(page_view)
+            let data = {
+                app_id: 'id',
+                trigger: 4,
+                trigger_state: 0,
+                seria: 0,
+                button_seria_state: page_view.btn_seria,
+                button_corpse_state: 1,
+                // selectOne: page_view ? page_view.module_selectors[0].state : 0,
+                // selectTwo: page_view ? page_view.module_selectors[1].state : 0,
+                // selectThree: page_view ? page_view.module_selectors[2].state : 0,
+                // selectFour: page_view ? page_view.module_selectors[3].state : 0,
+                // selectFive: page_view ? page_view.module_selectors[4].state : 0,
+                // selectSix: page_view ? page_view.module_selectors[5].state : 0,
+                // selectSeven: page_view ? page_view.module_selectors[6].state : 0,
+                // selectEight: page_view ? page_view.module_selectors[7].state : 0
+            }
+            this.props.fetchDataTurnstile(data);
+    }
+    handleClickResetSelectors = () => {
+        const { page_view } = this.props.data.turnstile.data;
+        let data = {
+            //trigger: this.state.trigger,
+            button_seria_state : page_view.btn_seria, 
+            button_corpse_state : page_view.btn_corpse, 
+            reset_model : 1,
+            selectOne: 0,
+            selectTwo: 0,
+            selectThree: 0,
+            selectFour:  0,
+            selectFive: 0,
+            selectSix: 0,
+            selectSeven: 0,
+            selectEight: 0
+        }
+        this.props.fetchDataTurnstile(data);
     }
     render() {
         /** ************* DATA FROM STORE ************* */
         const { turnstile, isFetching } = this.props.data;
-
+        //console.log(this.props.data)
         if(turnstile.data.length === 0 && !isFetching) {
             return (
                 <Suspense fallback={<div><Loader /></div>}></Suspense>
@@ -51,7 +169,7 @@ class ModuleButtons extends React.Component {
         return (
 
             /** ************* MODULE BUTTONS ************* */
-            <div className='module-buttons'>
+            <div className='buttons'>
                 <div className='top'>
                     <div className='top-captions'>
                         <div className='top-captions__description'>Модель</div>
@@ -115,7 +233,7 @@ class ModuleButtons extends React.Component {
                             {turnstile.data.page_view.model_module_list.length - 1 > 1 ? String('+') + (turnstile.data.page_view.model_module_list.length - 1) + ' ОПЦИИ' : null}
                             {turnstile.data.page_view.model_module_list.length - 1 >= 5 ? String('+') + (turnstile.data.page_view.model_module_list.length - 1) + ' ОПЦИЙ' : null}
                         </div>
-                        <div className='top-options__reset'>СБРОСИТЬ</div>
+                        <div onClick={this.handleClickResetSelectors} className='top-options__reset'>СБРОСИТЬ</div>
                     </div>
                 </div>
                 <div className='bottom'>

@@ -25,48 +25,61 @@ export const fetchingDataTurnstileFailure = error => ({
     payload: error
 })
 
-export const fetchDataTurnstile = () => {
+export const fetchDataTurnstile = data => {
     return async dispatch => {
-        dispatch(fetchingDataTurnstileRequest());
+        dispatch(fetchingDataTurnstileRequest(data));
+        console.log(data ? 'app_id : ' + data.app_id : 'id');
+        console.log(data ? 'trigger : ' + data.trigger : 0);
+        console.log(data ? 'button_seria_state : ' + data.button_seria_state: 0);
+        console.log(data ? 'button_corpse_state : ' + data.button_corpse_state : 0)
+        console.log(data ? 'selector 1 : ' + data.selectOne : 0)
+        console.log(data ? 'selector 2 : ' + data.selectTwo : 0)
+        console.log(data ? 'selector 3 : ' + data.selectThree : 0)
+        console.log(data ? 'selector 4 : ' + data.selectFour : 0)
+        console.log(data ? 'selector 5 : ' + data.selectFive : 0)
+        console.log(data ? 'selector 6 : ' + data.selectSix : 0)
+        console.log(data ? 'selector 7 : ' + data.selectSeven : 0)
+        console.log(data ? 'selector 8 : ' + data.selectEight : 0)
         try {
             await axios.post(`${site}/turnstile`, {
                 app_id: 'APP_ID',
-                trigger: 1,
-                trigger_state: 1,
-                button_seria_state: 0,
-                button_corpse_state: 0,
+                trigger: data.trigger,
+                trigger_state: data.trigger_state,
+                seria: data.seria,
+                button_seria_state: data.button_seria_state,
+                button_corpse_state: data.button_corpse_state,
                 module_selectors: [
                     {
                       module: 0,
-                      state: 1
+                      state: data.selectOne ? data.selectOne : 0
                     },
                     {
                       module: 1,
-                      state: 0
+                      state: data.selectTwo ? data.selectTwo : 0
                     },
                     {
                       module: 2,
-                      state: 0
+                      state: data.selectThree ? data.selectThree : 0
                     },
                     {
                       module: 3,
-                      state: 0
+                      state: data.selectFour ? data.selectFour : 0
                     },
                     {
                       module: 4,
-                      state: 0
+                      state: data.selectFive ? data.selectFive : 0
                     },
                     {
                       module: 5,
-                      state: 0
+                      state: data.selectSix ? data.selectSix : 0
                     },
                     {
                       module: 6,
-                      state: 0
+                      state: data.selectSeven ? data.selectSeven : 0
                     },
                     {
                       module: 7,
-                      state: 0
+                      state: data.selectEight ? data.selectEight : 0
                     }
                 ]        
             })

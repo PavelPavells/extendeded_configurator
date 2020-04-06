@@ -2,7 +2,7 @@
 @import '../../../../styles/styles.scss';
 
 /** ***** module buttons top ***** */
-.module-buttons {
+.buttons {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -46,16 +46,26 @@
         &__seria {
             display: flex;
             flex-direction: row;
-            border: 2px solid $brandPantonBorderButton;
             border-radius: 20px;
+            border: 1px solid $brandPantonBorderButton;
 
             &-str {
                 padding: 5px 20px;
                 border-radius: 20px;
+                border: solid 2px transparent;
+
+                &:hover {
+                    color: $brandPantonBlue;
+                }
             }
             &-stx {
                 padding: 5px 20px;
                 border-radius: 20px;
+                border: 2px solid transparent;
+
+                &:hover {
+                    color: $brandPantonBlue;
+                }
             }
         }
         &__price {
@@ -149,7 +159,7 @@
         width: 100%;
         border-radius: 20px;
         margin-bottom: 20px;
-        border: 2px solid $brandPantonBorderButton;
+        border: 1px solid $brandPantonBorderButton;
 
         &__compact {
             text-align: center;
@@ -158,6 +168,7 @@
             border-radius: 20px;
             font-size: 14px;
             color: $brandPantonBlack;
+            border: 2px solid transparent;
 
             &:hover {
                 color: $brandPantonBlue;
@@ -170,6 +181,7 @@
             border-radius: 20px;
             font-size: 14px;
             color: $brandPantonBlack;
+            border: 2px solid transparent;
 
             &:hover {
                 color: $brandPantonBlue;
@@ -182,10 +194,10 @@
 .opacity {
     display: none;
     opacity: 0.5;
-  }
-  .open {
+}
+.open {
     border: 2px solid $brandPantonBlue;
     color: $brandPantonBlue;
     transition: all 0.1s ease-in;
-  }
+}
   

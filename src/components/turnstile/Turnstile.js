@@ -10,27 +10,37 @@ const ModuleImage = lazy(() => import('./modules/moduleImage'));
 const ModuleList = lazy(() => import('./modules/moduleList'));
 const ModuleButtons = lazy(() => import('./modules/moduleButtons'));
 const ModuleSelectors = lazy(() => import('./modules/moduleSelectors'));
+const ModuleBasket = lazy(() => import('./modules/moduleBasket'));
+const ModuleConfiguration = lazy(() => import('./modules/moduleConfiguration'));
 
 class Turnstile extends React.Component {
 
     render() {
         return (
             <section className='turnstile'>
-                <div className='slider'>
-                    <div className='slider-image'>
-                        <ModuleImage />
+                <div className='top'>
+                    <ModuleBasket />
+                </div>
+                <div className='main'>
+                    <div className='slider'>
+                        <div className='slider-image'>
+                            <ModuleImage />
+                        </div>
+                        <div className='slider-list'>
+                            <ModuleList />
+                        </div>
                     </div>
-                    <div className='slider-list'>
-                        <ModuleList />
+                    <div className='basis'>
+                        <div className='basis-buttons'>
+                            <ModuleButtons />
+                        </div>
+                        <div className='basis-selectors'>
+                            <ModuleSelectors />
+                        </div>
                     </div>
                 </div>
-                <div className='basis'>
-                    <div className='basis-buttons'>
-                        <ModuleButtons />
-                    </div>
-                    <div className='basis-selectors'>
-                        <ModuleSelectors />
-                    </div>
+                <div className='config'>
+                    <ModuleConfiguration />
                 </div>
             </section>
         )

@@ -4,50 +4,70 @@
 /** ***** turnstile ***** */
 .turnstile {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 97vh;
 
-    /** ***** turnstile slider ***** */
-    .slider {
+    /** ***** wrapper top configurator ***** */
+    .top {
+       width: 100%;
+    }
+
+    /** ***** wrapper main configurator ***** */
+    .main {
         display: flex;
-        flex-direction: column;
-        min-width: 300px;
-        height: 100%;
-        margin-right: 40px;
+        width: 100%;
+        height: 80vh;   // ?????????????????
+        padding-top: 40px;
+        background-color: #fafafa;
+    
+        /** ***** turnstile slider ***** */
+        .slider {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            //width: 45%;
+            margin-right: 40px;
 
-        &-image {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 384px;
-            height: 448px;
-            background-color: $brandPantonGrey;
+            &-image {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 450px;
+                height: 600px;
+                background-color: $brandPantonGrey;
+            }
+            &-list {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+            }
         }
-        &-list {
+
+        /** ***** turnstile basis ***** */
+        .basis {
             display: flex;
-            justify-content: flex-start;
-            align-items: center;
+            flex-direction: column;
+            width: 100%;
+
+            &-buttons {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            &-selectors {
+                display: flex;
+                height: 100%;
+            }
         }
     }
 
-    /** ***** turnstile basis ***** */
-    .basis {
+    /** ***** turnstile configuration ***** */
+    .config {
         display: flex;
-        flex-direction: column;
-        width: 70%;
-        height: 100%;
-
-        &-buttons {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        &-selectors {
-            display: flex;
-            height: 100%;
-        }
+        width: 100%;
+        padding-top: 40px;
+        background-color: #fafafa;
     }
 }

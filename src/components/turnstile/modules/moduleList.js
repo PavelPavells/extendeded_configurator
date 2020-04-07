@@ -19,6 +19,7 @@ class ModuleList extends React.Component {
         this.props.fetchDataTurnstile()
     }
     render() {
+        
         /** ************* DATA FROM STORE ************* */
         const { turnstile, isFetching } = this.props.data;
 

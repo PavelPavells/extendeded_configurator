@@ -12,35 +12,39 @@ const ModuleButtons = lazy(() => import('./modules/moduleButtons'));
 const ModuleSelectors = lazy(() => import('./modules/moduleSelectors'));
 const ModuleBasket = lazy(() => import('./modules/moduleBasket'));
 const ModuleConfiguration = lazy(() => import('./modules/moduleConfiguration'));
+const ModuleEquipment = lazy(() => import ('./modules/moduleEquipment'));
 
 class Turnstile extends React.Component {
 
     render() {
         return (
             <section className='turnstile'>
-                <div className='top'>
+                <div className='turnstile-top'>
                     <ModuleBasket />
                 </div>
-                <div className='main'>
-                    <div className='slider'>
-                        <div className='slider-image'>
+                <div className='turnstile-main'>
+                    <div className='turnstile-main__slider'>
+                        <div className='turnstile-main__slider-image'>
                             <ModuleImage />
                         </div>
-                        <div className='slider-list'>
+                        <div className='turnstile-main__slider-list'>
                             <ModuleList />
                         </div>
                     </div>
-                    <div className='basis'>
-                        <div className='basis-buttons'>
+                    <div className='turnstile-main__basis'>
+                        <div className='turnstile-main__basis-buttons'>
                             <ModuleButtons />
                         </div>
-                        <div className='basis-selectors'>
+                        <div className='turnstile-main__basis-selectors'>
                             <ModuleSelectors />
                         </div>
                     </div>
                 </div>
-                <div className='config'>
+                <div className='turnstile-configuration'>
                     <ModuleConfiguration />
+                </div>
+                <div className='turnstile-equipment'>
+                    <ModuleEquipment />
                 </div>
             </section>
         )

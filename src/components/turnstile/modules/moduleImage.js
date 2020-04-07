@@ -19,13 +19,12 @@ class ModuleImage extends React.Component {
         this.props.fetchDataTurnstile()
     }
     render() {
+        
         /** ************* DATA FROM STORE ************* */
         const { turnstile, isFetching } = this.props.data;
 
-        if(turnstile.data.length === 0 && !isFetching) {
-            return (
-                <Suspense fallback={<div><Loader /></div>}></Suspense>
-            )
+        if (turnstile.data.length === 0 && !isFetching) {
+            return <Suspense fallback={<div><Loader /></div>}></Suspense>
         }
         return (
             

@@ -15,6 +15,7 @@ const Loader = lazy(() => import('../../../__utils__/Loader/Loader'));
 
 class ModuleBasket extends React.Component {
     render() {
+        
         /** ************* DATA FROM STORE ************* */
         const { turnstile, isFetching } = this.props.data;
         //console.log(this.props.data)
@@ -25,8 +26,10 @@ class ModuleBasket extends React.Component {
             )
         }
         return (
+
+            /** ************* MODULE BASKET ************* */
             <section className='basket'>
-                <div className='basket-description'>Конфигуратор</div>
+                <p className='basket-description'>Конфигуратор</p>
                 <div className='basket-data'>
                     <div className='basket-data__wrapper'>
                         <div className='basket-data__wrapper-info'>

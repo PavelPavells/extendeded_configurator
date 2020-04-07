@@ -242,13 +242,12 @@ class ModuleSelectors extends React.Component {
         })
     }
     render() {
+        
         /** ************* DATA FROM STORE ************* */
         const { turnstile, isFetching } = this.props.data;
         //console.log(turnstile.data.page_view)
-        if(turnstile.data.length === 0 && !isFetching) {
-            return (
-                <Suspense fallback={<div><Loader /></div>}></Suspense>
-            )
+        if (turnstile.data.length === 0 && !isFetching) {
+            return <Suspense fallback={<div><Loader /></div>}></Suspense>
         }
         console.log('selector 1 : ' + turnstile.data.page_view ? turnstile.data.page_view.module_selectors[0].state : null)
         console.log('selector 2 : ' + turnstile.data.page_view ? turnstile.data.page_view.module_selectors[1].state : null)
@@ -259,6 +258,8 @@ class ModuleSelectors extends React.Component {
         console.log('selector 7 : ' + turnstile.data.page_view ? turnstile.data.page_view.module_selectors[6].state : null)
         console.log('selector 8 : ' + turnstile.data.page_view ? turnstile.data.page_view.module_selectors[7].state : null)
         return (
+
+            /** ************* MODULE SELECTORS ************* */
             <div className='selectors'>
                 <div className='selectors-text'>Дополнительные модули</div>
                 {turnstile.data.page_view.module_selectors.slice(0, 1).map((index, key) => {

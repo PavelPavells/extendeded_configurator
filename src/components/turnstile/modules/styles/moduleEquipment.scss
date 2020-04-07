@@ -1,0 +1,125 @@
+/** ***** IMPORT GLOBAL STYLE ***** */
+@import '../../../../styles/styles.scss';
+
+/** ***** turnstile equipment ***** */
+.equipment {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    &-description {
+        margin: 0;
+        padding: 30px 0 30px 40px;
+        font-size: 26px;
+        line-height: 1.27;
+        color: $brandPantonText;
+    }
+
+    &-list {
+        display: flex;
+        flex-direction: column;
+        margin: 0 40px;
+
+        .block {
+            display: flex;
+            align-items: center;
+        }
+
+        &__block {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0 20px 30px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            border: 1px solid $brandPantonBorderButton;
+
+            // HERE ICONS STYLES NEED
+
+            &-text {
+                margin-right: 30px;
+                font-size: 18px;
+                line-height: 1.28;
+                color: $brandPantonText;
+            }
+
+            &-goods {
+                margin-right: 5px;
+                font-size: 12px;
+                line-height: 1.5;
+                color: $brandPantonDescription;
+            }
+
+            &-arrow {
+                margin-right: 30px;
+                height: 30px;
+                width: 30px;
+                background: url('../../../../images/icon/arrow-equipment.svg') no-repeat center;
+            }
+
+            /** ***** turnstile equipment icon hover styles ***** */
+            &:hover {
+                .equipment-list__block-text {
+                    color: $brandPantonBlue;
+                }
+                .equipment-list__block-arrow {
+                    margin-right: 30px;
+                    height: 30px;
+                    width: 30px;
+                    background: url('../../../../images/icon/arrow-equipment-hover.svg') no-repeat center;   
+                }
+                .equipment-list__block-icon1 {
+                    height: 30px;
+                    width: 30px;
+                    margin-right: 32px;
+                    background: url('../../../../images/icon/icon1-hover.svg') no-repeat center;
+                }
+                .equipment-list__block-icon2 {
+                    height: 30px;
+                    width: 30px;
+                    margin-right: 32px;
+                    background: url('../../../../images/icon/icon2-hover.svg') no-repeat center;
+                }
+                .equipment-list__block-icon3 {
+                    height: 30px;
+                    width: 30px;
+                    margin-right: 32px;
+                    background: url('../../../../images/icon/icon3-hover.svg') no-repeat center;
+                }
+                .equipment-list__block-icon4 {
+                    height: 30px;
+                    width: 30px;
+                    margin-right: 32px;     
+                    background: url('../../../../images/icon/icon4-hover.svg') no-repeat center;
+                }
+            }
+        }
+    }
+}
+
+/** ***** turnstile equipment icon styles ***** */
+.equipment-list__block-icon1 {
+    height: 30px;
+    width: 30px;
+    margin-right: 32px;
+    background: url('../../../../images/icon/icon1.svg') no-repeat center;
+}
+.equipment-list__block-icon2 {
+    height: 30px;
+    width: 30px;
+    margin-right: 32px;
+    background: url('../../../../images/icon/icon2.svg') no-repeat center;
+}
+.equipment-list__block-icon3 {
+    height: 30px;
+    width: 30px;
+    margin-right: 32px;
+    background: url('../../../../images/icon/icon3.svg') no-repeat center;
+}
+.equipment-list__block-icon4 {
+    height: 30px;
+    width: 30px;
+    margin-right: 32px;     
+    background: url('../../../../images/icon/icon4.svg') no-repeat center;
+}

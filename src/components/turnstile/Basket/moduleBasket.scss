@@ -1,0 +1,68 @@
+/** ***** IMPORT GLOBAL STYLE ***** */
+@import '../../../styles/styles.scss';
+
+/** ***** module basket ***** */
+.basket {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 1px solid $brandPantonBorderButton;
+
+    &-description {
+        margin: 0;
+        font-size: 26px;
+        line-height: 1.27;
+        color: $brandPantonText;
+        padding: 23px 0 24px 40px;
+    }
+
+    &-data {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        padding: 21px 0 21px 30px;
+        border-radius: 10px;
+
+        &__wrapper {
+            display: flex;
+            flex-direction: column;
+            width: 10em;
+
+            &-info {
+                display: flex;
+                align-items: center;
+                font-size: 15px;
+                padding: 2px 0;
+                line-height: 1;
+                color: black;
+    
+                .text {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                }
+    
+                .count {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                }
+            }
+        }
+
+        &:hover {
+            color: $white;
+            background-color: $brandPantonBlue;
+            transition: all 0.2s ease-in;
+
+            .basket-data__wrapper-info {
+                color: $white;
+            }
+            
+            .basket-more {
+                width: 50px;
+                background: url('../../../images/icon/arrow_more_white.svg') no-repeat center;
+            } 
+        }
+    }
+}

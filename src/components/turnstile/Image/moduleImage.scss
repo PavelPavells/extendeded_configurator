@@ -1,0 +1,16 @@
+/** ***** IMPORT GLOBAL STYLE ***** */
+@import '../../../styles/styles.scss';
+
+/** ***** module image ***** */
+.wrapper-photo {
+    display: flex;
+    width: 400px;
+    height: 500px;
+
+    &__image {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        background-size: contain;
+    }
+}

@@ -6,13 +6,13 @@ import { connect } from 'react-redux';
 import './Turnstile.scss';
 
 /** ************* IMPORT MODULES FOR TURNSTILE COMPONENT ************* */
-const ModuleImage = lazy(() => import('./modules/moduleImage'));
-const ModuleList = lazy(() => import('./modules/moduleList'));
-const ModuleButtons = lazy(() => import('./modules/moduleButtons'));
-const ModuleSelectors = lazy(() => import('./modules/moduleSelectors'));
-const ModuleBasket = lazy(() => import('./modules/moduleBasket'));
-const ModuleConfiguration = lazy(() => import('./modules/moduleConfiguration'));
-const ModuleEquipment = lazy(() => import ('./modules/moduleEquipment'));
+const ModuleImage = lazy(() => import('./Image/moduleImage'));
+const ModuleList = lazy(() => import('./List/moduleList'));
+const ModuleButtons = lazy(() => import('./Buttons/moduleButtons'));
+const ModuleSelectors = lazy(() => import('./Selectors/moduleSelectors'));
+const ModuleBasket = lazy(() => import('./Basket/moduleBasket'));
+const ModuleConfiguration = lazy(() => import('./Configuration/moduleConfiguration'));
+const ModuleEquipment = lazy(() => import ('./Equipment/moduleEquipment'));
 
 class Turnstile extends React.Component {
 

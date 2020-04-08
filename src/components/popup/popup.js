@@ -16,7 +16,7 @@ import Loader from "../../__utils__/Loader/Loader";
 import photo from "../../images/str-compact1.png";
 
 /** ************* IMPORT STYLES FOR LAYOUT COMPONENT ************* */
-import "./popup.scss";
+import './popup.scss';
 
 class Popup extends React.Component {
 

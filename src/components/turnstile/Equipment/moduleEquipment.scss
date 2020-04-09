@@ -131,3 +131,42 @@
     padding: 20px 0 20px 30px;
     background: url('../../../images/icon/icon4.svg') no-repeat center;
 }
+
+/** ***** turnstile equipment icon styles ***** */
+.toggle-text {
+    color: $brandPantonBlue!important;
+}
+
+
+.block-info__icon1-hover {
+    height: 30px;
+    width: 30px;
+    margin-right: 32px;
+    background: url('../../../images/icon/icon1-hover.svg') no-repeat center;
+}
+.block-info__icon2-hover {
+    height: 30px;
+    width: 30px;
+    margin-right: 32px;
+    background: url('../../../images/icon/icon2-hover.svg') no-repeat center;
+}
+.block-info__icon3-hover {
+    height: 30px;
+    width: 30px;
+    margin-right: 32px;
+    background: url('../../../images/icon/icon3-hover.svg') no-repeat center;
+}
+.block-info__icon4-hover {
+    height: 30px;
+    width: 30px;
+    margin-right: 32px;
+    background: url('../../../images/icon/icon4-hover.svg') no-repeat center;
+}
+
+.block-info__arrow-hover {
+    margin-right: 30px;
+    height: 30px;
+    width: 30px;
+    transform: rotate(180deg);
+    //background: url('../../../images/icon/arrow-equipment-hover.svg') no-repeat center;   
+}

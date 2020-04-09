@@ -32,95 +32,161 @@ class EquipmentModal extends React.Component {
             <div className='modal'>
 
                 {/** ************* BLOCK 1 ************* */}
-                <div className='modal-block'>
-                    <div className='modal-block__image'>
-                        <img src={turnstile.data.page_view.model_main_photo} alt='' />
-                    </div>
-                    <div className='modal-block__description'>
-                        {turnstile.data.page_view.caption}
-                    </div>
-                    <div className='modal-block__amount'>
-                        {turnstile.data.page_view.model_price} / <span>3 шт.</span>
-                    </div>
-                    <div className='modal-block__add'>
-                        <div className='modal-block__add-value'>
-                            <div className='modal-block'>Количество: 1</div>
-                            <div>+ -</div>
+                <div className='modal-wrapper'>
+                    <div className='block'>
+                        <div className='block-image'>
+                            <img src={turnstile.data.page_view.model_main_photo} alt='' />
                         </div>
-                        <div className='modal-block__add-button'>ДОБАВИТЬ</div>
-                        <div className='modal-block__add-amount'>РЕКОМЕНДУЕМОЕ КОЛ-ВО: 20</div>
+                        <div className='block-description'>
+                            {turnstile.data.page_view.caption}
+                        </div>
+                        <div className='block-amount'>
+                            {turnstile.data.page_view.model_price} / <span>{turnstile.data.page_view.model_module_list.length} шт.</span>
+                        </div>
+                        <div className='block-add'>
+                            <div className='block-add__value'>
+                                <div className='quantity'>Количество: <span>{turnstile.data.page_view.model_module_list.length}</span></div>
+                                <div className='more'>
+                                    <div className='more-minus'></div>
+                                    <div className='more-plus'></div>
+                                </div>
+                            </div>
+                            <div className='block-add__button'>ДОБАВИТЬ</div>
+                            <div className='block-add__amount'>РЕКОМЕНДУЕМОЕ КОЛ-ВО: {turnstile.data.page_view.model_module_list.length}</div>
+                        </div>
                     </div>
                 </div>
 
                 {/** ************* BLOCK 2 ************* */}
-                <div className='modal-block'>
-                    <div className='modal-block__image'>
-                        <img src={turnstile.data.page_view.model_main_photo} alt='' />
+                <div className='modal-wrapper'>
+                    <div className='block'>
+                        <div className='block-image'>
+                            <img src={turnstile.data.page_view.model_main_photo} alt='' />
+                        </div>
+                        <div className='block-description'>
+                            {turnstile.data.page_view.caption}
+                        </div>
+                        <div className='block-amount'>
+                            {turnstile.data.page_view.model_price} / <span>{turnstile.data.page_view.model_module_list.length} шт.</span>
+                        </div>
+                        <div className='block-add'>
+                            <div className='block-add__value'>
+                                <div className='quantity'>Количество: <span>{turnstile.data.page_view.model_module_list.length}</span></div>
+                                <div className='more'>
+                                    <div className='more-minus'></div>
+                                    <div className='more-plus'></div>
+                                </div>
+                            </div>
+                            <div className='block-add__button'>ДОБАВИТЬ</div>
+                            <div className='block-add__amount'>РЕКОМЕНДУЕМОЕ КОЛ-ВО: {turnstile.data.page_view.model_module_list.length}</div>
+                        </div>
                     </div>
-                    <div className='modal-block__description'>
-                        {turnstile.data.page_view.caption}
-                    </div>
-                    <div className='modal-block__amount'>
-                        {turnstile.data.page_view.model_price} / <span>3 шт.</span>
-                    </div>
-                    <div className='modal-block__add'>ДОБАВИТЬ</div>
                 </div>
 
                 {/** ************* BLOCK 3 ************* */}
-                <div className='modal-block'>
-                    <div className='modal-block__image'>
-                        <img src={turnstile.data.page_view.model_main_photo} alt='' />
+                <div className='modal-wrapper'>
+                    <div className='block'>
+                        <div className='block-image'>
+                            <img src={turnstile.data.page_view.model_main_photo} alt='' />
+                        </div>
+                        <div className='block-description'>
+                            {turnstile.data.page_view.caption}
+                        </div>
+                        <div className='block-amount'>
+                            {turnstile.data.page_view.model_price} / <span>{turnstile.data.page_view.model_module_list.length} шт.</span>
+                        </div>
+                        <div className='block-add'>
+                            <div className='block-add__value'>
+                                <div className='quantity'>Количество: <span>{turnstile.data.page_view.model_module_list.length}</span></div>
+                                <div className='more'>
+                                    <div className='more-minus'></div>
+                                    <div className='more-plus'></div>
+                                </div>
+                            </div>
+                            <div className='block-add__button'>ДОБАВИТЬ</div>
+                            <div className='block-add__amount'>РЕКОМЕНДУЕМОЕ КОЛ-ВО: {turnstile.data.page_view.model_module_list.length}</div>
+                        </div>
                     </div>
-                    <div className='modal-block__description'>
-                        {turnstile.data.page_view.caption}
-                    </div>
-                    <div className='modal-block__amount'>
-                        {turnstile.data.page_view.model_price} / <span>3 шт.</span>
-                    </div>
-                    <div className='modal-block__add'>ДОБАВИТЬ</div>
                 </div>
 
                 {/** ************* BLOCK 4 ************* */}
-                <div className='modal-block'>
-                    <div className='modal-block__image'>
-                        <img src={turnstile.data.page_view.model_main_photo} alt='' />
+                <div className='modal-wrapper'>
+                    <div className='block'>
+                        <div className='block-image'>
+                            <img src={turnstile.data.page_view.model_main_photo} alt='' />
+                        </div>
+                        <div className='block-description'>
+                            {turnstile.data.page_view.caption}
+                        </div>
+                        <div className='block-amount'>
+                            {turnstile.data.page_view.model_price} / <span>{turnstile.data.page_view.model_module_list.length} шт.</span>
+                        </div>
+                        <div className='block-add'>
+                            <div className='block-add__value'>
+                                <div className='quantity'>Количество: <span>{turnstile.data.page_view.model_module_list.length}</span></div>
+                                <div className='more'>
+                                    <div className='more-minus'></div>
+                                    <div className='more-plus'></div>
+                                </div>
+                            </div>
+                            <div className='block-add__button'>ДОБАВИТЬ</div>
+                            <div className='block-add__amount'>РЕКОМЕНДУЕМОЕ КОЛ-ВО: {turnstile.data.page_view.model_module_list.length}</div>
+                        </div>
                     </div>
-                    <div className='modal-block__description'>
-                        {turnstile.data.page_view.caption}
-                    </div>
-                    <div className='modal-block__amount'>
-                        {turnstile.data.page_view.model_price} / <span>3 шт.</span>
-                    </div>
-                    <div className='modal-block__add'>ДОБАВИТЬ</div>
                 </div>
 
                 {/** ************* BLOCK 5 ************* */}
-                <div className='modal-block'>
-                    <div className='modal-block__image'>
-                        <img src={turnstile.data.page_view.model_main_photo} alt='' />
+                <div className='modal-wrapper'>
+                    <div className='block'>
+                        <div className='block-image'>
+                            <img src={turnstile.data.page_view.model_main_photo} alt='' />
+                        </div>
+                        <div className='block-description'>
+                            {turnstile.data.page_view.caption}
+                        </div>
+                        <div className='block-amount'>
+                            {turnstile.data.page_view.model_price} / <span>{turnstile.data.page_view.model_module_list.length} шт.</span>
+                        </div>
+                        <div className='block-add'>
+                            <div className='block-add__value'>
+                                <div className='quantity'>Количество: <span>{turnstile.data.page_view.model_module_list.length}</span></div>
+                                <div className='more'>
+                                    <div className='more-minus'></div>
+                                    <div className='more-plus'></div>
+                                </div>
+                            </div>
+                            <div className='block-add__button'>ДОБАВИТЬ</div>
+                            <div className='block-add__amount'>РЕКОМЕНДУЕМОЕ КОЛ-ВО: {turnstile.data.page_view.model_module_list.length}</div>
+                        </div>
                     </div>
-                    <div className='modal-block__description'>
-                        {turnstile.data.page_view.caption}
-                    </div>
-                    <div className='modal-block__amount'>
-                        {turnstile.data.page_view.model_price} / <span>3 шт.</span>
-                    </div>
-                    <div className='modal-block__add'>ДОБАВИТЬ</div>
                 </div>
 
                 {/** ************* BLOCK 6 ************* */}
-                <div className='modal-block'>
-                    <div className='modal-block__image'>
-                        <img src={turnstile.data.page_view.model_main_photo} alt='' />
+                <div className='modal-wrapper'>
+                    <div className='block'>
+                        <div className='block-image'>
+                            <img src={turnstile.data.page_view.model_main_photo} alt='' />
+                        </div>
+                        <div className='block-description'>
+                            {turnstile.data.page_view.caption}
+                        </div>
+                        <div className='block-amount'>
+                            {turnstile.data.page_view.model_price} / <span>{turnstile.data.page_view.model_module_list.length} шт.</span>
+                        </div>
+                        <div className='block-add'>
+                            <div className='block-add__value'>
+                                <div className='quantity'>Количество: <span>{turnstile.data.page_view.model_module_list.length}</span></div>
+                                <div className='more'>
+                                    <div className='more-minus'></div>
+                                    <div className='more-plus'></div>
+                                </div>
+                            </div>
+                            <div className='block-add__button'>ДОБАВИТЬ</div>
+                            <div className='block-add__amount'>РЕКОМЕНДУЕМОЕ КОЛ-ВО: {turnstile.data.page_view.model_module_list.length}</div>
+                        </div>
                     </div>
-                    <div className='modal-block__description'>
-                        {turnstile.data.page_view.caption}
-                    </div>
-                    <div className='modal-block__amount'>
-                        {turnstile.data.page_view.model_price} / <span>3 шт.</span>
-                    </div>
-                    <div className='modal-block__add'>ДОБАВИТЬ</div>
                 </div>
+
             </div>
         )
     }

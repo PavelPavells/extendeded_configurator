@@ -48,12 +48,20 @@ class ModuleEquipment extends React.Component {
 
     /** ************* HANDLE CHANGE MODAL ONE ************* */
     handleChangeModalWindowOne = () => {
-        this.setState({ listEquipmentOne: !this.state.listEquipmentOne })
+        this.setState({ listEquipmentOne: !this.state.listEquipmentOne });
+        let text = document.getElementsByClassName('block-info__text')[0];
+        text.classList.toggle('toggle-text');
+
+        let icon = document.getElementsByClassName('block-info__icon1')[0];
+        icon.classList.toggle('block-info__icon1-hover');
+
+        let arrow = document.getElementsByClassName('block-info__arrow')[0];
+        arrow.classList.toggle('block-info__arrow-hover');
     }
 
     /** ************* HANDLE CHANGE MODAL TWO ************* */
     handleChangeModalWindowTwo = () => {
-        this.setState({ listEquipmentTwo: !this.state.listEquipmentTwo })
+        this.setState({ listEquipmentTwo: !this.state.listEquipmentTwo });
     }
 
     /** ************* HANDLE CHANGE MODAL THREE ************* */
@@ -82,12 +90,12 @@ class ModuleEquipment extends React.Component {
                     {/*{[1, 2, 3, 4].map((index, key) => (
                         <div className='equipment-list__block'>{index}</div>
                     ))}*/}
-                    <div onClick={this.handleChangeModalWindowOne} className='equipment-list__block'>
-                        <div className='block-info'>
+                    <div className='equipment-list__block'>
+                        <div onClick={this.handleChangeModalWindowOne} className='block-info'>
                             <div className='block-info__wrap'>
                                 <div className='block-info__icon1'></div>
                                 <div className='block-info__text'>Пульты управления</div>
-                                <div className='block-info__goods'>14</div>
+                                <div className='block-info__goods'>{turnstile.data.page_view.model_module_list.length}</div>
                                 <div className='block-info__goods'>товаров</div>
                             </div>
                             <div className='block-info__arrow'></div>
@@ -99,12 +107,12 @@ class ModuleEquipment extends React.Component {
                                 null
                         }
                     </div>
-                    <div onClick={this.handleChangeModalWindowTwo} className='equipment-list__block'>
-                        <div className='block-info'>
+                    <div className='equipment-list__block'>
+                        <div onClick={this.handleChangeModalWindowTwo} className='block-info'>
                             <div className='block-info__wrap'>
                                 <div className='block-info__icon2'></div>
                                 <div className='block-info__text'>Преграждающие планки</div>
-                                <div className='block-info__goods'>5</div>
+                                <div className='block-info__goods'>{turnstile.data.page_view.model_module_list.length}</div>
                                 <div className='block-info__goods'>товаров</div>
                             </div>
                             <div className='block-info__arrow'></div>
@@ -116,12 +124,12 @@ class ModuleEquipment extends React.Component {
                                 null
                         }
                     </div>
-                    <div onClick={this.handleChangeModalWindowThree} className='equipment-list__block'>
-                        <div className='block-info'>
+                    <div className='equipment-list__block'>
+                        <div onClick={this.handleChangeModalWindowThree} className='block-info'>
                             <div className='block-info__wrap'>
                                 <div className='block-info__icon3'></div>
                                 <div className='block-info__text'>Блоки питания</div>
-                                <div className='block-info__goods'>3</div>
+                                <div className='block-info__goods'>{turnstile.data.page_view.model_module_list.length}</div>
                                 <div className='block-info__goods'>товара</div>
                             </div>
                             <div className='block-info__arrow'></div>
@@ -133,12 +141,12 @@ class ModuleEquipment extends React.Component {
                                 null
                         }
                     </div>
-                    <div onClick={this.handleChangeModalWindowFour} className='equipment-list__block'>
-                        <div className='block-info'>
+                    <div className='equipment-list__block'>
+                        <div onClick={this.handleChangeModalWindowFour} className='block-info'>
                             <div className='block-info__wrap'>
                                 <div className='block-info__icon4'></div>
                                 <div className='block-info__text'>Ограждения прохода и секции «Антипаника»</div>
-                                <div className='block-info__goods'>4</div>
+                                <div className='block-info__goods'>{turnstile.data.page_view.model_module_list.length}</div>
                                 <div className='block-info__goods'>товара</div>
                             </div>
                             <div className='block-info__arrow'></div>

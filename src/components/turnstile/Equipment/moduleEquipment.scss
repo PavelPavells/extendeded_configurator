@@ -137,7 +137,6 @@
     color: $brandPantonBlue!important;
 }
 
-
 .block-info__icon1-hover {
     height: 30px;
     width: 30px;
@@ -164,9 +163,5 @@
 }
 
 .block-info__arrow-hover {
-    margin-right: 30px;
-    height: 30px;
-    width: 30px;
-    transform: rotate(180deg);
-    //background: url('../../../images/icon/arrow-equipment-hover.svg') no-repeat center;   
+    transform: rotate(180deg);   
 }

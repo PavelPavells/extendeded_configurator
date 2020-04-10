@@ -8,7 +8,7 @@
     padding: 10px;
     border-radius: 0 0 10px 10px;
     background-color: $brandPantonBorderButton;
-    height: 85vh;
+    //height: 85vh;
 
     &-wrapper {
         display: flex;
@@ -166,12 +166,12 @@
 /** ***** media query for HD, FULL HD ***** */
 @media (max-width: 1200px) {
     .modal {
-        height: 85vh;
+        height: 75vh;
     }
 }
 
 @media (min-width: 1920px) {
     .modal {
-        height: 45vh;
+        height: 37vh;
     }
 }

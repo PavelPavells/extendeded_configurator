@@ -1,5 +1,6 @@
 /** ************* IMPORT DEPENDENCIES ************* */
 import React, { lazy } from 'react';
+//import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 /** ************* IMPORT STYLES FOR TURNSTILE COMPONENT ************* */
@@ -47,6 +48,7 @@ class Turnstile extends React.Component {
                     <ModuleEquipment />
                 </div>
             </section>
+            
         )
     }
 }

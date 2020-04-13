@@ -7,10 +7,10 @@ import { connect } from 'react-redux';
 /** ************* IMPORT ACTIONS FROM ACTION FOLDER ************* */
 import { fetchDataTurnstile } from '../../../actions/dataTurnstileActions';
 
-/** ************* IMPORT STYLES FOR MODULE BUTTONS IN TURNSTILE COMPONENT ************* */
+/** ************* IMPORT STYLES FOR MODULE BUTTONS IN CONFIGURATION COMPONENT ************* */
 import './moduleConfiguration.scss';
 
-/** ************* IMPORT __UTILS__ FOR TURNSTILE COMPONENT ************* */
+/** ************* IMPORT __UTILS__ FOR CONFIGURATION COMPONENT ************* */
 const Loader = lazy(() => import('../../../__utils__/Loader/Loader'));
 
 class ModuleConfiguration extends React.Component {

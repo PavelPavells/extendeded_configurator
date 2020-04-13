@@ -13,6 +13,7 @@ import './Layouts.scss';
 const Main = lazy(() => import('../components/main/Main'));
 const Barrier = lazy(() => import('../components/barrier/Barrier'));
 const Turnstile = lazy(() => import('../components/turnstile/Turnstile'));
+const moduleOffer = lazy(() => import('../components/turnstile/Offer/Offer'))
 
 class Layout extends React.Component {
 
@@ -22,9 +23,10 @@ class Layout extends React.Component {
                 <Suspense fallback={<div><Loader /></div>}>
                     <div className="components">
                         <Switch>
-                            <Route exact path='/main' component={Main} />
-                            <Route exact path='/turnstile' component={Turnstile} />
-                            <Route exact path='/barrier' component={Barrier} />
+                            <Route path='/main' component={Main} />
+                            <Route exact path='/:turnstile' component={Turnstile} />
+                            <Route path='/:turnstile' component={moduleOffer} />
+                            <Route path='/barrier' component={Barrier} />
                         </Switch>
                     </div>
                 </Suspense>

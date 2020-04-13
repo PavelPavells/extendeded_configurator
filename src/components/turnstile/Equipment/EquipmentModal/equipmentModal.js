@@ -8,10 +8,10 @@ import { connect } from 'react-redux';
 /** ************* IMPORT ACTIONS FROM ACTION FOLDER ************* */
 import { fetchDataTurnstile } from '../../../../actions/dataTurnstileActions';
 
-/** ************* IMPORT STYLES FOR MODULE BUTTONS IN TURNSTILE COMPONENT ************* */
+/** ************* IMPORT STYLES FOR MODULE MODAL IN EQUIPMENT COMPONENT ************* */
 import './equipmentModal.scss';
 
-/** ************* IMPORT __UTILS__ FOR TURNSTILE COMPONENT ************* */
+/** ************* IMPORT __UTILS__ FOR MODAL IN EQUIPMENT COMPONENT ************* */
 const Loader = lazy(() => import('../../../../__utils__/Loader/Loader'));
 
 class EquipmentModal extends React.Component {

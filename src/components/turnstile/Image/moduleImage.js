@@ -9,7 +9,7 @@ import { fetchDataTurnstile } from '../../../actions/dataTurnstileActions';
 /** ************* IMPORT STYLES FOR MODULE IMAGE IN TURNSTILE COMPONENT ************* */
 import './moduleImage.scss';
 
-/** ************* IMPORT __UTILS__ FOR TURNSTILE COMPONENT ************* */
+/** ************* IMPORT __UTILS__ FOR IMAGE COMPONENT ************* */
 const Loader = lazy(() => import('../../../__utils__/Loader/Loader'));
 
 class ModuleImage extends React.Component {

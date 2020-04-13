@@ -8,14 +8,14 @@ import { connect } from 'react-redux';
 /** ************* IMPORT ACTIONS FROM ACTION FOLDER ************* */
 import { fetchDataTurnstile } from '../../../actions/dataTurnstileActions';
 
-/** ************* IMPORT MODULES FOR TURNSTILE COMPONENT ************* */
+/** ************* IMPORT MODULES FOR EQUIPMENT COMPONENT ************* */
 //const EquipmentModal = lazy(() => import('./modals/equipmentModal'));
 import EquipmentModal from './EquipmentModal/equipmentModal';
 
-/** ************* IMPORT STYLES FOR MODULE BUTTONS IN TURNSTILE COMPONENT ************* */
+/** ************* IMPORT STYLES FOR MODULE BUTTONS IN EQUIPMENT COMPONENT ************* */
 import './moduleEquipment.scss';
 
-/** ************* IMPORT __UTILS__ FOR TURNSTILE COMPONENT ************* */
+/** ************* IMPORT __UTILS__ FOR EQUIPMENT COMPONENT ************* */
 const Loader = lazy(() => import('../../../__utils__/Loader/Loader'));
 
 class ModuleEquipment extends React.Component {

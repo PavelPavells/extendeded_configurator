@@ -1,0 +1,301 @@
+/** ***** IMPORT GLOBAL STYLE ***** */
+@import '../../../styles/styles.scss';
+
+/** ***** offer ***** */
+.offer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    //width: 100%;
+    background-color: #fafafa;
+
+    &-description {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        background-color: $white;
+        
+        .left {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+            &-arrow {
+                margin-left: 40px;
+                width: 30px;
+                height: 13px;
+                transform: rotate(180deg);
+                cursor: default;
+                background: url('../../../images/icon/arrow_more_black.svg') no-repeat center;
+            }
+
+            &-text {
+                margin: 24px 20px;
+                font-size: 26px;
+                line-height: 1.27;
+                color: $brandPantonText;
+            }
+
+            &-agreement {
+                padding-top: 7px;
+                font-size: 12px;
+                line-height: 1.5;
+                color: $brandPantonDescription;
+            }
+        }
+
+        .right {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-right: 25px;
+
+            &-wrapper {
+                display: flex;
+                flex-direction: column;
+                width: 10em;
+                text-decoration: none;
+    
+                &__info {
+                    display: flex;
+                    align-items: center;
+                    font-size: 15px;
+                    padding: 2px 0;
+                    line-height: 1;
+                    color: black;
+        
+                    .text {
+                        display: flex;
+                        flex-direction: column;
+                        width: 100%;
+                    }
+        
+                    .count {
+                        display: flex;
+                        flex-direction: column;
+                        width: 100%;
+                        font-size: 15px;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+
+    &-goods {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 95%;
+        margin-top: 20px;
+        
+        .blocks {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid $brandPantonBorderButton;
+            margin-bottom: 10px;
+            background-color: $white;
+
+            .block-left {
+                display: flex;
+                justify-content: space-between;
+            
+                &__image {
+                    display: flex;
+                    justify-content: center;
+                    height: 100px;
+                    width: 100px;
+                    margin: 10px 20px 10px 10px;
+                    padding: 5px;
+                    background-color: $brandPantonBorderButton;
+
+                    & > img {
+                    width: auto;
+                    height: 100%;
+                    background-size: contain;
+                    }
+                }
+
+                &__text {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+
+                    &-partition {
+                        font-size: 12px;
+                        line-height: 1.5;
+                        color: $brandPantonDescription;
+                    }
+
+                    &-name {
+                        font-size: 14px;
+                        font-weight: 500;
+                        line-height: 1.29;
+                        color: $brandPantonText;
+                    }
+                }
+            }
+
+            &-info {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid green;
+
+                &__value {
+                    font-size: 16px;
+                    font-weight: 600;
+                    line-height: 1;
+                    color: $brandPantonText;
+                }
+
+                &__add {
+                    border: 1px solid green;
+                    margin: 0 40px;
+                }
+
+                &__price {
+                    display: flex;
+                    flex-direction: column;
+                    margin-right: 30px;
+                    //font-weight: 600;
+
+                    .nondiscount {
+                        font-size: 12px;
+                        line-height: 1.5;
+                        color: $brandPantonDescription;
+                        text-decoration: line-through;
+                    }
+    
+                    .discount {
+                        font-size: 14px;
+                        line-height: 1;
+                        color: #28b463;
+                    }
+                }
+
+                &__offer {
+                    margin-right: 40px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    line-height: 1;
+                    color: $brandPantonText;
+                }
+
+                &__delete {
+                    width: 12px;
+                    height: 12px;
+                    margin-right: 40px;
+                    background: url('../../../images/icon/close-modal.svg') no-repeat center;
+
+                    &:hover {
+                        color: $brandPantonRed;
+                    }
+                }
+            }
+        }
+    }
+
+    &-price {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 95%;
+        margin-top: 20px;
+        background-color: $white;
+
+        &__image {
+            width: 90px;
+            height: 90px;
+            margin: 0 0 10px 0;
+            background: url('../../../images/icon/sales.svg') no-repeat center;
+        }
+
+        &__full {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        &__sale {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        &__total {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        &__text {
+            font-size: 12px;
+            line-height: 1.5;
+            color: $brandPantonDescription;
+
+            &-sale {
+                margin-left: 10px;
+                font-size: 12px;
+                line-height: 1.5;
+                color: $green;
+            }
+        }
+
+        &__price {
+            font-size: 20px;
+            line-height: 1.28;
+            color: $brandPantonText;
+        }
+    }
+
+    &-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 95%;
+        margin: 20px 40px;
+        border-radius: 30px;
+        background-color: $brandPantonBlue;
+        
+        &__icon {
+            margin: 19px 20px;
+            width: 30px;
+            height: 30px;
+            background: url("../../../images/icon/download.svg") no-repeat center;
+        }
+
+        &__text {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.36;
+            letter-spacing: 1px;
+            color: $white;
+        }
+
+        &__line {
+            margin: 0 20px;
+            height: 20px;
+            border: 1px solid $white;
+        }
+
+        &__format {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.36;
+            letter-spacing: 1px;
+            color: $white;
+        }
+    }
+
+    &-confidence {
+        margin: 20px 0 40px 0;
+        font-size: 12px;
+        line-height: 1.5;
+        text-align: center;
+        color: $brandPantonDescription;
+    }
+}

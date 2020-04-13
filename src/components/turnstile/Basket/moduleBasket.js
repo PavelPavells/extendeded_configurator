@@ -1,16 +1,16 @@
 /** ************* IMPORT DEPENDENCIES ************* */
 import React, { Suspense, lazy } from 'react';
-//import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 /** ************* IMPORT ACTIONS FROM ACTION FOLDER ************* */
 import { fetchDataTurnstile } from '../../../actions/dataTurnstileActions';
 
-/** ************* IMPORT STYLES FOR MODULE BUTTONS IN TURNSTILE COMPONENT ************* */
+/** ************* IMPORT STYLES FOR MODULE BASKET IN TURNSTILE COMPONENT ************* */
 import './moduleBasket.scss';
 
-/** ************* IMPORT __UTILS__ FOR TURNSTILE COMPONENT ************* */
+/** ************* IMPORT __UTILS__ FOR BASKET IN TURNSTILE COMPONENT ************* */
 const Loader = lazy(() => import('../../../__utils__/Loader/Loader'));
 
 class ModuleBasket extends React.Component {
@@ -31,7 +31,7 @@ class ModuleBasket extends React.Component {
             <section className='basket'>
                 <p className='basket-description'>Конфигуратор</p>
                 <div className='basket-data'>
-                    <div className='basket-data__wrapper'>
+                    <Link to='/turnstile/offer' className='basket-data__wrapper'>
                         <div className='basket-data__wrapper-info'>
                             <div className='text'>Товаров:</div>
                             <div className='count'>{turnstile.data.page_view.model_module_list.length}</div>
@@ -40,7 +40,7 @@ class ModuleBasket extends React.Component {
                             <div className='text'>На сумму:</div>
                             <div className='count'>{turnstile.data.page_view.model_price}</div>
                         </div>
-                    </div>
+                    </Link>
                     <div className='basket-more'></div>
                 </div>
             </section>

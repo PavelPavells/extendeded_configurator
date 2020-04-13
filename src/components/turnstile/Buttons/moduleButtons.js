@@ -10,7 +10,7 @@ import { fetchDataTurnstile } from '../../../actions/dataTurnstileActions';
 /** ************* IMPORT STYLES FOR MODULE BUTTONS IN TURNSTILE COMPONENT ************* */
 import './moduleButtons.scss';
 
-/** ************* IMPORT __UTILS__ FOR TURNSTILE COMPONENT ************* */
+/** ************* IMPORT __UTILS__ FOR BUTTONS TURNSTILE COMPONENT ************* */
 const Loader = lazy(() => import('../../../__utils__/Loader/Loader'));
 
 class ModuleButtons extends React.Component {

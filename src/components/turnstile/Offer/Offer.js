@@ -15,10 +15,23 @@ const Loader = lazy(() => import('../../../__utils__/Loader/Loader'));
 
 class Offer extends React.Component {
 
+    state = { modalOne: false, modalTwo: false }
+
     /** ************* FETCHING DATA ************* */
     componentDidMount() {
         this.props.fetchDataTurnstile()
     }
+
+    handleClick = (index, key) => {
+        console.log(index, key)
+        if(index.index === 0 && key === 0) {
+            this.setState({ modal: !this.state.modal })
+        }
+    }
+
+    //handleChangeModal = () => {
+    //    this.setState({ modal: !this.state.modal })
+    //}
 
     render() {
         /** ************* DATA FROM STORE ************* */
@@ -55,38 +68,81 @@ class Offer extends React.Component {
                 </div>
                 <div className="offer-goods">
                     {turnstile.data.page_view.model_module_list.map((index, key) => (
-                        <div key={index.index} index={index.index} className='blocks'>
-                            <div className='block-left'>
-                                <div className="block-left__image">
-                                    <img src={turnstile.data.page_view.model_main_photo} alt='' />
+                        <div onClick={() => this.handleClick(index, key)} key={index.index} index={index.index} className='blocks'>
+                            <div className='main'>
+                                <div className='block-left'>
+                                    <div className="block-left__image">
+                                        <img src={turnstile.data.page_view.model_main_photo} alt='' />
+                                        <div className='block-left__image-icon'>i</div>
+                                    </div>
+                                    <div className="block-left__text">
+                                        <div className="block-left__text-partition">{index.caption}</div>
+                                        <div className="block-left__text-name">{index.caption}<div className='arrow'></div></div>
+                                    </div>
                                 </div>
-                                <div className="block-left__text">
-                                    <div className="block-left__text-partition">{index.caption}</div>
-                                    <div className="block-left__text-name">{index.caption}</div>
+                                <div className="blocks-info">
+                                    <div className="blocks-info__value">{turnstile.data.page_view.model_module_list.length}</div>
+                                    <div className="blocks-info__add">
+                                        <div onClick={this.handleMinusOptions} className='blocks-info__add-minus'></div>
+                                        <div onClick={this.handlePlusOptions} className='blocks-info__add-plus'></div>
+                                    </div>
+                                    <div className='blocks-info__price'>
+                                        <div className="nondiscount">{index.price}</div>
+                                        <div className="discount">{index.price}</div>
+                                    </div>
+                                    <div className='blocks-info__offer'>{index.price}</div>
+                                    <div className="blocks-info__delete"></div>
                                 </div>
                             </div>
-                            <div className="blocks-info">
-                                <div className="blocks-info__value">{turnstile.data.page_view.model_module_list.length}</div>
-                                <div className="blocks-info__add">+</div>
-                                <div className='blocks-info__price'>
-                                    <div className="nondiscount">{index.price}</div>
-                                    <div className="discount">{index.price}</div>
-                                </div>
-                                <div className='blocks-info__offer'>{index.price}</div>
-                                <div className="blocks-info__delete"></div>
+                            <div className='offer-popup'>
+                                {this.state.modal && key === 0 
+                                    ? 
+                                        <div className='offer-info'>
+                                            <div className="offer-caption">
+                                                <p className="offer-caption__description">Стандартная комплектация</p>
+                                                <div className='offer-caption__list'>
+                                                    {turnstile.data.page_view.model_module_list.map((index, key) => (
+                                                        <div className='offer-equipment'>
+                                                            <div className='offer-equipment__paragraph'>{index.caption}</div>
+                                                            <span className='offer-equipment__amount'>{turnstile.data.page_view.model_module_list.length}</span>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                            <div className="offer-caption">
+                                                <p className="offer-caption__description">Опции</p>
+                                                <div className='offer-caption__list'>
+                                                    {turnstile.data.page_view.model_module_list.map((index, key) => (
+                                                        <div className='offer-equipment'>
+                                                            <div className='offer-equipment__paragraph'>{index.caption}</div>
+                                                            <div className="offer-equipment__info">
+                                                                <div className="offer-equipment__info-value">{turnstile.data.page_view.model_module_list.length}</div>
+                                                                <div className="offer-equipment__info-discount">{index.price}</div>
+                                                                <div className='offer-equipment__info-offer'>{index.price}</div>
+                                                                <div className="offer-equipment__info-delete"></div>
+                                                            </div>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    : null
+                                }
                             </div>
                         </div>
                     ))}
                 </div>
                 <div className="offer-price">
-                    <div className='offer-price__image'></div>
-                    <div className="offer-price__full">
-                        <div className='offer-price__text'>Стоимость без скидки</div>
-                        <div className='offer-price__price'>{turnstile.data.page_view.model_price}</div>
-                    </div>
-                    <div className="offer-price__sale">
-                        <div className='offer-price__text'>Скидка<span className='offer-price__text-sale'>25%</span></div>
-                        <div className='offer-price__price'>{turnstile.data.page_view.model_price}</div>
+                    <div className='offer-price__wrapper'>
+                        <div className='offer-price__image'></div>
+                        <div className="offer-price__full">
+                            <div className='offer-price__text'>Стоимость без скидки</div>
+                            <div className='offer-price__price'>{turnstile.data.page_view.model_price}</div>
+                        </div>
+                        <div className="offer-price__sale">
+                            <div className='offer-price__text'>Скидка<span className='offer-price__text-sale'>25%</span></div>
+                            <div className='offer-price__price'>&mdash; {turnstile.data.page_view.model_price}</div>
+                        </div>
                     </div>
                     <div className="offer-price__total">
                         <div className='offer-price__text'>Итого со скидкой</div>

@@ -12,22 +12,23 @@ const initialState = {
     errorMessage: '',
     modal: false,
     info: false,
-    data: []
+    data: [],
+    trigger: 1
 }
 
 // ********** REDUCER FOR DATA MAIN REQUEST ********** //
 export default function(state = initialState, action) {
     switch(action.type) {
         case FETCHING_DATA_TURNSTILE_REQUEST:
-            return { ...state, isFetching: true };
+            return { ...state, isFetching: true, trigger: action.trigger };
         case FETCHING_DATA_TURNSTILE_FAILURE:
-            return { ...state, isFetching: false, errorMessage: action.payload }
+            return { ...state, isFetching: false, errorMessage: action.payload, trigger: action.trigger }
         case FETCHING_DATA_TURNSTILE_SUCCESS:
-            return { ...state, isFetching: false, data: action.payload }
+            return { ...state, isFetching: false, data: action.payload, trigger: action.trigger }
         case TOGGLE_MODAL_TURNSTILE:
             return {...state, isFetching: false, modal: !state.modal}
         case TOGGLE_MODAL_TURNSTILE_MAIN_INFO:
             return { ...state, isFetching: false, info: !state.info }
-        default: return state;
+        default: return state;   
     }
 }

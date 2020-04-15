@@ -33,7 +33,7 @@ class ModuleList extends React.Component {
             /** ************* MODULE LIST ************* */
             <div className='list'>
                 <p className='list-description'>Состав модели:</p>
-                {turnstile.data.page_view.model_module_list.map((index, key) => (
+                {turnstile.data.page_view.model_module_list.map(index => (
                     <div className='list-options' key={index.index}>{index.caption}</div>
                 ))}
             </div>

@@ -7,17 +7,21 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    margin-right: 40px;
     background-color: $white;
 
     &-options {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: flex-start;
         align-items: center;
+        margin-left: 40px;
         width: 45%;
+        min-width: 450px;
 
         &__amount {
             display: flex;
             align-items: center;
+            margin-right: 80px;
 
             &-text {
                 margin-right: 10px;
@@ -36,6 +40,7 @@
         &__more {
             display: flex;
             align-items: center;
+            margin-right: 60px;
             border-radius: 5px;
             background-color: #efefef;
 

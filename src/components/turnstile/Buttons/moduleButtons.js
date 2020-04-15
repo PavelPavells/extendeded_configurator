@@ -13,20 +13,10 @@ import './moduleButtons.scss';
 /** ************* IMPORT __UTILS__ FOR BUTTONS TURNSTILE COMPONENT ************* */
 const Loader = lazy(() => import('../../../__utils__/Loader/Loader'));
 
-class ModuleButtons extends React.Component {
-
-    state = {
-        app_id: 'id',
-        trigger: 1,
-        trigger_state: 0,
-        seria: 0,
-    }
+class ModuleButtons extends React.PureComponent {
 
     /** ************* FETCHING DATA ************* */
     componentDidMount() {
-        console.log(this.props)
-        //const { page_view } = this.props.data.turnstile.data;
-        //const { trigger_state } = this.state;
         let data = {
             app_id: 'id',
             trigger: 1,
@@ -44,13 +34,11 @@ class ModuleButtons extends React.Component {
             selectEight: 0
         }
         this.props.fetchDataTurnstile(data);
-        //console.log(page_view)
     }
 
     /** ************* HANDLE CLICK SERIA STR ************* */
     handleClickSeriaSTR = () => {
         const { page_view } = this.props.data.turnstile.data;
-        console.log(page_view)
             let data = {
                 app_id: 'id',
                 trigger: 1,
@@ -58,23 +46,22 @@ class ModuleButtons extends React.Component {
                 seria: 0,
                 button_seria_state: 0,
                 button_corpse_state: page_view.btn_corpse,
-                // selectOne: page_view ? page_view.module_selectors[0].state : 0,
-                // selectTwo: page_view ? page_view.module_selectors[1].state : 0,
-                // selectThree: page_view ? page_view.module_selectors[2].state : 0,
-                // selectFour: page_view ? page_view.module_selectors[3].state : 0,
-                // selectFive: page_view ? page_view.module_selectors[4].state : 0,
-                // selectSix: page_view ? page_view.module_selectors[5].state : 0,
-                // selectSeven: page_view ? page_view.module_selectors[6].state : 0,
-                // selectEight: page_view ? page_view.module_selectors[7].state : 0
+                selectOne: page_view.module_selectors[0].state !== -1 ? page_view.module_selectors[0].state : 0,
+                selectTwo: page_view.module_selectors[1].state !== -1 ? page_view.module_selectors[1].state : 0,
+                selectThree: page_view.module_selectors[2].state !== -1 ? page_view.module_selectors[2].state : 0,
+                selectFour: page_view.module_selectors[3].state !== -1 ? page_view.module_selectors[3].state : 0,
+                selectFive: page_view.module_selectors[4].state !== -1 ? page_view.module_selectors[4].state : 0,
+                selectSix: page_view.module_selectors[5].state !== -1 ? page_view.module_selectors[5].state : 0,
+                selectSeven: page_view.module_selectors[6].state !== -1 ? page_view.module_selectors[6].state : 0,
+                selectEight: page_view.module_selectors[7].state !== -1 ? page_view.module_selectors[7].state : 0
 
             }
-            this.props.fetchDataTurnstile(data);
+            this.props.fetchDataTurnstile(data, data.trigger);
     }
 
     /** ************* HANDLE CLICK SERIA STX ************* */
     handleClickSeriaSTX = () => {
         const { page_view } = this.props.data.turnstile.data;
-        console.log(page_view)
             let data = {
                 app_id: 'id',
                 trigger: 2,
@@ -82,22 +69,21 @@ class ModuleButtons extends React.Component {
                 seria: 0,
                 button_seria_state: 1,
                 button_corpse_state: page_view.btn_corpse,
-                // selectOne: page_view ? page_view.module_selectors[0].state : 0,
-                // selectTwo: page_view ? page_view.module_selectors[1].state : 0,
-                // selectThree: page_view ? page_view.module_selectors[2].state : 0,
-                // selectFour: page_view ? page_view.module_selectors[3].state : 0,
-                // selectFive: page_view ? page_view.module_selectors[4].state : 0,
-                // selectSix: page_view ? page_view.module_selectors[5].state : 0,
-                // selectSeven: page_view ? page_view.module_selectors[6].state : 0,
-                // selectEight: page_view ? page_view.module_selectors[7].state : 0
+                selectOne: page_view.module_selectors[0].state !== -1 ? page_view.module_selectors[0].state : 0,
+                selectTwo: page_view.module_selectors[1].state !== -1 ? page_view.module_selectors[1].state : 0,
+                selectThree: page_view.module_selectors[2].state !== -1 ? page_view.module_selectors[2].state : 0,
+                selectFour: page_view.module_selectors[3].state !== -1 ? page_view.module_selectors[3].state : 0,
+                selectFive: page_view.module_selectors[4].state !== -1 ? page_view.module_selectors[4].state : 0,
+                selectSix: page_view.module_selectors[5].state !== -1 ? page_view.module_selectors[5].state : 0,
+                selectSeven: page_view.module_selectors[6].state !== -1 ? page_view.module_selectors[6].state : 0,
+                selectEight: page_view.module_selectors[7].state !== -1 ? page_view.module_selectors[7].state : 0
             }
-            this.props.fetchDataTurnstile(data);
+            this.props.fetchDataTurnstile(data, data.trigger);
     }
 
     /** ************* HANDLE CLICK SERIA STR ************* */
     handleClickExecutionCompact = () => {
         const { page_view } = this.props.data.turnstile.data;
-        console.log(page_view)
             let data = {
                 app_id: 'id',
                 trigger: 3,
@@ -105,22 +91,21 @@ class ModuleButtons extends React.Component {
                 seria: 0,
                 button_seria_state: page_view.btn_seria,
                 button_corpse_state: 0,
-                // selectOne: page_view ? page_view.module_selectors[0].state : 0,
-                // selectTwo: page_view ? page_view.module_selectors[1].state : 0,
-                // selectThree: page_view ? page_view.module_selectors[2].state : 0,
-                // selectFour: page_view ? page_view.module_selectors[3].state : 0,
-                // selectFive: page_view ? page_view.module_selectors[4].state : 0,
-                // selectSix: page_view ? page_view.module_selectors[5].state : 0,
-                // selectSeven: page_view ? page_view.module_selectors[6].state : 0,
-                // selectEight: page_view ? page_view.module_selectors[7].state : 0
+                selectOne: page_view.module_selectors[0].state !== -1 ? page_view.module_selectors[0].state : 0,
+                selectTwo: page_view.module_selectors[1].state !== -1 ? page_view.module_selectors[1].state : 0,
+                selectThree: page_view.module_selectors[2].state !== -1 ? page_view.module_selectors[2].state : 0,
+                selectFour: page_view.module_selectors[3].state !== -1 ? page_view.module_selectors[3].state : 0,
+                selectFive: page_view.module_selectors[4].state !== -1 ? page_view.module_selectors[4].state : 0,
+                selectSix: page_view.module_selectors[5].state !== -1 ? page_view.module_selectors[5].state : 0,
+                selectSeven: page_view.module_selectors[6].state !== -1 ? page_view.module_selectors[6].state : 0,
+                selectEight: page_view.module_selectors[7].state !== -1 ? page_view.module_selectors[7].state : 0
             }
-            this.props.fetchDataTurnstile(data);
+            this.props.fetchDataTurnstile(data, data.trigger);
     }
 
     /** ************* HANDLE CLICK SERIA STR ************* */
     handleClickExecutionThumb = () => {
         const { page_view } = this.props.data.turnstile.data;
-        console.log(page_view)
             let data = {
                 app_id: 'id',
                 trigger: 4,
@@ -128,21 +113,21 @@ class ModuleButtons extends React.Component {
                 seria: 0,
                 button_seria_state: page_view.btn_seria,
                 button_corpse_state: 1,
-                // selectOne: page_view ? page_view.module_selectors[0].state : 0,
-                // selectTwo: page_view ? page_view.module_selectors[1].state : 0,
-                // selectThree: page_view ? page_view.module_selectors[2].state : 0,
-                // selectFour: page_view ? page_view.module_selectors[3].state : 0,
-                // selectFive: page_view ? page_view.module_selectors[4].state : 0,
-                // selectSix: page_view ? page_view.module_selectors[5].state : 0,
-                // selectSeven: page_view ? page_view.module_selectors[6].state : 0,
-                // selectEight: page_view ? page_view.module_selectors[7].state : 0
+                selectOne: page_view.module_selectors[0].state !== -1 ? page_view.module_selectors[0].state : 0,
+                selectTwo: page_view.module_selectors[1].state !== -1 ? page_view.module_selectors[1].state : 0,
+                selectThree: page_view.module_selectors[2].state !== -1 ? page_view.module_selectors[2].state : 0,
+                selectFour: page_view.module_selectors[3].state !== -1 ? page_view.module_selectors[3].state : 0,
+                selectFive: page_view.module_selectors[4].state !== -1 ? page_view.module_selectors[4].state : 0,
+                selectSix: page_view.module_selectors[5].state !== -1 ? page_view.module_selectors[5].state : 0,
+                selectSeven: page_view.module_selectors[6].state !== -1 ? page_view.module_selectors[6].state : 0,
+                selectEight: page_view.module_selectors[7].state !== -1 ? page_view.module_selectors[7].state : 0
             }
-            this.props.fetchDataTurnstile(data);
+            this.props.fetchDataTurnstile(data, data.trigger);
     }
     handleClickResetSelectors = () => {
         const { page_view } = this.props.data.turnstile.data;
         let data = {
-            //trigger: this.state.trigger,
+            trigger: this.props.data.turnstile.trigger,
             button_seria_state : page_view.btn_seria, 
             button_corpse_state : page_view.btn_corpse, 
             reset_model : 1,
@@ -155,13 +140,13 @@ class ModuleButtons extends React.Component {
             selectSeven: 0,
             selectEight: 0
         }
-        this.props.fetchDataTurnstile(data);
+        this.props.fetchDataTurnstile(data, data.trigger);
     }
     render() {
         
         /** ************* DATA FROM STORE ************* */
         const { turnstile, isFetching } = this.props.data;
-        //console.log(this.props.data)
+        //console.log(turnstile)
         if(turnstile.data.length === 0 && !isFetching) {
             return <Suspense fallback={<div><Loader /></div>}></Suspense>
         }

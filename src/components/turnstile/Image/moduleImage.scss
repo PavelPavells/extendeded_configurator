@@ -4,8 +4,9 @@
 /** ***** module image ***** */
 .wrapper-photo {
     display: flex;
-    width: 400px;
+    width: 350px;
     height: 500px;
+    padding: 25px;
 
     &__image {
         display: flex;

@@ -22,16 +22,13 @@ class Offer extends React.Component {
         this.props.fetchDataTurnstile()
     }
 
-    handleClick = (index, key) => {
-        console.log(index, key)
+    handleOpenModal = (index, key) => {
+        console.log('INDEX ' + index.name);
+        console.log('KEY ' + key);
         if(index.index === 0 && key === 0) {
             this.setState({ modal: !this.state.modal })
         }
     }
-
-    //handleChangeModal = () => {
-    //    this.setState({ modal: !this.state.modal })
-    //}
 
     render() {
         /** ************* DATA FROM STORE ************* */
@@ -67,8 +64,19 @@ class Offer extends React.Component {
                     </div>
                 </div>
                 <div className="offer-goods">
+                    <div className='offer-category'>
+                        <div className='category-wrapper'>
+                            <div className="category-wrapper__photo">Фото</div>
+                            <div className="category-wrapper__product">Товар</div>
+                        </div>
+                        <div className='category-wrapper'> 
+                            <div className="category-wrapper__amount">Количество</div>
+                            <div className="category-wrapper__value">Стоимость</div>
+                            <div className="category-wrapper__summ">Сумма</div>
+                        </div>
+                    </div>
                     {turnstile.data.page_view.model_module_list.map((index, key) => (
-                        <div onClick={() => this.handleClick(index, key)} key={index.index} index={index.index} className='blocks'>
+                        <div key={index.name} index={index.index} className='blocks'>
                             <div className='main'>
                                 <div className='block-left'>
                                     <div className="block-left__image">
@@ -77,7 +85,7 @@ class Offer extends React.Component {
                                     </div>
                                     <div className="block-left__text">
                                         <div className="block-left__text-partition">{index.caption}</div>
-                                        <div className="block-left__text-name">{index.caption}<div className='arrow'></div></div>
+                                        <div onClick={() => this.handleOpenModal(index, key)} className="block-left__text-name">{index.caption}<div className='arrow'></div></div>
                                     </div>
                                 </div>
                                 <div className="blocks-info">
@@ -101,8 +109,8 @@ class Offer extends React.Component {
                                             <div className="offer-caption">
                                                 <p className="offer-caption__description">Стандартная комплектация</p>
                                                 <div className='offer-caption__list'>
-                                                    {turnstile.data.page_view.model_module_list.map((index, key) => (
-                                                        <div className='offer-equipment'>
+                                                    {turnstile.data.page_view.model_module_list.map(index => (
+                                                        <div key={index.name} index={index.index} className='offer-equipment'>
                                                             <div className='offer-equipment__paragraph'>{index.caption}</div>
                                                             <span className='offer-equipment__amount'>{turnstile.data.page_view.model_module_list.length}</span>
                                                         </div>
@@ -112,8 +120,8 @@ class Offer extends React.Component {
                                             <div className="offer-caption">
                                                 <p className="offer-caption__description">Опции</p>
                                                 <div className='offer-caption__list'>
-                                                    {turnstile.data.page_view.model_module_list.map((index, key) => (
-                                                        <div className='offer-equipment'>
+                                                    {turnstile.data.page_view.model_module_list.slice(1).map(index => (
+                                                        <div key={index.name} index={index.index} className='offer-equipment'>
                                                             <div className='offer-equipment__paragraph'>{index.caption}</div>
                                                             <div className="offer-equipment__info">
                                                                 <div className="offer-equipment__info-value">{turnstile.data.page_view.model_module_list.length}</div>
@@ -123,6 +131,7 @@ class Offer extends React.Component {
                                                             </div>
                                                         </div>
                                                     ))}
+                                                    <div className='offer-caption__list-button'>ДОБАВИТЬ</div>
                                                 </div>
                                             </div>
                                         </div>

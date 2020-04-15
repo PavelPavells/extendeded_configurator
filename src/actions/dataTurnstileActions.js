@@ -14,8 +14,9 @@ import {
 export const fetchingDataTurnstileRequest = () => ({ type: FETCHING_DATA_TURNSTILE_REQUEST });
 
 /** ********** ACTION FOR FETCH SUCCESS ********** */
-export const fetchingDataTurnstileSuccess = data => ({
+export const fetchingDataTurnstileSuccess = (data, trigger) => ({
     type: FETCHING_DATA_TURNSTILE_SUCCESS,
+    trigger: trigger,
     payload: data.data
 })
 
@@ -25,9 +26,9 @@ export const fetchingDataTurnstileFailure = error => ({
     payload: error
 })
 
-export const fetchDataTurnstile = data => {
+export const fetchDataTurnstile = (data, trigger) => {
     return async dispatch => {
-        dispatch(fetchingDataTurnstileRequest(data));
+        dispatch(fetchingDataTurnstileRequest(data, trigger));
         console.log(data ? 'app_id : ' + data.app_id : 'id');
         console.log(data ? 'trigger : ' + data.trigger : 0);
         console.log(data ? 'button_seria_state : ' + data.button_seria_state: 0);
@@ -84,7 +85,7 @@ export const fetchDataTurnstile = data => {
                 ]        
             })
             .then(data => {
-                dispatch(fetchingDataTurnstileSuccess(data));
+                dispatch(fetchingDataTurnstileSuccess(data, trigger));
             })
             .catch(error => { console.log(error) })
         } catch (error) {

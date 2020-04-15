@@ -101,7 +101,7 @@ class ModuleEquipment extends React.Component {
     render() {
         /** ************* DATA FROM STORE ************* */
         const { turnstile, isFetching } = this.props.data;
-        console.log(this.props.data)
+        //console.log(this.props.data)
         if(turnstile.data.length === 0 && !isFetching) {
             return <Suspense fallback={<div><Loader /></div>}></Suspense>
         }

@@ -21,6 +21,8 @@ class Layout extends React.Component {
         return(
             <Router>
                 <Suspense fallback={<div><Loader /></div>}>
+
+                    {/** ************* WRAPPER COMPONENTS ************* */}
                     <div className="components">
                         <Switch>
                             <Route path='/main' component={Main} />

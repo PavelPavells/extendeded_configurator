@@ -1,19 +1,20 @@
 /** ***** IMPORT GLOBAL STYLE ***** */
 @import '../../../styles/styles.scss';
 
-/** ***** selctors styles ***** */
+/** ***** MODULE SELECTORS ***** */
 .selectors {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
-    //height: 100%;
 
     &-text {
         font-size: 12px;
         line-height: 1.5;
         color: $brandPantonDescription;
     }
+
+    /** ***** SELECTORS ***** */
     &-module {
         display: flex;
         flex-direction: row;
@@ -84,7 +85,7 @@
         }
     }
 }
-/**  ======================= MODULE ICONS STYLES ========================  */
+/**  ***** SELECTORS ICONS STYLES *****  */
 
 .ep {
     display: block;
@@ -143,14 +144,14 @@
     background: url('../../../images/icon/stainless-case.svg') no-repeat center;
 }
 
-/**  ======================= DISABLED SELECTORS ========================  */
+/**  ***** DISABLED SELECTORS *****  */
 .none {
     opacity: 0.5;
 }
   
-/**  ======================= SWITCHERS ========================  */
+/**  ***** SWITCHERS *****  */
 
-// ================= 1 ================= //
+// ***** SELECTOR ONE ***** //
 
 .onoffswitch {
     position: relative; min-width: 50px;
@@ -213,7 +214,7 @@
     right: 0px; 
 }
 
-// ================= 2 ================= //
+// ***** SELECTOR TWO ***** //
 .onoffswitch2 {
     position: relative; min-width: 50px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
@@ -275,7 +276,7 @@
     right: 0px; 
 }
 
-// ================= 3 ================= //
+// ***** SELECTOR THREE ***** //
 .onoffswitch3 {
     position: relative; min-width: 50px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
@@ -336,7 +337,7 @@
 .onoffswitch3-checkbox:checked + .onoffswitch3-label .onoffswitch3-switch {
     right: 0px; 
 }
-// ================= 4 ================= //
+// ***** SELECTOR FOUR ***** //
 .onoffswitch4 {
     position: relative; min-width: 50px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
@@ -398,7 +399,7 @@
     right: 0px; 
 }
 
-// ================= 5 ================= //
+// ***** SELECTOR FIVE ***** //
 .onoffswitch5 {
     position: relative; min-width: 50px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
@@ -459,7 +460,7 @@
 .onoffswitch5-checkbox:checked + .onoffswitch5-label .onoffswitch5-switch {
     right: 0px; 
 }
-// ================= 6 ================= //
+// ***** SELECTOR SIX ***** //
 .onoffswitch6 {
     position: relative; min-width: 50px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
@@ -521,7 +522,7 @@
     right: 0px; 
 }
 
-// ================= 7 ================= //
+// ***** SELECTOR SEVEN ***** //
 .onoffswitch7 {
     position: relative; min-width: 50px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
@@ -582,7 +583,7 @@
 .onoffswitch7-checkbox:checked + .onoffswitch7-label .onoffswitch7-switch {
     right: 0px; 
 }
-// ================= 8 ================= //
+// ***** SELECTOR EIGHT ***** //
 .onoffswitch8 {
     position: relative; min-width: 50px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;

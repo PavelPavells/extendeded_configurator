@@ -18,6 +18,8 @@ class App extends React.Component {
     return (
       <Provider store={store}>
         <BrowserRouter>
+
+          {/** ************* WRAPPER-CONFIGURATOR ************* */}
           <div className="wrapper-configurator">
             <Layouts />
           </div>

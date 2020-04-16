@@ -1,27 +1,22 @@
 /** ***** IMPORT GLOBAL STYLE ***** */
 @import '../../styles/styles.scss';
 
-/** ***** turnstile ***** */
+/** ***** TURNSTILE COMPONENT ***** */
 .turnstile {
     display: flex;
     flex-direction: column;
-    //width: 100%;
-    //margin: 0 40px;
-    //border: 1px solid red;
 
-    /** ***** wrapper top configurator ***** */
+    /** ***** WRAPPER BASKET COMPONENT ***** */
     &-top {
        width: 100%;
     }
 
-    /** ***** wrapper main configurator ***** */
     &-main {
         display: flex;
         width: 100%;
         padding-top: 40px;
         background-color: #fafafa;
     
-        /** ***** turnstile slider ***** */
         &__slider {
             display: flex;
             flex-direction: column;
@@ -29,6 +24,7 @@
             width: 45%;
             margin: 0 40px;
 
+            /** ***** WRAPPER IMAGE COMPONENT ***** */
             &-image {
                 display: flex;
                 justify-content: center;
@@ -36,6 +32,8 @@
                 height: 600px;
                 background-color: $brandPantonGrey;
             }
+
+            /** ***** WRAPPER LIST COMPONENT ***** */
             &-list {
                 display: flex;
                 justify-content: flex-start;
@@ -43,18 +41,20 @@
             }
         }
 
-        /** ***** turnstile basis ***** */
         &__basis {
             display: flex;
             flex-direction: column;
             width: 100%;
             margin-right: 40px;
 
+            /** ***** WRAPPER BUTTONS COMPONENT ***** */
             &-buttons {
                 display: flex;
                 justify-content: center;
                 align-items: center;
             }
+
+            /** ***** WRAPPER SELECTORS COMPONENT ***** */
             &-selectors {
                 display: flex;
                 height: 50vh;
@@ -62,17 +62,15 @@
         }
     }
 
-    /** ***** turnstile configuration ***** */
+    /** ***** WRAPPER CONFIGURATION COMPONENT ***** */
     &-configuration {
         display: flex;
-        //width: 100%;
         padding-top: 40px;
         padding-bottom: 40px;
-        //margin-right: 40px;
         background-color:#fafafa;
     }
 
-    /** ***** turnstile equipment ***** */
+    /** ***** WRAPPER EQUIPMENT COMPONENT ***** */
     &-equipment {
         display: flex;
         width: 100%;

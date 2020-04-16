@@ -9,6 +9,16 @@ import {
     togglePopupWindowTurnstile 
 } from '../../../actions/dataTurnstileActions';
 
+/** ************* IMPORT SELECTORS FOR MODULESELECTORS COMPONENT ************* */
+//import selectorOne from './selectors/selectorOne/selectorOne';
+//import selectorTwo from './selectors/selectorTwo/selectorTwo';
+//import selectorThree from './selectors/selectorThree/selectorThree';
+//import selectorFour from './selectors/selectorFour/selectorFour';
+//import selectorFive from './selectors/selectorFive/selectorFive';
+//import selectorSix from './selectors/selectorSix/selectorSix';
+//import selectorSeven from './selectors/selectorSeven/selectorSeven';
+//import selectorEight from './selectors/selectorEight/selectorEight';
+
 /** ************* IMPORT STYLES FOR MODULE SELECTORS IN TURNSTILE COMPONENT ************* */
 import './moduleSelectors.scss';
 
@@ -31,11 +41,10 @@ class ModuleSelectors extends React.PureComponent {
         selectSix: 0,
         selectSeven: 0,
         selectEight: 0,
-        defaultSelect: false
     }
 
     /** ************* FETCHING DATA ************* */
-    componentDidMount() {
+    //componentDidMount() {
         //const { page_view } = this.props.data.turnstile.data;
         //console.log(this.props.data.turnstile)
         // let data = {
@@ -55,7 +64,7 @@ class ModuleSelectors extends React.PureComponent {
         //    selectEight: this.state.selectEight
         //}
         //this.props.fetchDataTurnstile(data);
-    }
+    //}
 
     /** ************* TOGGLE MODAL ************* */
     handleModal = () => {
@@ -63,14 +72,16 @@ class ModuleSelectors extends React.PureComponent {
     }
 
     /** ************* CHOICE FIRST SELECTOR ************* */
-    handleClickZeroSelect = () => {
-        let data;
+    handleClickOneSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
+        //console.log(page_view.module_selectors[0].state)
         this.setState({ 
             selectOne: +!this.state.selectOne 
         }, () => {
-            data = {
+            let data = {
+                app_id: 'id',
                 trigger: 5,
+                trigger_state: this.state.selectOne,
                 button_seria_state: page_view.btn_seria,
                 button_corpse_state: page_view.btn_corpse,
                 selectOne: this.state.selectOne,
@@ -82,19 +93,20 @@ class ModuleSelectors extends React.PureComponent {
                 selectSeven: this.state.selectSeven,
                 selectEight: this.state.selectEight
             }
-            
-        })
-        this.props.fetchDataTurnstile(data);
+            this.props.fetchDataTurnstile(data); 
+        }) 
     }
 
     /** ************* CHOICE TWO SELECTOR ************* */
-    handleClickOneSelect = () => {
+    handleClickTwoSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         this.setState({ 
             selectTwo: +!this.state.selectTwo 
         }, () => {
             let data = {
+                app_id: 'id',
                 trigger: 6,
+                trigger_state: this.state.selectTwo,
                 button_seria_state: page_view.btn_seria,
                 button_corpse_state: page_view.btn_corpse,
                 selectOne: this.state.selectOne,
@@ -106,18 +118,20 @@ class ModuleSelectors extends React.PureComponent {
                 selectSeven: this.state.selectSeven,
                 selectEight: this.state.selectEight
             }
-            this.props.fetchDataTurnstile(data);
+            this.props.fetchDataTurnstile(data); 
         })
     }
 
     /** ************* CHOICE THREE SELECTOR ************* */
-    handleClickTwoSelect = () => {
+    handleClickThreeSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         this.setState({ 
             selectThree: +!this.state.selectThree 
         }, () => {
             let data = {
+                app_id: 'id',
                 trigger: 7,
+                trigger_state: this.state.selectThree,
                 button_seria_state: page_view.btn_seria,
                 button_corpse_state: page_view.btn_corpse,
                 selectOne: this.state.selectOne,
@@ -134,13 +148,15 @@ class ModuleSelectors extends React.PureComponent {
     }
 
     /** ************* CHOICE FOUR SELECTOR ************* */
-    handleClickThreeSelect = () => {
+    handleClickFourSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         this.setState({ 
             selectFour: +!this.state.selectFour 
         }, () => {
             let data = {
+                app_id: 'id',
                 trigger: 8,
+                trigger_state: this.state.selectFour,
                 button_seria_state: page_view.btn_seria,
                 button_corpse_state: page_view.btn_corpse,
                 selectOne: this.state.selectOne,
@@ -157,13 +173,15 @@ class ModuleSelectors extends React.PureComponent {
     }
 
     /** ************* CHOICE FIVE SELECTOR ************* */
-    handleClickFourSelect = () => {
+    handleClickFiveSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         this.setState({ 
             selectFive: +!this.state.selectFive 
         }, () => {
             let data = {
+                app_id: 'id',
                 trigger: 9,
+                trigger_state: this.state.selectFive,
                 button_seria_state: page_view.btn_seria,
                 button_corpse_state: page_view.btn_corpse,
                 selectOne: this.state.selectOne,
@@ -180,13 +198,15 @@ class ModuleSelectors extends React.PureComponent {
     }
 
     /** ************* CHOICE SIX SELECTOR ************* */
-    handleClickFiveSelect = () => {
+    handleClickSixSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         this.setState({ 
             selectSix: +!this.state.selectSix 
         }, () => {
             let data = {
+                app_id: 'id',
                 trigger: 10,
+                trigger_state: this.state.selectSix,
                 button_seria_state: page_view.btn_seria,
                 button_corpse_state: page_view.btn_corpse,
                 selectOne: this.state.selectOne,
@@ -203,13 +223,15 @@ class ModuleSelectors extends React.PureComponent {
     }
 
     /** ************* CHOICE SEVEN SELECTOR ************* */
-    handleClickSixSelect = () => {
+    handleClickSevenSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         this.setState({ 
             selectSeven: +!this.state.selectSeven
         }, () => {
             let data = {
+                app_id: 'id',
                 trigger: 11,
+                trigger_state: this.state.selectSeven,
                 button_seria_state: page_view.btn_seria,
                 button_corpse_state: page_view.btn_corpse,
                 selectOne: this.state.selectOne,
@@ -226,13 +248,15 @@ class ModuleSelectors extends React.PureComponent {
     }
 
     /** ************* CHOICE EIGHT SELECTOR ************* */
-    handleClickSevenSelect = () => {
+    handleClickEightSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         this.setState({ 
             selectEight: +!this.state.selectEight 
         }, () => {
             let data = {
+                app_id: 'id',
                 trigger: 12,
+                trigger_state: this.state.selectEight,
                 button_seria_state: page_view.btn_seria,
                 button_corpse_state: page_view.btn_corpse,
                 selectOne: this.state.selectOne,
@@ -255,19 +279,21 @@ class ModuleSelectors extends React.PureComponent {
         if (turnstile.data.length === 0 && !isFetching) {
             return <Suspense fallback={<div><Loader /></div>}></Suspense>
         }
-        console.log('selector 1 : ' + turnstile.data.page_view ? turnstile.data.page_view.module_selectors[0].state : null)
-        console.log('selector 2 : ' + turnstile.data.page_view ? turnstile.data.page_view.module_selectors[1].state : null)
-        console.log('selector 3 : ' + turnstile.data.page_view ? turnstile.data.page_view.module_selectors[2].state : null)
-        console.log('selector 4 : ' + turnstile.data.page_view ? turnstile.data.page_view.module_selectors[3].state : null)
-        console.log('selector 5 : ' + turnstile.data.page_view ? turnstile.data.page_view.module_selectors[4].state : null)
-        console.log('selector 6 : ' + turnstile.data.page_view ? turnstile.data.page_view.module_selectors[5].state : null)
-        console.log('selector 7 : ' + turnstile.data.page_view ? turnstile.data.page_view.module_selectors[6].state : null)
-        console.log('selector 8 : ' + turnstile.data.page_view ? turnstile.data.page_view.module_selectors[7].state : null)
+        //console.log('selector 1 : ' + turnstile.data.page_view ? turnstile.data.page_view.module_selectors[0].state : null)
+        //console.log('selector 2 : ' + turnstile.data.page_view ? turnstile.data.page_view.module_selectors[1].state : null)
+        //console.log('selector 3 : ' + turnstile.data.page_view ? turnstile.data.page_view.module_selectors[2].state : null)
+        //console.log('selector 4 : ' + turnstile.data.page_view ? turnstile.data.page_view.module_selectors[3].state : null)
+        //console.log('selector 5 : ' + turnstile.data.page_view ? turnstile.data.page_view.module_selectors[4].state : null)
+        //console.log('selector 6 : ' + turnstile.data.page_view ? turnstile.data.page_view.module_selectors[5].state : null)
+        //console.log('selector 7 : ' + turnstile.data.page_view ? turnstile.data.page_view.module_selectors[6].state : null)
+        //console.log('selector 8 : ' + turnstile.data.page_view ? turnstile.data.page_view.module_selectors[7].state : null)
         return (
 
             /** ************* MODULE SELECTORS ************* */
             <div className='selectors'>
                 <div className='selectors-text'>Дополнительные модули</div>
+
+                {/** ************* EP SELECTORS ************* */}
                 {turnstile.data.page_view.module_selectors.slice(0, 1).map((index, key) => (
                         <div key={index.index} className='selectors-module'>
                             <div className='selectors-module__left'>
@@ -291,8 +317,8 @@ class ModuleSelectors extends React.PureComponent {
                                         name="onoffswitch" 
                                         className="onoffswitch-checkbox" 
                                         id="header-checkbox"
-                                        onChange={this.handleClickZeroSelect}
-                                        checked={this.state.selectOne}
+                                        onChange={this.handleClickOneSelect}
+                                        checked={turnstile.data.page_view.module_selectors[0].state}
                                     />
                                     <label className="onoffswitch-label" htmlFor="header-checkbox">
                                         <span className="onoffswitch-inner"></span>
@@ -304,7 +330,7 @@ class ModuleSelectors extends React.PureComponent {
                     )
                 )}
                 
-
+                {/** ************* EMMARIN SELECTORS ************* */}
                 {turnstile.data.page_view.module_selectors.slice(1, 2).map((index, key) => (
                         <div key={index.index} className='selectors-module'>
                             <div className='selectors-module__left'>
@@ -330,8 +356,8 @@ class ModuleSelectors extends React.PureComponent {
                                         name="onoffswitch2" 
                                         className="onoffswitch2-checkbox" 
                                         id="header2-checkbox" 
-                                        onChange={this.handleClickOneSelect}
-                                        checked={this.state.selectTwo}
+                                        onChange={this.handleClickTwoSelect}
+                                        checked={turnstile.data.page_view.module_selectors[1].state}
                                     />
                                     <label className="onoffswitch2-label" htmlFor="header2-checkbox">
                                         <span className="onoffswitch2-inner"></span>
@@ -343,6 +369,7 @@ class ModuleSelectors extends React.PureComponent {
                     )
                 )}
 
+                {/** ************* MIFIRE SELECTORS ************* */}
                 {turnstile.data.page_view.module_selectors.slice(2, 3).map((index, key) => (
                         <div key={index.index} className='selectors-module'>
                             <div className='selectors-module__left'>
@@ -368,8 +395,8 @@ class ModuleSelectors extends React.PureComponent {
                                         name="onoffswitch3" 
                                         className="onoffswitch3-checkbox" 
                                         id="header3-checkbox"
-                                        onChange={this.handleClickTwoSelect}
-                                        checked={this.state.selectThree} 
+                                        onChange={this.handleClickThreeSelect}
+                                        checked={turnstile.data.page_view.module_selectors[2].state} 
                                     />
                                     <label className="onoffswitch3-label" htmlFor="header3-checkbox">
                                         <span className="onoffswitch3-inner"></span>
@@ -381,6 +408,7 @@ class ModuleSelectors extends React.PureComponent {
                     )
                 )} 
 
+                {/** ************* BIOMETRY SELECTORS ************* */}
                 {turnstile.data.page_view.module_selectors.slice(3, 4).map((index, key) => (
                         <div key={index.index} className='selectors-module'>
                             <div className='selectors-module__left'>
@@ -407,8 +435,8 @@ class ModuleSelectors extends React.PureComponent {
                                         name="onoffswitch4" 
                                         className="onoffswitch4-checkbox" 
                                         id="header4-checkbox" 
-                                        onClick={this.handleClickThreeSelect}
-                                        checked={this.state.selectFour}     
+                                        onChange={this.handleClickFourSelect}
+                                        checked={turnstile.data.page_view.module_selectors[3].state}     
                                     />
                                     <label className="onoffswitch4-label" htmlFor="header4-checkbox">
                                         <span className="onoffswitch4-inner"></span>
@@ -420,6 +448,7 @@ class ModuleSelectors extends React.PureComponent {
                     )
                 )}
 
+                {/** ************* INFORMATION SELECTORS ************* */}
                 {turnstile.data.page_view.module_selectors.slice(4, 5).map((index, key) => {
                     if(index.state === -1) {
                             return (
@@ -427,27 +456,13 @@ class ModuleSelectors extends React.PureComponent {
                                     <div className='selectors-module__left'>
                                         <div className='selectors-module__icon time'></div>
                                         <div className='selectors-module__text'>Информационный дисплей учета рабочего времени</div>
-                                        <div className='selectors-module__info'>
-                                            <div className='selectors-module__info-text'>ПОДРОБНЕЕ</div>
-                                            <div className='selectors-module__info-arrow'></div>
-                                        </div>
                                     </div>
                                     <div className='selectors-module__right'>
-                                        <div className='selectors-module__price'>
-                                            {turnstile.data.page_view.model_module_list[1] !== undefined && turnstile.data.page_view.model_module_list[1].name === 'display' && '+ ' + turnstile.data.page_view.model_module_list[1].price}
-                                            {turnstile.data.page_view.model_module_list[2] !== undefined && turnstile.data.page_view.model_module_list[2].name === 'display' && '+ ' + turnstile.data.page_view.model_module_list[2].price}
-                                            {turnstile.data.page_view.model_module_list[3] !== undefined && turnstile.data.page_view.model_module_list[3].name === 'display' && '+ ' + turnstile.data.page_view.model_module_list[3].price}
-                                            {turnstile.data.page_view.model_module_list[4] !== undefined && turnstile.data.page_view.model_module_list[4].name === 'display' && '+ ' + turnstile.data.page_view.model_module_list[4].price}
-                                            {turnstile.data.page_view.model_module_list[5] !== undefined && turnstile.data.page_view.model_module_list[5].name === 'display' && '+ ' + turnstile.data.page_view.model_module_list[5].price}
-                                        </div>
                                         <div className="onoffswitch5">
                                             <input 
-                                                type="checkbox" 
-                                                name="onoffswitch5" 
-                                                className="onoffswitch5-checkbox" 
-                                                id="header5-checkbox" 
-                                                onChange={this.handleClickFourSelect}
-                                                checked={false}    
+                                                type="checkbox"
+                                                className="onoffswitch5-checkbox"
+                                                defaultChecked={false}    
                                             />
                                             <label className="onoffswitch5-label" htmlFor="header5-checkbox">
                                                 <span className="onoffswitch5-inner"></span>
@@ -482,8 +497,8 @@ class ModuleSelectors extends React.PureComponent {
                                                 name="onoffswitch5" 
                                                 className="onoffswitch5-checkbox" 
                                                 id="header5-checkbox" 
-                                                onClick={this.handleClickFourSelect}
-                                                checked={this.state.selectFive}     
+                                                onChange={this.handleClickFiveSelect}
+                                                checked={turnstile.data.page_view.module_selectors[4].state}     
                                             />
                                             <label className="onoffswitch5-label" htmlFor="header5-checkbox">
                                                 <span className="onoffswitch5-inner"></span>
@@ -497,6 +512,7 @@ class ModuleSelectors extends React.PureComponent {
                     })  
                 }
 
+                {/** ************* CONTROL SELECTORS ************* */}
                 {turnstile.data.page_view.module_selectors.slice(5, 6).map((index, key) => {
                     if(index.state === -1) {
                             return (
@@ -504,28 +520,13 @@ class ModuleSelectors extends React.PureComponent {
                                     <div className='selectors-module__left'>
                                         <div className='selectors-module__icon one-visits'></div>
                                         <div className='selectors-module__text'>Контроль разовых посещений по 2D штрих-кодам</div>
-                                        <div className='selectors-module__info'>
-                                            <div className='selectors-module__info-text'>ПОДРОБНЕЕ</div>
-                                            <div className='selectors-module__info-arrow'></div>
-                                        </div>
                                     </div>
                                     <div className='selectors-module__right'>
-                                        <div className='selectors-module__price'>
-                                            {turnstile.data.page_view.model_module_list[1] !== undefined && turnstile.data.page_view.model_module_list[1].name === 'qrguests' && '+ ' + turnstile.data.page_view.model_module_list[1].price}
-                                            {turnstile.data.page_view.model_module_list[2] !== undefined && turnstile.data.page_view.model_module_list[2].name === 'qrguests' && '+ ' + turnstile.data.page_view.model_module_list[2].price}
-                                            {turnstile.data.page_view.model_module_list[3] !== undefined && turnstile.data.page_view.model_module_list[3].name === 'qrguests' && '+ ' + turnstile.data.page_view.model_module_list[3].price}
-                                            {turnstile.data.page_view.model_module_list[4] !== undefined && turnstile.data.page_view.model_module_list[4].name === 'qrguests' && '+ ' + turnstile.data.page_view.model_module_list[4].price}
-                                            {turnstile.data.page_view.model_module_list[5] !== undefined && turnstile.data.page_view.model_module_list[5].name === 'qrguests' && '+ ' + turnstile.data.page_view.model_module_list[5].price}
-                                            {turnstile.data.page_view.model_module_list[6] !== undefined && turnstile.data.page_view.model_module_list[6].name === 'qrguests' && '+ ' + turnstile.data.page_view.model_module_list[6].price}
-                                        </div>
                                         <div className="onoffswitch6">
                                             <input 
-                                                type="checkbox" 
-                                                name="onoffswitch6" 
-                                                className="onoffswitch6-checkbox" 
-                                                id="header6-checkbox" 
-                                                onChange={this.handleClickFiveSelect}
-                                                checked={false}     
+                                                type="checkbox"
+                                                className="onoffswitch6-checkbox"
+                                                defaultChecked={false}     
                                             />
                                             <label className="onoffswitch6-label" htmlFor="header6-checkbox">
                                                 <span className="onoffswitch6-inner"></span>
@@ -561,8 +562,8 @@ class ModuleSelectors extends React.PureComponent {
                                                 name="onoffswitch6" 
                                                 className="onoffswitch6-checkbox" 
                                                 id="header6-checkbox" 
-                                                onClick={this.handleClickFiveSelect}
-                                                checked={this.state.selectSix}     
+                                                onChange={this.handleClickSixSelect}
+                                                checked={turnstile.data.page_view.module_selectors[5].state}     
                                             />
                                             <label className="onoffswitch6-label" htmlFor="header6-checkbox">
                                                 <span className="onoffswitch6-inner"></span>
@@ -576,7 +577,7 @@ class ModuleSelectors extends React.PureComponent {
                     })  
                 }
                 
-
+                {/** ************* GUEST SELECTORS ************* */}
                 {turnstile.data.page_view.module_selectors.slice(6, 7).map((index, key) => {
                     if(index.state === -1) {
                             return (
@@ -584,29 +585,13 @@ class ModuleSelectors extends React.PureComponent {
                                     <div className='selectors-module__left'>
                                         <div className='selectors-module__icon guest-access'></div>
                                         <div className='selectors-module__text'>Гостевой доступ по 2D штрих-кодам</div>
-                                        <div className='selectors-module__info'>
-                                            <div className='selectors-module__info-text'>ПОДРОБНЕЕ</div>
-                                            <div className='selectors-module__info-arrow'></div>
-                                        </div>
                                     </div>
                                     <div className='selectors-module__right'>
-                                        <div className='selectors-module__price'>
-                                            {turnstile.data.page_view.model_module_list[1] !== undefined && turnstile.data.page_view.model_module_list[1].name === 'qrvisitors' && '+ ' + turnstile.data.page_view.model_module_list[1].price}
-                                            {turnstile.data.page_view.model_module_list[2] !== undefined && turnstile.data.page_view.model_module_list[2].name === 'qrvisitors' && '+ ' + turnstile.data.page_view.model_module_list[2].price}
-                                            {turnstile.data.page_view.model_module_list[3] !== undefined && turnstile.data.page_view.model_module_list[3].name === 'qrvisitors' && '+ ' + turnstile.data.page_view.model_module_list[3].price}
-                                            {turnstile.data.page_view.model_module_list[4] !== undefined && turnstile.data.page_view.model_module_list[4].name === 'qrvisitors' && '+ ' + turnstile.data.page_view.model_module_list[4].price}
-                                            {turnstile.data.page_view.model_module_list[5] !== undefined && turnstile.data.page_view.model_module_list[5].name === 'qrvisitors' && '+ ' + turnstile.data.page_view.model_module_list[5].price}
-                                            {turnstile.data.page_view.model_module_list[6] !== undefined && turnstile.data.page_view.model_module_list[6].name === 'qrvisitors' && '+ ' + turnstile.data.page_view.model_module_list[6].price}
-                                            {turnstile.data.page_view.model_module_list[7] !== undefined && turnstile.data.page_view.model_module_list[7].name === 'qrvisitors' && '+ ' + turnstile.data.page_view.model_module_list[7].price}
-                                        </div>
                                         <div className="onoffswitch7">
                                             <input 
                                                 type="checkbox" 
-                                                name="onoffswitch7" 
-                                                className="onoffswitch7-checkbox" 
-                                                id="header7-checkbox" 
-                                                onChange={this.handleClickSixSelect}
-                                                checked={false}
+                                                className="onoffswitch7-checkbox"
+                                                defaultChecked={false}
                                             />
                                             <label className="onoffswitch7-label" htmlFor="header7-checkbox">
                                                 <span className="onoffswitch7-inner"></span>
@@ -643,8 +628,8 @@ class ModuleSelectors extends React.PureComponent {
                                                 name="onoffswitch7" 
                                                 className="onoffswitch7-checkbox" 
                                                 id="header7-checkbox" 
-                                                onClick={this.handleClickSixSelect}
-                                                checked={this.state.selectSeven}
+                                                onChange={this.handleClickSevenSelect}
+                                                checked={turnstile.data.page_view.module_selectors[6].state}
                                             />
                                             <label className="onoffswitch7-label" htmlFor="header7-checkbox">
                                                 <span className="onoffswitch7-inner"></span>
@@ -658,6 +643,7 @@ class ModuleSelectors extends React.PureComponent {
                     })  
                 }
 
+                {/** ************* CORPSE SELECTORS ************* */}
                 {turnstile.data.page_view.module_selectors.slice(7, 8).map((index, key) => {
                     if(index.state === -1) {
                             return (
@@ -665,30 +651,13 @@ class ModuleSelectors extends React.PureComponent {
                                     <div className='selectors-module__left'>
                                         <div className='selectors-module__icon steel'></div>
                                         <div className='selectors-module__text'>Корпус кожуха из нержавеющей стали</div>
-                                        <div className='selectors-module__info'>
-                                            <div className='selectors-module__info-text'>ПОДРОБНЕЕ</div>
-                                            <div className='selectors-module__info-arrow'></div>
-                                        </div>
                                     </div>
                                     <div className='selectors-module__right'>
-                                        <div className='selectors-module__price'>
-                                            {turnstile.data.page_view.model_module_list[1] !== undefined && turnstile.data.page_view.model_module_list[1].name === 'stainless' && '+ ' + turnstile.data.page_view.model_module_list[1].price}
-                                            {turnstile.data.page_view.model_module_list[2] !== undefined && turnstile.data.page_view.model_module_list[2].name === 'stainless' && '+ ' + turnstile.data.page_view.model_module_list[2].price}
-                                            {turnstile.data.page_view.model_module_list[3] !== undefined && turnstile.data.page_view.model_module_list[3].name === 'stainless' && '+ ' + turnstile.data.page_view.model_module_list[3].price}
-                                            {turnstile.data.page_view.model_module_list[4] !== undefined && turnstile.data.page_view.model_module_list[4].name === 'stainless' && '+ ' + turnstile.data.page_view.model_module_list[4].price}
-                                            {turnstile.data.page_view.model_module_list[5] !== undefined && turnstile.data.page_view.model_module_list[5].name === 'stainless' && '+ ' + turnstile.data.page_view.model_module_list[5].price}
-                                            {turnstile.data.page_view.model_module_list[6] !== undefined && turnstile.data.page_view.model_module_list[6].name === 'stainless' && '+ ' + turnstile.data.page_view.model_module_list[6].price}
-                                            {turnstile.data.page_view.model_module_list[7] !== undefined && turnstile.data.page_view.model_module_list[7].name === 'stainless' && '+ ' + turnstile.data.page_view.model_module_list[7].price}
-                                            {turnstile.data.page_view.model_module_list[8] !== undefined && turnstile.data.page_view.model_module_list[8].name === 'stainless' && '+ ' + turnstile.data.page_view.model_module_list[8].price}
-                                        </div>
                                         <div className="onoffswitch8">
                                             <input 
-                                                type="checkbox" 
-                                                name="onoffswitch8" 
-                                                className="onoffswitch8-checkbox" 
-                                                id="header8-checkbox" 
-                                                onClick={this.handleClickSevenSelect}
-                                                checked={false}   
+                                                type="checkbox"
+                                                className="onoffswitch8-checkbox"  
+                                                defaultChecked={false}   
                                             />
                                             <label className="onoffswitch8-label" htmlFor="header8-checkbox">
                                                 <span className="onoffswitch8-inner"></span>
@@ -726,8 +695,8 @@ class ModuleSelectors extends React.PureComponent {
                                                 name="onoffswitch8" 
                                                 className="onoffswitch8-checkbox" 
                                                 id="header8-checkbox" 
-                                                onClick={this.handleClickSevenSelect}
-                                                checked={this.state.selectEight}    
+                                                onChange={this.handleClickEightSelect}
+                                                checked={turnstile.data.page_view.module_selectors[7].state}    
                                             />
                                             <label className="onoffswitch8-label" htmlFor="header8-checkbox">
                                                 <span className="onoffswitch8-inner"></span>

@@ -111,9 +111,8 @@ class ModuleEquipment extends React.Component {
             <div className='equipment'>
                 <p className='equipment-description'>Дополнительное оборудование</p>
                 <div className='equipment-list'>
-                    {/*{[1, 2, 3, 4].map((index, key) => (
-                        <div className='equipment-list__block'>{index}</div>
-                    ))}*/}
+
+                    {/** ************* EQUIPMENT BLOCKS ************* */}
                     <div className='equipment-list__block'>
                         <div onClick={this.handleChangeModalWindowOne} className='block-info'>
                             <div className='block-info__wrap'>
@@ -131,6 +130,8 @@ class ModuleEquipment extends React.Component {
                                 null
                         }
                     </div>
+
+                    {/** ************* EQUIPMENT BLOCKS ************* */}
                     <div className='equipment-list__block'>
                         <div onClick={this.handleChangeModalWindowTwo} className='block-info'>
                             <div className='block-info__wrap'>
@@ -148,6 +149,8 @@ class ModuleEquipment extends React.Component {
                                 null
                         }
                     </div>
+
+                    {/** ************* EQUIPMENT BLOCKS ************* */}
                     <div className='equipment-list__block'>
                         <div onClick={this.handleChangeModalWindowThree} className='block-info'>
                             <div className='block-info__wrap'>
@@ -165,6 +168,8 @@ class ModuleEquipment extends React.Component {
                                 null
                         }
                     </div>
+
+                    {/** ************* EQUIPMENT BLOCKS ************* */}
                     <div className='equipment-list__block'>
                         <div onClick={this.handleChangeModalWindowFour} className='block-info'>
                             <div className='block-info__wrap'>
@@ -182,6 +187,7 @@ class ModuleEquipment extends React.Component {
                                 null
                         }
                     </div>
+                    
                 </div>
             </div>
         )

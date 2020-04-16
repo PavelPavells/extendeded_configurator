@@ -18,7 +18,6 @@ class ModuleBasket extends React.Component {
         
         /** ************* DATA FROM STORE ************* */
         const { turnstile, isFetching } = this.props.data;
-        //console.log(this.props.data)
         //console.log(turnstile)
         if(turnstile.data.length === 0 && !isFetching) {
             return (
@@ -29,7 +28,11 @@ class ModuleBasket extends React.Component {
 
             /** ************* MODULE BASKET ************* */
             <section className='basket'>
+
+                {/** ************* DESCRIPTION ************* */}
                 <p className='basket-description'>Конфигуратор</p>
+
+                {/** ************* BASKET INFO ************* */}
                 <div className='basket-data'>
                     <Link to='/turnstile/offer' className='basket-data__wrapper'>
                         <div className='basket-data__wrapper-info'>

@@ -1,14 +1,13 @@
 /** ***** IMPORT GLOBAL STYLE ***** */
 @import '../../../../styles/styles.scss';
 
-/** ***** turnstile equipment modal ***** */
+/** ***** EQUIPMENT MODAL ***** */
 .modal {
     display: flex;
     flex-wrap: wrap;
     padding: 10px;
     border-radius: 0 0 10px 10px;
     background-color: $brandPantonBorderButton;
-    //height: 85vh;
 
     &-wrapper {
         display: flex;
@@ -18,6 +17,7 @@
         width: 220px;
         margin: 20px;
 
+        /** ***** EQUIPMENT MODAL BLOCKS ***** */
         .block {
             display: flex;
             flex-direction: column;
@@ -163,15 +163,15 @@
     }
 }
 
-/** ***** media query for HD, FULL HD ***** */
+/** ***** MEDIA QUERY FOR HD, FULL HD ***** */
 @media (max-width: 1200px) {
     .modal {
-        height: 75vh;
+        height: 85vh;
     }
 }
 
 @media (min-width: 1920px) {
     .modal {
-        height: 37vh;
+        height: 35vh;
     }
 }

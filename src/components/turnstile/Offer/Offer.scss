@@ -1,7 +1,7 @@
 /** ***** IMPORT GLOBAL STYLE ***** */
 @import '../../../styles/styles.scss';
 
-/** ***** offer ***** */
+/** ***** MODULE OFFER ***** */
 .offer {
     display: flex;
     flex-direction: column;
@@ -9,6 +9,7 @@
     align-items: center;
     background-color: #fafafa;
 
+    /** ***** OFFER DESCRIPTION ***** */
     &-description {
         display: flex;
         justify-content: space-between;
@@ -83,6 +84,7 @@
         }
     }
 
+    /** ***** MAIN BLOCK OFFER ***** */
     &-goods {
         display: flex;
         flex-direction: column;
@@ -315,6 +317,8 @@
                 }
             }
         }
+
+        /** ***** MAIN BLOCK OFFER POPUP ***** */
         .offer-popup {
             width: 100%;
         }
@@ -426,6 +430,7 @@
         }
     }
 
+    /** ***** DOWNLOAD OFFER ***** */
     &-price {
         display: flex;
         justify-content: space-between;

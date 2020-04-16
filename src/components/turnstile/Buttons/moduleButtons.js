@@ -17,21 +17,23 @@ class ModuleButtons extends React.PureComponent {
 
     /** ************* FETCHING DATA ************* */
     componentDidMount() {
+        const {page_view} = this.props.data.turnstile.data
+        console.log(page_view ? page_view : 0)
         let data = {
             app_id: 'id',
-            trigger: 1,
+            trigger: this.props.data.turnstile.trigger ? this.props.data.turnstile.trigger : 1,
             trigger_state: 0,
             seria: 0,
-            button_seria_state: 0,
-            button_corpse_state: 0,
-            selectOne: 0,
-            selectTwo: 0,
-            selectThree: 0,
-            selectFour: 0,
-            selectFive: 0,
-            selectSix: 0,
-            selectSeven: 0,
-            selectEight: 0
+            button_seria_state: page_view ? page_view.btn_seria : 0,
+            button_corpse_state: page_view ? page_view.btn_corpse : 0,
+            selectOne: page_view ? page_view.module_selectors[0].state : 0,
+            selectTwo: page_view ? page_view.module_selectors[1].state : 0,
+            selectThree: page_view ? page_view.module_selectors[2].state : 0,
+            selectFour: page_view ? page_view.module_selectors[3].state : 0,
+            selectFive: page_view ? page_view.module_selectors[4].state : 0,
+            selectSix: page_view ? page_view.module_selectors[5].state : 0,
+            selectSeven: page_view ? page_view.module_selectors[6].state : 0,
+            selectEight: page_view ? page_view.module_selectors[7].state : 0
         }
         this.props.fetchDataTurnstile(data);
     }
@@ -155,6 +157,8 @@ class ModuleButtons extends React.PureComponent {
             /** ************* MODULE BUTTONS ************* */
             <div className='buttons'>
                 <div className='top'>
+
+                    {/** ************* CAPTION ************* */}
                     <div className='top-captions'>
                         <div className='top-captions__description'>Модель</div>
                         <div className='top-captions__description'>Серия</div>
@@ -162,36 +166,35 @@ class ModuleButtons extends React.PureComponent {
                     </div>
                     <div className='top-select'>
                     <div className='top-select__model'>{turnstile.data.page_view.model_name}</div>
-                        <div className='top-select__seria'>
 
-                            {/** ====================== STR BLOCK ====================== */}
-                            
+                        {/** ************* SERIA BLOCK ************* */}
+                        <div className='top-select__seria'>
                             {turnstile.data.page_view.btn_seria === 0
                                 ?
-                                <>
+                                <React.Fragment>
                                     <div onClick={this.handleClickSeriaSTR} className='top-select__seria-str open'>STR</div>
-                                </>
+                                </React.Fragment>
                                 :
-                                <>
+                                <React.Fragment>
                                     <div onClick={this.handleClickSeriaSTR} className='top-select__seria-str'>STR</div>
-                                </>
+                                </React.Fragment>
                             }
-                        
-                            {/** ====================== STX BLOCK ====================== */}
                             
                             {turnstile.data.page_view.btn_seria === 1
                                 ?
-                                <>
+                                <React.Fragment>
                                     <div onClick={this.handleClickSeriaSTX} className='top-select__seria-stx open'>STX</div>
-                                </>
+                                </React.Fragment>
                                 :
-                                <>
+                                <React.Fragment>
                                     <div onClick={this.handleClickSeriaSTX} className='top-select__seria-stx'>STX</div>
-                                </>
+                                </React.Fragment>
                             }
                         </div>
                         <div className='top-select__price'>{turnstile.data.page_view.model_price}</div>
                     </div>
+
+                    {/** ************* OPTIONS ************* */}
                     <div className='top-info'>
                         <a
                             href={turnstile.data.page_view.download_broshure_button_link} 
@@ -222,30 +225,28 @@ class ModuleButtons extends React.PureComponent {
                 </div>
                 <div className='bottom'>
                     <div className='bottom-execution'>Исполнение</div>
-                    <div className='bottom-buttons'>
 
-                        {/** ====================== COMPACT BLOCK ====================== */}
+                    {/** ************* EXECUTION BLOCK ************* */}
+                    <div className='bottom-buttons'>
                         {turnstile.data.page_view.btn_corpse === 0
                             ?
-                            <>
+                            <React.Fragment>
                                 <div onClick={this.handleClickExecutionCompact} className='bottom-buttons__compact open'>Компактный</div>
-                            </>
+                            </React.Fragment>
                             :
-                            <>
+                            <React.Fragment>
                                 <div onClick={this.handleClickExecutionCompact} className='bottom-buttons__compact'>Компактный</div>
-                            </>
+                            </React.Fragment>
                         }
-
-                        {/** ====================== THUMB BLOCK ====================== */}
                         {turnstile.data.page_view.btn_corpse === 1
                             ?
-                            <>
+                            <React.Fragment>
                                 <div onClick={this.handleClickExecutionThumb} className='bottom-buttons__thumb open'>Тумбовый</div>
-                            </>
+                            </React.Fragment>
                             :
-                            <>
+                            <React.Fragment>
                                 <div onClick={this.handleClickExecutionThumb} className='bottom-buttons__thumb'>Тумбовый</div>
-                            </>
+                            </React.Fragment>
                         }
                     </div>
                 </div>

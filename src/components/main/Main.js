@@ -33,7 +33,7 @@ class Main extends React.Component {
             )
         }
         return (
-            /** ****************** MAIN BLOCK ****************** */
+            /** ****************** MAIN ****************** */
             <section className='main'>
                 <p className='main-header'>
                     {main.data.page_view.caption}
@@ -42,7 +42,9 @@ class Main extends React.Component {
                     Выберите необходимую категорию оборудования
                 </p>
 
-                <div className='main-wrapper-blocks'>
+                <div className='main-blocks'>
+
+                    {/** ****************** BARRIER ****************** */}
                     {main.data.page_view.device_buttons.slice(0, 1).map((index, key) => {
                         return (
                             <NavLink to='/main' key={index.index} className='main-block'>
@@ -61,6 +63,8 @@ class Main extends React.Component {
                             </NavLink>
                         )
                     })}
+
+                    {/** ****************** TURNTILE ****************** */}
                     {main.data.page_view.device_buttons.slice(1, 2).map((index, key) => {
                         return (
                             <NavLink to='/turnstile' key={index.index} className='main-block'>

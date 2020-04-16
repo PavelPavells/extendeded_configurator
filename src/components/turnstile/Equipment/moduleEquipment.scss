@@ -1,7 +1,7 @@
 /** ***** IMPORT GLOBAL STYLE ***** */
 @import '../../../styles/styles.scss';
 
-/** ***** turnstile equipment ***** */
+/** ***** EQUIPMENT ***** */
 .equipment {
     display: flex;
     flex-direction: column;
@@ -20,6 +20,7 @@
         flex-direction: column;
         margin: 0 40px;
 
+        /** ************* EQUIPMENT BLOCKS ************* */
         &__block {
             display: flex;
             flex-direction: column;
@@ -61,7 +62,7 @@
                     background: url('../../../images/icon/arrow-equipment.svg') no-repeat center;
                 }
 
-                /** ***** turnstile equipment icon hover styles ***** */
+                /** ***** ICON HOVER STYLES NON OPEN ***** */
                 &:hover {
                     .block-info__text {
                         color: $brandPantonBlue;
@@ -102,7 +103,7 @@
     }
 }
 
-/** ***** turnstile equipment icon styles ***** */
+/** ***** ICON STYLES ***** */
 .block-info__icon1 {
     height: 30px;
     width: 30px;
@@ -132,7 +133,7 @@
     background: url('../../../images/icon/icon4.svg') no-repeat center;
 }
 
-/** ***** turnstile equipment icon styles ***** */
+/** ***** ICON AND TEXT COLOR HOVER ***** */
 .toggle-text {
     color: $brandPantonBlue!important;
 }

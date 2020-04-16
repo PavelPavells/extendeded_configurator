@@ -1,13 +1,14 @@
 /** ***** IMPORT GLOBAL STYLE ***** */
 @import '../../../styles/styles.scss';
 
-/** ***** module basket ***** */
+/** ***** MODULE BASKET ***** */
 .basket {
     display: flex;
     justify-content: space-between;
     width: 100%;
     border-bottom: 1px solid $brandPantonBorderButton;
 
+    /** ***** DESCRIPTION ***** */
     &-description {
         margin: 0;
         font-size: 26px;
@@ -16,6 +17,7 @@
         padding: 23px 0 24px 40px;
     }
 
+    /** ***** BASKET INFO ***** */
     &-data {
         display: flex;
         flex-direction: row;

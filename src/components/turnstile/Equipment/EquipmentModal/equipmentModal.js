@@ -25,13 +25,15 @@ class EquipmentModal extends React.Component {
         /** ************* DATA FROM STORE ************* */
         const { turnstile, isFetching } = this.props.data;
         console.log(turnstile.data.page_view.model_price)
-        if(turnstile.data.length === 0 && !isFetching) {
+        if (turnstile.data.length === 0 && !isFetching) {
            return <Suspense fallback={<div><Loader /></div>}></Suspense>
         }
-        return(
+        return (
+
+            /** ************* EQUIPMENT MODAL ************* */
             <div className='modal'>
 
-                {/** ************* BLOCK 1 ************* */}
+                {/** ************* EQUIPMENT MODAL BLOCKS ************* */}
                 <div className='modal-wrapper'>
                     <div className='block'>
                         <div className='block-image'>
@@ -57,7 +59,7 @@ class EquipmentModal extends React.Component {
                     </div>
                 </div>
 
-                {/** ************* BLOCK 2 ************* */}
+                {/** ************* EQUIPMENT MODAL BLOCKS ************* */}
                 <div className='modal-wrapper'>
                     <div className='block'>
                         <div className='block-image'>
@@ -83,7 +85,7 @@ class EquipmentModal extends React.Component {
                     </div>
                 </div>
 
-                {/** ************* BLOCK 3 ************* */}
+                {/** ************* EQUIPMENT MODAL BLOCKS ************* */}
                 <div className='modal-wrapper'>
                     <div className='block'>
                         <div className='block-image'>
@@ -109,7 +111,7 @@ class EquipmentModal extends React.Component {
                     </div>
                 </div>
 
-                {/** ************* BLOCK 4 ************* */}
+                {/** ************* EQUIPMENT MODAL BLOCKS ************* */}
                 <div className='modal-wrapper'>
                     <div className='block'>
                         <div className='block-image'>
@@ -135,7 +137,7 @@ class EquipmentModal extends React.Component {
                     </div>
                 </div>
 
-                {/** ************* BLOCK 5 ************* */}
+                {/** ************* EQUIPMENT MODAL BLOCKS ************* */}
                 <div className='modal-wrapper'>
                     <div className='block'>
                         <div className='block-image'>
@@ -161,7 +163,7 @@ class EquipmentModal extends React.Component {
                     </div>
                 </div>
 
-                {/** ************* BLOCK 6 ************* */}
+                {/** ************* EQUIPMENT MODAL BLOCKS ************* */}
                 <div className='modal-wrapper'>
                     <div className='block'>
                         <div className='block-image'>

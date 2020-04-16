@@ -29,18 +29,19 @@ export const fetchingDataTurnstileFailure = error => ({
 export const fetchDataTurnstile = (data, trigger) => {
     return async dispatch => {
         dispatch(fetchingDataTurnstileRequest(data, trigger));
-        console.log(data ? 'app_id : ' + data.app_id : 'id');
-        console.log(data ? 'trigger : ' + data.trigger : 0);
-        console.log(data ? 'button_seria_state : ' + data.button_seria_state: 0);
-        console.log(data ? 'button_corpse_state : ' + data.button_corpse_state : 0)
-        console.log(data ? 'selector 1 : ' + data.selectOne : 0)
-        console.log(data ? 'selector 2 : ' + data.selectTwo : 0)
-        console.log(data ? 'selector 3 : ' + data.selectThree : 0)
-        console.log(data ? 'selector 4 : ' + data.selectFour : 0)
-        console.log(data ? 'selector 5 : ' + data.selectFive : 0)
-        console.log(data ? 'selector 6 : ' + data.selectSix : 0)
-        console.log(data ? 'selector 7 : ' + data.selectSeven : 0)
-        console.log(data ? 'selector 8 : ' + data.selectEight : 0)
+        //console.log(data ? 'app_id : ' + data.app_id : 'id');
+        //console.log(data ? 'trigger : ' + data.trigger : 0);
+        //console.log(data ? 'trigger_state : ' + data.trigger : 0);
+        //console.log(data ? 'button_seria_state : ' + data.button_seria_state: 0);
+        //console.log(data ? 'button_corpse_state : ' + data.button_corpse_state : 0)
+        //console.log(data ? 'selector 1 : ' + data.selectOne : 0)
+        //console.log(data ? 'selector 2 : ' + data.selectTwo : 0)
+        //console.log(data ? 'selector 3 : ' + data.selectThree : 0)
+        //console.log(data ? 'selector 4 : ' + data.selectFour : 0)
+        //console.log(data ? 'selector 5 : ' + data.selectFive : 0)
+        //console.log(data ? 'selector 6 : ' + data.selectSix : 0)
+        //console.log(data ? 'selector 7 : ' + data.selectSeven : 0)
+        //console.log(data ? 'selector 8 : ' + data.selectEight : 0)
         try {
             await axios.post(`${site}/turnstile`, {
                 app_id: 'APP_ID',

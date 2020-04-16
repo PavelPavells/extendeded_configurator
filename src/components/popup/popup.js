@@ -47,16 +47,12 @@ class Popup extends React.Component {
     console.log(turnstile);
     if (turnstile.data.length === 0 && !isFetching) {
       return (
-        <Suspense
-          fallback={
-            <div>
-              <Loader />
-            </div>
-          }
-        ></Suspense>
+        <Suspense fallback={<div><Loader /></div>}></Suspense>
       );
     }
     return (
+
+      /** ************* POPUP ************* */
       <section className="popup">
         <div className="left">
           <div className="left__image">

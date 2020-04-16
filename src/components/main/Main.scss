@@ -1,7 +1,7 @@
 /** ***** IMPORT GLOBAL STYLE ***** */
 @import '../../styles/styles.scss';
 
-/** ***** main ***** */
+/** ***** MAIN ***** */
 .main {
     display: flex;
     flex-direction: column;
@@ -10,14 +10,12 @@
     width: 100%;
     height: 100%;
 
-/** ***** main header block ****** */
     &-header {
         width: 100%;
         font-size: 36px;
         color: $brandPantonText;
     }
 
-/** ***** main description block ***** */
     &-description {
         width: 100%;
         font-size: 24px;
@@ -25,8 +23,7 @@
         color: $brandPantonText;
     }
 
-/** ***** main wrapper blocks ***** */
-    &-wrapper-blocks {
+    &-blocks {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -34,7 +31,7 @@
         width: 100%;
     }
 
-/** ***** blocks ***** */
+    /** ****************** BARRIER AND TURNSTILE ****************** */
     &-block {
         display: flex;
         justify-content: space-between;
@@ -82,6 +79,7 @@
     }
     
 }
+
 /** ***** RESET STYLES FOR NAVLINK *****/
 a {
     text-decoration: none;

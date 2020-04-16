@@ -44,6 +44,8 @@ class Offer extends React.Component {
 
             /** ************* MODULE OFFER ************* */
             <section className='offer'>
+
+                {/** ************* OFFER DESCRIPTION ************* */}
                 <div className="offer-description">
                     <div className="left">
                         <Link to='/turnstile' className="left-arrow"></Link>
@@ -63,6 +65,8 @@ class Offer extends React.Component {
                         </div>
                     </div>
                 </div>
+
+                {/** ************* MAIN BLOCK OFFER ************* */}
                 <div className="offer-goods">
                     <div className='offer-category'>
                         <div className='category-wrapper'>
@@ -102,6 +106,8 @@ class Offer extends React.Component {
                                     <div className="blocks-info__delete"></div>
                                 </div>
                             </div>
+
+                            {/** ************* MAIN BLOCK OFFER POPUP ************* */}
                             <div className='offer-popup'>
                                 {this.state.modal && key === 0 
                                     ? 
@@ -141,6 +147,8 @@ class Offer extends React.Component {
                         </div>
                     ))}
                 </div>
+
+                {/** ************* DOWNLOAD OFFER ************* */}
                 <div className="offer-price">
                     <div className='offer-price__wrapper'>
                         <div className='offer-price__image'></div>

@@ -19,31 +19,47 @@ class Turnstile extends React.Component {
 
     render() {
         return (
+
+            /** ************* TURNSTILE COMPONENT ************* */
             <section className='turnstile'>
+
+                {/** ************* WRAPPER BASKET COMPONENT ************* */}
                 <div className='turnstile-top'>
                     <ModuleBasket />
                 </div>
                 <div className='turnstile-main'>
                     <div className='turnstile-main__slider'>
+
+                        {/** ************* WRAPPER IMAGE COMPONENT ************* */}
                         <div className='turnstile-main__slider-image'>
                             <ModuleImage />
                         </div>
+
+                        {/** ************* WRAPPER LIST COMPONENT ************* */}
                         <div className='turnstile-main__slider-list'>
                             <ModuleList />
                         </div>
                     </div>
                     <div className='turnstile-main__basis'>
+
+                        {/** ************* WRAPPER BUTTONS COMPONENT ************* */}
                         <div className='turnstile-main__basis-buttons'>
                             <ModuleButtons />
                         </div>
+
+                        {/** ************* WRAPPER SELECTORS COMPONENT ************* */}
                         <div className='turnstile-main__basis-selectors'>
                             <ModuleSelectors />
                         </div>
                     </div>
                 </div>
+
+                {/** ************* WRAPPER CONFIGURATION COMPONENT ************* */}
                 <div className='turnstile-configuration'>
                     <ModuleConfiguration />
                 </div>
+
+                {/** ************* WRAPPER EQUIPMENT COMPONENT ************* */}
                 <div className='turnstile-equipment'>
                     <ModuleEquipment />
                 </div>

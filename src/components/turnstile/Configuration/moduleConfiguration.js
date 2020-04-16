@@ -44,10 +44,14 @@ class ModuleConfiguration extends React.Component {
             /** ************* MODULE CONFIGURATION ************* */
             <section className='configuration'>
                 <div className='configuration-options'>
+
+                    {/** ************* AMOUNT ************* */}
                     <div className='configuration-options__amount'>
                         <p className='configuration-options__amount-text'>Количество:</p>
                         <span className='configuration-options__amount-value'>{turnstile.data.page_view.model_module_list.length}</span>
                     </div>
+
+                    {/** ************* AMOUNT ADD / DELETE  ************* */}
                     <div className='configuration-options__more'>
                         <div onClick={this.handleMinusOptions} className='configuration-options__more-minus'></div>
                         <div onClick={this.handlePlusOptions} className='configuration-options__more-plus'></div>
@@ -57,6 +61,8 @@ class ModuleConfiguration extends React.Component {
                         <span className='configuration-options__summ-value'>{turnstile.data.page_view.model_price}</span>
                     </div>
                 </div>
+
+                {/** ************* BUTTON ADD CONFIGURATION ************* */}
                 <div className='configuration-button'>
                     <div className='configuration-button__icon'></div>
                     <div className='configuration-button__text'>ДОБАВИТЬ ЭТУ КОНФИГУРАЦИЮ</div>

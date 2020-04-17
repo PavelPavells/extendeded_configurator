@@ -12,7 +12,7 @@ import './moduleList.scss';
 /** ************* IMPORT __UTILS__ FOR LIST COMPONENT ************* */
 const Loader = lazy(() => import('../../../__utils__/Loader/Loader'));
 
-class ModuleList extends React.Component {
+class ModuleList extends React.PureComponent {
 
     /** ************* FETCHING DATA ************* */
     componentDidMount() {
@@ -42,7 +42,11 @@ class ModuleList extends React.Component {
 }
 ModuleList.propTypes = {
     fetchDataTurnstile: PropTypes.func.isRequired,
-    data: PropTypes.object.isRequired
+    data: PropTypes.object.isRequired,
+    turnstile: PropTypes.object,
+    isFetching: PropTypes.bool,
+    index: PropTypes.number,
+    caption: PropTypes.string
 }
 const mapStateToProps = state => ({
     data: state

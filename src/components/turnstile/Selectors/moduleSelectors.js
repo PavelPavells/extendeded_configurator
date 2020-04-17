@@ -10,14 +10,14 @@ import {
 } from '../../../actions/dataTurnstileActions';
 
 /** ************* IMPORT SELECTORS FOR MODULESELECTORS COMPONENT ************* */
-//import selectorOne from './selectors/selectorOne/selectorOne';
-//import selectorTwo from './selectors/selectorTwo/selectorTwo';
-//import selectorThree from './selectors/selectorThree/selectorThree';
-//import selectorFour from './selectors/selectorFour/selectorFour';
-//import selectorFive from './selectors/selectorFive/selectorFive';
-//import selectorSix from './selectors/selectorSix/selectorSix';
-//import selectorSeven from './selectors/selectorSeven/selectorSeven';
-//import selectorEight from './selectors/selectorEight/selectorEight';
+//import selectorEP from './selectors/selectorEP/selectorEP';
+//import selectorEMMarin from './selectors/selectorEMMarin/selectorEMMarin';
+//import selectorMifire from './selectors/selectorMifire/selectorMifire';
+//import selectorBiometry from './selectors/selectorBiometry/selectorBiometry';
+//import selectorInfoTime from './selectors/selectorInfoTime/selectorInfoTime';
+//import selectorControl2D from './selectors/selectorControl2D/selectorControl2D';
+//import selectorGuest2D from './selectors/selectorGuest2D/selectorGuest2D';
+//import selectorSteelCase from './selectors/selectorSteelCase/selectorSteelCase';
 
 /** ************* IMPORT STYLES FOR MODULE SELECTORS IN TURNSTILE COMPONENT ************* */
 import './moduleSelectors.scss';
@@ -71,7 +71,7 @@ class ModuleSelectors extends React.PureComponent {
         this.props.togglePopupWindowTurnstile();
     }
 
-    /** ************* CHOICE FIRST SELECTOR ************* */
+    /** ************* CHOICE EP-2000 SELECTOR ************* */
     handleClickOneSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         //console.log(page_view.module_selectors[0].state)
@@ -97,7 +97,7 @@ class ModuleSelectors extends React.PureComponent {
         }) 
     }
 
-    /** ************* CHOICE TWO SELECTOR ************* */
+    /** ************* CHOICE EMMARIN SELECTOR ************* */
     handleClickTwoSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         this.setState({ 
@@ -122,7 +122,7 @@ class ModuleSelectors extends React.PureComponent {
         })
     }
 
-    /** ************* CHOICE THREE SELECTOR ************* */
+    /** ************* CHOICE MIFIRE SELECTOR ************* */
     handleClickThreeSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         this.setState({ 
@@ -147,7 +147,7 @@ class ModuleSelectors extends React.PureComponent {
         })
     }
 
-    /** ************* CHOICE FOUR SELECTOR ************* */
+    /** ************* CHOICE BIOMETRY SELECTOR ************* */
     handleClickFourSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         this.setState({ 
@@ -172,7 +172,7 @@ class ModuleSelectors extends React.PureComponent {
         })
     }
 
-    /** ************* CHOICE FIVE SELECTOR ************* */
+    /** ************* CHOICE INFO TIME SELECTOR ************* */
     handleClickFiveSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         this.setState({ 
@@ -197,7 +197,7 @@ class ModuleSelectors extends React.PureComponent {
         })
     }
 
-    /** ************* CHOICE SIX SELECTOR ************* */
+    /** ************* CHOICE CONTROL 2D SELECTOR ************* */
     handleClickSixSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         this.setState({ 
@@ -222,7 +222,7 @@ class ModuleSelectors extends React.PureComponent {
         })
     }
 
-    /** ************* CHOICE SEVEN SELECTOR ************* */
+    /** ************* CHOICE GUEST 2D SELECTOR ************* */
     handleClickSevenSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         this.setState({ 
@@ -247,7 +247,7 @@ class ModuleSelectors extends React.PureComponent {
         })
     }
 
-    /** ************* CHOICE EIGHT SELECTOR ************* */
+    /** ************* CHOICE STEEL CASE SELECTOR ************* */
     handleClickEightSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         this.setState({ 
@@ -275,7 +275,7 @@ class ModuleSelectors extends React.PureComponent {
         
         /** ************* DATA FROM STORE ************* */
         const { turnstile, isFetching } = this.props.data;
-        //console.log(turnstile.data.page_view)
+        console.log(turnstile)
         if (turnstile.data.length === 0 && !isFetching) {
             return <Suspense fallback={<div><Loader /></div>}></Suspense>
         }
@@ -448,7 +448,7 @@ class ModuleSelectors extends React.PureComponent {
                     )
                 )}
 
-                {/** ************* INFORMATION SELECTORS ************* */}
+                {/** ************* INFO TIME SELECTORS ************* */}
                 {turnstile.data.page_view.module_selectors.slice(4, 5).map((index, key) => {
                     if(index.state === -1) {
                             return (
@@ -512,7 +512,7 @@ class ModuleSelectors extends React.PureComponent {
                     })  
                 }
 
-                {/** ************* CONTROL SELECTORS ************* */}
+                {/** ************* CONTROL 2D SELECTORS ************* */}
                 {turnstile.data.page_view.module_selectors.slice(5, 6).map((index, key) => {
                     if(index.state === -1) {
                             return (
@@ -577,7 +577,7 @@ class ModuleSelectors extends React.PureComponent {
                     })  
                 }
                 
-                {/** ************* GUEST SELECTORS ************* */}
+                {/** ************* GUEST 2D SELECTORS ************* */}
                 {turnstile.data.page_view.module_selectors.slice(6, 7).map((index, key) => {
                     if(index.state === -1) {
                             return (
@@ -643,7 +643,7 @@ class ModuleSelectors extends React.PureComponent {
                     })  
                 }
 
-                {/** ************* CORPSE SELECTORS ************* */}
+                {/** ************* STEEL CASE SELECTORS ************* */}
                 {turnstile.data.page_view.module_selectors.slice(7, 8).map((index, key) => {
                     if(index.state === -1) {
                             return (

@@ -17,7 +17,7 @@ import './Main.scss';
 /** ************* IMPORT __UTILS__ FOR MAIN COMPONENT ************* */
 const Loader = lazy(() => import('../../__utils__/Loader/Loader'));
 
-class Main extends React.Component {
+class Main extends React.PureComponent {
 
     /** ************* FETCHING DATA ************* */
     componentDidMount() {

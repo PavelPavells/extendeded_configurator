@@ -28,7 +28,7 @@ export const fetchingDataTurnstileFailure = error => ({
 
 export const fetchDataTurnstile = (data, trigger) => {
     return async dispatch => {
-        dispatch(fetchingDataTurnstileRequest(data, trigger));
+        dispatch(fetchingDataTurnstileRequest());
         //console.log(data ? 'app_id : ' + data.app_id : 'id');
         //console.log(data ? 'trigger : ' + data.trigger : 0);
         //console.log(data ? 'trigger_state : ' + data.trigger : 0);

@@ -13,7 +13,7 @@ import './moduleConfiguration.scss';
 /** ************* IMPORT __UTILS__ FOR CONFIGURATION COMPONENT ************* */
 const Loader = lazy(() => import('../../../__utils__/Loader/Loader'));
 
-class ModuleConfiguration extends React.Component {
+class ModuleConfiguration extends React.PureComponent {
 
     /** ************* REDUCE THE NUMBER OF SELECTED ************* */
     handleMinusOptions = () => {

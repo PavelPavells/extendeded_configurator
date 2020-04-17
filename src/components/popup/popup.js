@@ -18,7 +18,7 @@ import photo from "../../images/str-compact1.png";
 /** ************* IMPORT STYLES FOR LAYOUT COMPONENT ************* */
 import './popup.scss';
 
-class Popup extends React.Component {
+class Popup extends React.PureComponent {
 
   /** ************* FETCHING DATA ************* */
   componentDidMount() {

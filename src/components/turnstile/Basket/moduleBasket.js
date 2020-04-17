@@ -13,7 +13,7 @@ import './moduleBasket.scss';
 /** ************* IMPORT __UTILS__ FOR BASKET IN TURNSTILE COMPONENT ************* */
 const Loader = lazy(() => import('../../../__utils__/Loader/Loader'));
 
-class ModuleBasket extends React.Component {
+class ModuleBasket extends React.PureComponent {
     render() {
         
         /** ************* DATA FROM STORE ************* */

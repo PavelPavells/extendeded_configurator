@@ -12,7 +12,7 @@ import './moduleImage.scss';
 /** ************* IMPORT __UTILS__ FOR IMAGE COMPONENT ************* */
 const Loader = lazy(() => import('../../../__utils__/Loader/Loader'));
 
-class ModuleImage extends React.Component {
+class ModuleImage extends React.PureComponent {
 
     /** ************* FETCHING DATA ************* */
     componentDidMount() {

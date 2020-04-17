@@ -15,7 +15,7 @@ const ModuleBasket = lazy(() => import('./Basket/moduleBasket'));
 const ModuleConfiguration = lazy(() => import('./Configuration/moduleConfiguration'));
 const ModuleEquipment = lazy(() => import ('./Equipment/moduleEquipment'));
 
-class Turnstile extends React.Component {
+class Turnstile extends React.PureComponent {
 
     render() {
         return (

@@ -15,7 +15,7 @@ const Barrier = lazy(() => import('../components/barrier/Barrier'));
 const Turnstile = lazy(() => import('../components/turnstile/Turnstile'));
 const moduleOffer = lazy(() => import('../components/turnstile/Offer/Offer'))
 
-class Layout extends React.Component {
+class Layout extends React.PureComponent {
 
     render() {
         return(

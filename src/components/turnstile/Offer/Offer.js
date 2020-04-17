@@ -13,7 +13,7 @@ import './Offer.scss';
 /** ************* IMPORT __UTILS__ FOR OFFER COMPONENT ************* */
 const Loader = lazy(() => import('../../../__utils__/Loader/Loader'));
 
-class Offer extends React.Component {
+class Offer extends React.PureComponent {
 
     state = { modalOne: false, modalTwo: false }
 

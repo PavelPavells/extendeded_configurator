@@ -18,7 +18,7 @@ import './moduleEquipment.scss';
 /** ************* IMPORT __UTILS__ FOR EQUIPMENT COMPONENT ************* */
 const Loader = lazy(() => import('../../../__utils__/Loader/Loader'));
 
-class ModuleEquipment extends React.Component {
+class ModuleEquipment extends React.PureComponent {
 
     state = {
         listEquipmentOne: false,

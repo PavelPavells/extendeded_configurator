@@ -12,7 +12,7 @@ import store from './store/store';
 /** ************* IMPORT STYLES FOR APP COMPONENT ************* */
 import './App.scss';
 
-class App extends React.Component {
+class App extends React.PureComponent {
 
   render() {
     return (
@@ -23,6 +23,7 @@ class App extends React.Component {
           <div className="wrapper-configurator">
             <Layouts />
           </div>
+          
         </BrowserRouter>
       </Provider>
     );

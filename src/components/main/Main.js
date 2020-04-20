@@ -21,12 +21,12 @@ class Main extends React.PureComponent {
 
     /** ************* FETCHING DATA ************* */
     componentDidMount() {
-        this.props.fetchDataMain()
+        this.props.fetchDataMain();
     }
 
     render() {
         const { main, isFetching } = this.props.data;
-        console.log(main)
+        //console.log(main);
         if (main.data.length === 0 && !isFetching) {
             return (
                 <Suspense fallback={<div><Loader /></div>}></Suspense>
@@ -92,7 +92,9 @@ class Main extends React.PureComponent {
 }
 Main.propTypes = {
     fetchDataMain: PropTypes.func.isRequired,
-    data: PropTypes.object.isRequired
+    data: PropTypes.object.isRequired,
+    main: PropTypes.object,
+    isFetching: PropTypes.bool
 }
 const mapStateToProps = state => ({
     data: state

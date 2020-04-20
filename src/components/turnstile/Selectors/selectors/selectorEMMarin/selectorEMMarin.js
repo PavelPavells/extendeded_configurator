@@ -1,39 +1,34 @@
 /** ************* IMPORT DEPENDENCIES ************* */
-import React, { Fragment, Suspense, lazy } from 'react';
+import React, { Fragment, lazy } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 /** ************* IMPORT ACTIONS FROM ACTION FOLDER ************* */
-import { fetchDataTurnstile } from '../../../../../actions/dataTurnstileActions';
+import { 
+    fetchDataTurnstile, 
+    togglePopupWindowTurnstile 
+} from '../../../../../actions/dataTurnstileActions';
 
 /** ************* IMPORT STYLES FOR EMMARIN SELECTOR IN TURNSTILE COMPONENT ************* */
 import './selectorEMMarin.scss';
-
-/** ************* IMPORT __UTILS__ FOR EMMARIN SELECTOR TWO COMPONENT ************* */
-const Loader = lazy(() => import('../../../../../__utils__/Loader/Loader'));
 
 /** ************* IMPORT POPUP COMPONENT ************* */
 const PopUp = lazy(() => import('../../../../popup/popup'));
 
 class SelectorEMMarin extends React.PureComponent {
 
-    state = {
-        modal: false,
-        //selectOne: 0,
-        selectTwo: 0,
-        //selectThree: 0,
-        //selectFour: 0,
-        //selectFive: 0,
-        //selectSix: 0,
-        //selectSeven: 0,
-        //selectEight: 0,
+    state = { selectTwo: 2 };
+
+    /** ************* TOGGLE MODAL ************* */
+    handleToggleModal = () => {
+        this.props.togglePopupWindowTurnstile();
     }
 
-    /** ************* CHOICE EMMARINE SELECTOR ************* */
-    handleClickEMMarinSelector = () => {
+    /** ************* CHOICE EMMARIN SELECTOR ************* */
+    handleClickTwoSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         this.setState({ 
-            selectTwo: +!this.state.selectTwo 
+            selectTwo: +!page_view.module_selectors[1].state 
         }, () => {
             let data = {
                 app_id: 'id',
@@ -41,26 +36,23 @@ class SelectorEMMarin extends React.PureComponent {
                 trigger_state: this.state.selectTwo,
                 button_seria_state: page_view.btn_seria,
                 button_corpse_state: page_view.btn_corpse,
-                //selectOne: this.state.selectOne,
-                selectTwo: this.state.selectTwo,
-                //selectThree: this.state.selectThree,
-                //selectFour: this.state.selectFour,
-                //selectFive: this.state.selectFive,
-                //selectSix: this.state.selectSix,
-                //selectSeven: this.state.selectSeven,
-                //selectEight: this.state.selectEight
+                selectOne: page_view.module_selectors[0].state,
+                selectTwo: page_view.module_selectors[1].state,
+                selectThree: page_view.module_selectors[2].state,
+                selectFour: page_view.module_selectors[3].state,
+                selectFive: page_view.module_selectors[4].state,
+                selectSix: page_view.module_selectors[5].state,
+                selectSeven: page_view.module_selectors[6].state,
+                selectEight: page_view.module_selectors[7].state
             }
-            this.props.fetchDataTurnstile(data); 
+            this.props.fetchDataTurnstile(data, data.trigger); 
         })
     }
 
     render() {
         /** ************* DATA FROM STORE ************* */
-        const { turnstile, isFetching } = this.props.data;
-        console.log(turnstile);
-        if (turnstile.data.length === 0 && !isFetching) {
-            return <Suspense fallback={<div><Loader /></div>}></Suspense>
-        }
+        const { turnstile } = this.props.data;
+        //console.log(turnstile);
         return (
             /** ************* EMMARIN SELECTOR ************* */
             <Fragment>
@@ -71,7 +63,7 @@ class SelectorEMMarin extends React.PureComponent {
                             <div className='selectors-module__text'>RFID идентификаторы EMMarine 125kHZ</div>
                             <div className='selectors-module__info'>
                                 <div className='selectors-module__info-text'>
-                                    <div onClick={this.handleModal}>ПОДРОБНЕЕ</div>
+                                    <div onClick={this.handleToggleModal}>ПОДРОБНЕЕ</div>
                                     {turnstile.modal ? <PopUp turnstile={turnstile} /> : null}
                                 </div>
                                 <div className='selectors-module__info-arrow'></div>
@@ -89,7 +81,7 @@ class SelectorEMMarin extends React.PureComponent {
                                     name="onoffswitch2" 
                                     className="onoffswitch2-checkbox" 
                                     id="header2-checkbox" 
-                                    onChange={this.handleClickEMMarinSelector}
+                                    onChange={this.handleClickTwoSelect}
                                     checked={turnstile.data.page_view.module_selectors[1].state}
                                 />
                                 <label className="onoffswitch2-label" htmlFor="header2-checkbox">
@@ -106,10 +98,13 @@ class SelectorEMMarin extends React.PureComponent {
     }
 }
 SelectorEMMarin.propTypes = {
+    togglePopupWindowTurnstile: PropTypes.func.isRequired,
     fetchDataTurnstile: PropTypes.func.isRequired,
-    data: PropTypes.object.isRequired
+    data: PropTypes.object.isRequired,
+    turnstile: PropTypes.object,
+    isFetching: PropTypes.bool
 }
 const mapStateToProps = state => ({
     data: state
 })
-export default connect(mapStateToProps, { fetchDataTurnstile })(SelectorEMMarin)
+export default connect(mapStateToProps, { fetchDataTurnstile, togglePopupWindowTurnstile })(SelectorEMMarin);

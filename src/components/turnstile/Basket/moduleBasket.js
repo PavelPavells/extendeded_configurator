@@ -18,7 +18,7 @@ class ModuleBasket extends React.PureComponent {
         
         /** ************* DATA FROM STORE ************* */
         const { turnstile, isFetching } = this.props.data;
-        //console.log(turnstile)
+        //console.log(turnstile);
         if(turnstile.data.length === 0 && !isFetching) {
             return (
                 <Suspense fallback={<div><Loader /></div>}></Suspense>
@@ -52,7 +52,9 @@ class ModuleBasket extends React.PureComponent {
 }
 ModuleBasket.propTypes = {
     fetchDataTurnstile: PropTypes.func.isRequired,
-    data: PropTypes.object.isRequired
+    data: PropTypes.object.isRequired,
+    turnstile: PropTypes.object,
+    isFetching: PropTypes.bool
 }
 const mapStateToProps = state => ({
     data: state

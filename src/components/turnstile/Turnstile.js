@@ -1,6 +1,5 @@
 /** ************* IMPORT DEPENDENCIES ************* */
 import React, { lazy } from 'react';
-//import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 /** ************* IMPORT STYLES FOR TURNSTILE COMPONENT ************* */
@@ -24,7 +23,7 @@ class Turnstile extends React.PureComponent {
             <section className='turnstile'>
 
                 {/** ************* WRAPPER BASKET COMPONENT ************* */}
-                <div className='turnstile-top'>
+                <div className='turnstile-basket'>
                     <ModuleBasket />
                 </div>
                 <div className='turnstile-main'>
@@ -68,4 +67,4 @@ class Turnstile extends React.PureComponent {
         )
     }
 }
-export default connect( null, null )(Turnstile)
+export default connect( null, null )(Turnstile);

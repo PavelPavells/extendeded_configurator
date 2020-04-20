@@ -38,13 +38,13 @@ class Popup extends React.PureComponent {
 
   /** ************* TOGGLE MAIN INFO ************* */
   handleToggleMainInfo = event => {
-    this.props.togglePopupWindowMainInfoTurnstile()
+    this.props.togglePopupWindowMainInfoTurnstile();
   };
 
   render() {
     /** ************* DATA FROM STORE ************* */
     const { turnstile, isFetching } = this.props.data;
-    console.log(turnstile);
+    //console.log(turnstile);
     if (turnstile.data.length === 0 && !isFetching) {
       return (
         <Suspense fallback={<div><Loader /></div>}></Suspense>
@@ -134,7 +134,8 @@ Popup.propTypes = {
   fetchDataTurnstile: PropTypes.func,
   togglePopupWindowTurnstile: PropTypes.func.isRequired,
   togglePopupWindowMainInfoTurnstile: PropTypes.func.isRequired,
-  data: PropTypes.object.isRequired
+  data: PropTypes.object.isRequired,
+  turnstile: PropTypes.object
 };
 const mapStateToProps = state => ({
   data: state

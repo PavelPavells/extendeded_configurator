@@ -1,39 +1,33 @@
 /** ************* IMPORT DEPENDENCIES ************* */
-import React, { Fragment, Suspense, lazy } from 'react';
+import React, { Fragment, lazy } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-/** ************* IMPORT ACTIONS FROM ACTION FOLDER ************* */
-import { fetchDataTurnstile } from '../../../../../actions/dataTurnstileActions';
+import { 
+    fetchDataTurnstile, 
+    togglePopupWindowTurnstile 
+} from '../../../../../actions/dataTurnstileActions';
 
 /** ************* IMPORT STYLES FOR INFO TIME MODULE SELECTOR TWO IN TURNSTILE COMPONENT ************* */
 import './selectorInfoTime.scss';
 
-/** ************* IMPORT __UTILS__ FOR INFO TIME SELECTOR TWO COMPONENT ************* */
-const Loader = lazy(() => import('../../../../../__utils__/Loader/Loader'));
-
 /** ************* IMPORT POPUP COMPONENT ************* */
-//const PopUp = lazy(() => import('../../../../popup/popup'));
+const PopUp = lazy(() => import('../../../../popup/popup'));
 
 class SelectorInfoTime extends React.PureComponent {
 
-    state = {
-        modal: false,
-        //selectOne: 0,
-        //selectTwo: 0,
-        //selectThree: 0,
-        //selectFour: 0,
-        selectFive: 0,
-        //selectSix: 0,
-        //selectSeven: 0,
-        //selectEight: 0,
+    state = { selectFive: 0 };
+
+    /** ************* TOGGLE MODAL ************* */
+    handleToggleModal = () => {
+        this.props.togglePopupWindowTurnstile();
     }
 
     /** ************* CHOICE INFO TIME SELECTOR ************* */
-    handleClickInfoTimeSelector = () => {
+    handleClickFiveSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         this.setState({ 
-            selectFive: +!this.state.selectFive 
+            selectFive: +!page_view.module_selectors[4].state 
         }, () => {
             let data = {
                 app_id: 'id',
@@ -41,25 +35,22 @@ class SelectorInfoTime extends React.PureComponent {
                 trigger_state: this.state.selectFive,
                 button_seria_state: page_view.btn_seria,
                 button_corpse_state: page_view.btn_corpse,
-                //selectOne: this.state.selectOne,
-                //selectTwo: this.state.selectTwo,
-                //selectThree: this.state.selectThree,
-                //selectFour: this.state.selectFour,
-                selectFive: this.state.selectFive,
-                //selectSix: this.state.selectSix,
-                //selectSeven: this.state.selectSeven,
-                //selectEight: this.state.selectEight
+                selectOne: page_view.module_selectors[0].state,
+                selectTwo: page_view.module_selectors[1].state,
+                selectThree: page_view.module_selectors[2].state,
+                selectFour: page_view.module_selectors[3].state,
+                selectFive: page_view.module_selectors[4].state,
+                selectSix: page_view.module_selectors[5].state,
+                selectSeven: page_view.module_selectors[6].state,
+                selectEight: page_view.module_selectors[7].state
             }
-            this.props.fetchDataTurnstile(data);
+            this.props.fetchDataTurnstile(data, data.trigger);
         })
     }
 
     render() {
-        const { turnstile, isFetching } = this.props.data;
-        console.log(turnstile);
-        if (turnstile.data.length === 0 && !isFetching) {
-            return <Suspense fallback={<div><Loader /></div>}></Suspense>
-        }
+        const { turnstile } = this.props.data;
+        //console.log(turnstile);
         return(
             /** ************* INFO TIME SELECTOR ************* */
             <Fragment>
@@ -93,7 +84,10 @@ class SelectorInfoTime extends React.PureComponent {
                                         <div className='selectors-module__icon time'></div>
                                         <div className='selectors-module__text'>Информационный дисплей учета рабочего времени</div>
                                         <div className='selectors-module__info'>
-                                            <div className='selectors-module__info-text'>ПОДРОБНЕЕ</div>
+                                            <div className='selectors-module__info-text'>
+                                                <div onClick={this.handleToggleModal}>ПОДРОБНЕЕ</div>
+                                                {turnstile.modal ? <PopUp /> : null}
+                                            </div>
                                             <div className='selectors-module__info-arrow'></div>
                                         </div>
                                     </div>
@@ -111,7 +105,7 @@ class SelectorInfoTime extends React.PureComponent {
                                                 name="onoffswitch5" 
                                                 className="onoffswitch5-checkbox" 
                                                 id="header5-checkbox" 
-                                                onChange={this.handleClickInfoTimeSelector}
+                                                onChange={this.handleClickFiveSelect}
                                                 checked={turnstile.data.page_view.module_selectors[4].state}     
                                             />
                                             <label className="onoffswitch5-label" htmlFor="header5-checkbox">
@@ -131,9 +125,12 @@ class SelectorInfoTime extends React.PureComponent {
 }
 SelectorInfoTime.propTypes = {
     fetchDataTurnstile: PropTypes.func.isRequired,
-    data: PropTypes.object.isRequired
+    togglePopupWindowTurnstile: PropTypes.func.isRequired,
+    data: PropTypes.object.isRequired,
+    turnstile: PropTypes.object,
+    isFetching: PropTypes.bool
 }
 const mapStateToProps = state => ({
     data: state
 })
-export default connect(mapStateToProps, { fetchDataTurnstile })(SelectorInfoTime)
+export default connect(mapStateToProps, { fetchDataTurnstile, togglePopupWindowTurnstile })(SelectorInfoTime);

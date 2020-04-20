@@ -1,7 +1,5 @@
 /** ************* IMPORT DEPENDENCIES ************* */
 import React, { Suspense, lazy } from 'react';
-//import ReactCSSTransitionGroup from 'react-transition-group';
-//import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -9,7 +7,6 @@ import { connect } from 'react-redux';
 import { fetchDataTurnstile } from '../../../actions/dataTurnstileActions';
 
 /** ************* IMPORT MODULES FOR EQUIPMENT COMPONENT ************* */
-//const EquipmentModal = lazy(() => import('./modals/equipmentModal'));
 import EquipmentModal from './EquipmentModal/equipmentModal';
 
 /** ************* IMPORT STYLES FOR MODULE BUTTONS IN EQUIPMENT COMPONENT ************* */
@@ -101,7 +98,7 @@ class ModuleEquipment extends React.PureComponent {
     render() {
         /** ************* DATA FROM STORE ************* */
         const { turnstile, isFetching } = this.props.data;
-        //console.log(this.props.data)
+        //console.log(turnstile);
         if(turnstile.data.length === 0 && !isFetching) {
             return <Suspense fallback={<div><Loader /></div>}></Suspense>
         }
@@ -195,7 +192,9 @@ class ModuleEquipment extends React.PureComponent {
 }
 ModuleEquipment.propTypes = {
     fetchDataTurnstile: PropTypes.func.isRequired,
-    data: PropTypes.object.isRequired
+    data: PropTypes.object.isRequired,
+    turnstile: PropTypes.object,
+    isFetching: PropTypes.bool
 }
 const mapStateToProps = state => ({
     data: state

@@ -1,39 +1,33 @@
 /** ************* IMPORT DEPENDENCIES ************* */
-import React, { Suspense, lazy } from 'react';
+import React, { Fragment, lazy } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-/** ************* IMPORT ACTIONS FROM ACTION FOLDER ************* */
-import { fetchDataTurnstile } from '../../../../../actions/dataTurnstileActions';
+import { 
+    fetchDataTurnstile, 
+    togglePopupWindowTurnstile 
+} from '../../../../../actions/dataTurnstileActions';
 
 /** ************* IMPORT STYLES FOR CONTROL 2D SELECTOR ONE IN TURNSTILE COMPONENT ************* */
 import './selectorControl2D.scss';
 
-/** ************* IMPORT __UTILS__ FOR CONTROL 2D SELECTOR ONE COMPONENT ************* */
-const Loader = lazy(() => import('../../../../../__utils__/Loader/Loader'));
-
 /** ************* IMPORT POPUP COMPONENT ************* */
-//const PopUp = lazy(() => import('../../../../popup/popup'));
+const PopUp = lazy(() => import('../../../../popup/popup'));
 
 class SelectorControl2D extends React.PureComponent {
 
-    state = {
-        modal: false,
-        //selectOne: 0,
-        //selectTwo: 0,
-        //selectThree: 0,
-        //selectFour: 0,
-        //selectFive: 0,
-        selectSix: 0,
-        //selectSeven: 0,
-        //selectEight: 0,
+    state = { selectSix: 0 };
+
+    /** ************* TOGGLE MODAL ************* */
+    handleToggleModal = () => {
+        this.props.togglePopupWindowTurnstile();
     }
 
     /** ************* CHOICE CONTROL 2D SELECTOR ************* */
-    handleClickControl2DSelect = () => {
+    handleClickSixSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         this.setState({ 
-            selectSix: +!this.state.selectSix 
+            selectSix: +!page_view.module_selectors[5].state  
         }, () => {
             let data = {
                 app_id: 'id',
@@ -41,28 +35,25 @@ class SelectorControl2D extends React.PureComponent {
                 trigger_state: this.state.selectSix,
                 button_seria_state: page_view.btn_seria,
                 button_corpse_state: page_view.btn_corpse,
-                //selectOne: this.state.selectOne,
-                //selectTwo: this.state.selectTwo,
-                //selectThree: this.state.selectThree,
-                //selectFour: this.state.selectFour,
-                //selectFive: this.state.selectFive,
-                selectSix: this.state.selectSix,
-                //selectSeven: this.state.selectSeven,
-                //selectEight: this.state.selectEight
+                selectOne: page_view.module_selectors[0].state,
+                selectTwo: page_view.module_selectors[1].state,
+                selectThree: page_view.module_selectors[2].state,
+                selectFour: page_view.module_selectors[3].state,
+                selectFive: page_view.module_selectors[4].state,
+                selectSix: page_view.module_selectors[5].state,
+                selectSeven: page_view.module_selectors[6].state,
+                selectEight: page_view.module_selectors[7].state
             }
-            this.props.fetchDataTurnstile(data);
+            this.props.fetchDataTurnstile(data, data.trigger);
         })
     }
 
     render() {
         /** ************* DATA FROM STORE ************* */
-        const { turnstile, isFetching } = this.props.data;
-        console.log(turnstile);
-        if (turnstile.data.length === 0 && !isFetching) {
-            return <Suspense fallback={<div><Loader /></div>}></Suspense>
-        }
+        const { turnstile } = this.props.data;
+        //console.log(turnstile);
         return(
-            <React.Fragment>
+            <Fragment>
                 {/** ************* CONTROL 2D SELECTOR ************* */}
                 {turnstile.data.page_view.module_selectors.slice(5, 6).map((index, key) => {
                     if(index.state === -1) {
@@ -94,7 +85,10 @@ class SelectorControl2D extends React.PureComponent {
                                         <div className='selectors-module__icon one-visits'></div>
                                         <div className='selectors-module__text'>Контроль разовых посещений по 2D штрих-кодам</div>
                                         <div className='selectors-module__info'>
-                                            <div className='selectors-module__info-text'>ПОДРОБНЕЕ</div>
+                                            <div className='selectors-module__info-text'>
+                                                <div onClick={this.handleToggleModal}>ПОДРОБНЕЕ</div>
+                                                {turnstile.modal ? <PopUp /> : null}
+                                            </div>
                                             <div className='selectors-module__info-arrow'></div>
                                         </div>
                                     </div>
@@ -113,7 +107,7 @@ class SelectorControl2D extends React.PureComponent {
                                                 name="onoffswitch6" 
                                                 className="onoffswitch6-checkbox" 
                                                 id="header6-checkbox" 
-                                                onChange={this.handleClickControl2DSelect}
+                                                onChange={this.handleClickSixSelect}
                                                 checked={turnstile.data.page_view.module_selectors[5].state}     
                                             />
                                             <label className="onoffswitch6-label" htmlFor="header6-checkbox">
@@ -127,15 +121,18 @@ class SelectorControl2D extends React.PureComponent {
                         }
                     })  
                 }
-            </React.Fragment>
+            </Fragment>
         )
     }
 }
 SelectorControl2D.propTypes = {
+    togglePopupWindowTurnstile: PropTypes.func.isRequired,
     fetchDataTurnstile: PropTypes.func.isRequired,
-    data: PropTypes.object.isRequired
+    data: PropTypes.object.isRequired,
+    turnstile: PropTypes.object,
+    isFetching: PropTypes.bool
 }
 const mapStateToProps = state => ({
     data: state
 })
-export default connect(mapStateToProps, { fetchDataTurnstile })(SelectorControl2D)
+export default connect(mapStateToProps, { fetchDataTurnstile, togglePopupWindowTurnstile })(SelectorControl2D);

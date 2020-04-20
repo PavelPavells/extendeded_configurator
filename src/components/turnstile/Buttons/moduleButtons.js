@@ -1,6 +1,5 @@
 /** ************* IMPORT DEPENDENCIES ************* */
-import React, { Suspense, lazy } from 'react';
-//import { Link } from 'react-router-dom';
+import React, { Fragment, Suspense, lazy } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -18,7 +17,6 @@ class ModuleButtons extends React.PureComponent {
     /** ************* FETCHING DATA ************* */
     componentDidMount() {
         const {page_view} = this.props.data.turnstile.data
-        console.log(page_view ? page_view : 0)
         let data = {
             app_id: 'id',
             trigger: this.props.data.turnstile.trigger ? this.props.data.turnstile.trigger : 1,
@@ -148,7 +146,7 @@ class ModuleButtons extends React.PureComponent {
         
         /** ************* DATA FROM STORE ************* */
         const { turnstile, isFetching } = this.props.data;
-        //console.log(turnstile)
+        //console.log(turnstile);
         if(turnstile.data.length === 0 && !isFetching) {
             return <Suspense fallback={<div><Loader /></div>}></Suspense>
         }
@@ -171,24 +169,24 @@ class ModuleButtons extends React.PureComponent {
                         <div className='top-select__seria'>
                             {turnstile.data.page_view.btn_seria === 0
                                 ?
-                                <React.Fragment>
+                                <Fragment>
                                     <div onClick={this.handleClickSeriaSTR} className='top-select__seria-str open'>STR</div>
-                                </React.Fragment>
+                                </Fragment>
                                 :
-                                <React.Fragment>
+                                <Fragment>
                                     <div onClick={this.handleClickSeriaSTR} className='top-select__seria-str'>STR</div>
-                                </React.Fragment>
+                                </Fragment>
                             }
                             
                             {turnstile.data.page_view.btn_seria === 1
                                 ?
-                                <React.Fragment>
+                                <Fragment>
                                     <div onClick={this.handleClickSeriaSTX} className='top-select__seria-stx open'>STX</div>
-                                </React.Fragment>
+                                </Fragment>
                                 :
-                                <React.Fragment>
+                                <Fragment>
                                     <div onClick={this.handleClickSeriaSTX} className='top-select__seria-stx'>STX</div>
-                                </React.Fragment>
+                                </Fragment>
                             }
                         </div>
                         <div className='top-select__price'>{turnstile.data.page_view.model_price}</div>
@@ -230,23 +228,23 @@ class ModuleButtons extends React.PureComponent {
                     <div className='bottom-buttons'>
                         {turnstile.data.page_view.btn_corpse === 0
                             ?
-                            <React.Fragment>
+                            <Fragment>
                                 <div onClick={this.handleClickExecutionCompact} className='bottom-buttons__compact open'>Компактный</div>
-                            </React.Fragment>
+                            </Fragment>
                             :
-                            <React.Fragment>
+                            <Fragment>
                                 <div onClick={this.handleClickExecutionCompact} className='bottom-buttons__compact'>Компактный</div>
-                            </React.Fragment>
+                            </Fragment>
                         }
                         {turnstile.data.page_view.btn_corpse === 1
                             ?
-                            <React.Fragment>
+                            <Fragment>
                                 <div onClick={this.handleClickExecutionThumb} className='bottom-buttons__thumb open'>Тумбовый</div>
-                            </React.Fragment>
+                            </Fragment>
                             :
-                            <React.Fragment>
+                            <Fragment>
                                 <div onClick={this.handleClickExecutionThumb} className='bottom-buttons__thumb'>Тумбовый</div>
-                            </React.Fragment>
+                            </Fragment>
                         }
                     </div>
                 </div>
@@ -256,9 +254,11 @@ class ModuleButtons extends React.PureComponent {
 }
 ModuleButtons.propTypes = {
     fetchDataTurnstile: PropTypes.func.isRequired,
-    data: PropTypes.object.isRequired
+    data: PropTypes.object.isRequired,
+    turnstile: PropTypes.object,
+    isFetching: PropTypes.bool
 }
 const mapStateToProps = state => ({
     data: state
 })
-export default connect(mapStateToProps, { fetchDataTurnstile })(ModuleButtons)
+export default connect(mapStateToProps, { fetchDataTurnstile })(ModuleButtons);

@@ -18,15 +18,13 @@ class App extends React.PureComponent {
     return (
       <Provider store={store}>
         <BrowserRouter>
-
           {/** ************* WRAPPER-CONFIGURATOR ************* */}
-          <div className="wrapper-configurator">
+          <div className="wrapper">
             <Layouts />
           </div>
-          
         </BrowserRouter>
       </Provider>
     );
   }
 }
-export default App
+export default App;

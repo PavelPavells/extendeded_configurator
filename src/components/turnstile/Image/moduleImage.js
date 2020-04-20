@@ -16,23 +16,22 @@ class ModuleImage extends React.PureComponent {
 
     /** ************* FETCHING DATA ************* */
     componentDidMount() {
-        this.props.fetchDataTurnstile()
+        this.props.fetchDataTurnstile();
     }
     render() {
         
         /** ************* DATA FROM STORE ************* */
         const { turnstile, isFetching } = this.props.data;
-
         if (turnstile.data.length === 0 && !isFetching) {
             return <Suspense fallback={<div><Loader /></div>}></Suspense>
         }
         return (
             
             /** ************* MODULE IMAGE ************* */
-            <div className='wrapper-photo'>
+            <div className='image'>
                 <img 
                     src={turnstile.data.page_view.model_main_photo} 
-                    className='wrapper-photo__image' 
+                    className='image__turnstile' 
                     alt='' 
                 />
             </div>
@@ -41,9 +40,11 @@ class ModuleImage extends React.PureComponent {
 }
 ModuleImage.propTypes = {
     fetchDataTurnstile: PropTypes.func.isRequired,
-    data: PropTypes.object.isRequired
+    data: PropTypes.object.isRequired,
+    turnstile: PropTypes.object,
+    isFetching: PropTypes.bool
 }
 const mapStateToProps = state => ({
     data: state
 })
-export default connect(mapStateToProps, { fetchDataTurnstile })(ModuleImage)
+export default connect(mapStateToProps, { fetchDataTurnstile })(ModuleImage);

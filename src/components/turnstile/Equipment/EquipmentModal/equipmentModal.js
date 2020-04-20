@@ -1,7 +1,5 @@
 /** ************* IMPORT DEPENDENCIES ************* */
 import React, { Suspense, lazy } from 'react';
-//import React from 'react';
-//import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -18,13 +16,13 @@ class EquipmentModal extends React.Component {
 
     /** ************* FETCHING DATA ************* */
     componentDidMount() {
-       this.props.fetchDataTurnstile()
+       this.props.fetchDataTurnstile();
     }
     render() {
 
         /** ************* DATA FROM STORE ************* */
         const { turnstile, isFetching } = this.props.data;
-        console.log(turnstile.data.page_view.model_price)
+        //console.log(turnstile);
         if (turnstile.data.length === 0 && !isFetching) {
            return <Suspense fallback={<div><Loader /></div>}></Suspense>
         }
@@ -195,9 +193,11 @@ class EquipmentModal extends React.Component {
 }
 EquipmentModal.propTypes = {
     fetchDataTurnstile: PropTypes.func.isRequired,
-    data: PropTypes.object
+    data: PropTypes.object,
+    turnstile: PropTypes.object,
+    isFetching: PropTypes.bool
 }
 const mapStateToProps = state => ({
     data: state
 })
-export default connect(mapStateToProps, { fetchDataTurnstile })(EquipmentModal)
+export default connect(mapStateToProps, { fetchDataTurnstile })(EquipmentModal);

@@ -16,7 +16,7 @@ class ModuleList extends React.PureComponent {
 
     /** ************* FETCHING DATA ************* */
     componentDidMount() {
-        this.props.fetchDataTurnstile()
+        this.props.fetchDataTurnstile();
     }
     render() {
         
@@ -45,10 +45,8 @@ ModuleList.propTypes = {
     data: PropTypes.object.isRequired,
     turnstile: PropTypes.object,
     isFetching: PropTypes.bool,
-    index: PropTypes.number,
-    caption: PropTypes.string
 }
 const mapStateToProps = state => ({
     data: state
 })
-export default connect(mapStateToProps, { fetchDataTurnstile })(ModuleList)
+export default connect(mapStateToProps, { fetchDataTurnstile })(ModuleList);

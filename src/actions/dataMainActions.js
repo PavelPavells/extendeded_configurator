@@ -15,13 +15,13 @@ export const fetchingDataMainRequest = () => ({ type: FETCHING_DATA_MAIN_REQUEST
 export const fetchingDataMainSuccess = data => ({
     type: FETCHING_DATA_MAIN_SUCCESS,
     payload: data.data
-})
+});
 
 /** ********** FUNCTION FOR FETCH_FAILURE ********** */
 export const fetchingDataMainFailure = error => ({
     type: FETCHING_DATA_MAIN_FAILURE,
     payload: error
-})
+});
 
 export const fetchDataMain = () => {
     return async dispatch => {
@@ -36,20 +36,4 @@ export const fetchDataMain = () => {
             dispatch(fetchingDataMainFailure(error));
         }
     }
-}
-
-// import { ADD_USER } from './types';
-// import axios from 'axios';
-
-// export const userLoginRequest = () => dispatch => {
-//     axios.post(`localhost:5000/api/users`)
-//     .then( userdata => 
-//         dispatch({
-//             type: ADD_USER,
-//             payload: userdata
-//         })
-//     )
-//     .catch( error => {
-//         console.log(error);
-//     });
-// };
+};

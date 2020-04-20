@@ -26,8 +26,8 @@ class Layout extends React.PureComponent {
                     <div className="components">
                         <Switch>
                             <Route path='/main' component={Main} />
-                            <Route exact path='/:turnstile' component={Turnstile} />
-                            <Route path='/:turnstile' component={moduleOffer} />
+                            <Route exact path='/turnstile' component={Turnstile} />
+                            <Route path='/turnstile/offer' component={moduleOffer} />
                             <Route path='/barrier' component={Barrier} />
                         </Switch>
                     </div>
@@ -36,4 +36,4 @@ class Layout extends React.PureComponent {
         )
     }
 }
-export default connect( null, null )(Layout);
+export default connect(null, null)(Layout);

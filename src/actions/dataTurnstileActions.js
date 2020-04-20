@@ -18,13 +18,13 @@ export const fetchingDataTurnstileSuccess = (data, trigger) => ({
     type: FETCHING_DATA_TURNSTILE_SUCCESS,
     trigger: trigger,
     payload: data.data
-})
+});
 
 /** ********** ACTION FOR FETCH_FAILURE ********** */
 export const fetchingDataTurnstileFailure = error => ({
     type: FETCHING_DATA_TURNSTILE_FAILURE,
     payload: error
-})
+});
 
 export const fetchDataTurnstile = (data, trigger) => {
     return async dispatch => {
@@ -69,19 +69,19 @@ export const fetchDataTurnstile = (data, trigger) => {
                     },
                     {
                       module: 4,
-                      state: data.selectFive ? data.selectFive : 0
+                      state: data.selectFive && !data.selectFive < 0 ? data.selectFive : 0
                     },
                     {
                       module: 5,
-                      state: data.selectSix ? data.selectSix : 0
+                      state: data.selectSix && !data.selectSix < 0 ? data.selectSix : 0
                     },
                     {
                       module: 6,
-                      state: data.selectSeven ? data.selectSeven : 0
+                      state: data.selectSeven && !data.selectSeven < 0 ? data.selectSeven : 0
                     },
                     {
                       module: 7,
-                      state: data.selectEight ? data.selectEight : 0
+                      state: data.selectEight && !data.selectEight < 0 ? data.selectEight : 0
                     }
                 ]        
             })
@@ -93,26 +93,10 @@ export const fetchDataTurnstile = (data, trigger) => {
             dispatch(fetchingDataTurnstileFailure(error));
         }
     }
-}
+};
 
 /** ********** ACTIONS FOR TOGGLE POPUP WINDOW ********** */
-export const togglePopupWindowTurnstile = () => ({ type: TOGGLE_MODAL_TURNSTILE })
+export const togglePopupWindowTurnstile = () => ({ type: TOGGLE_MODAL_TURNSTILE });
 
 /** ********** ACTIONS FOR TOGGLE POPUP WINDOW MAIN INFO ********** */
-export const togglePopupWindowMainInfoTurnstile = () => ({ type: TOGGLE_MODAL_TURNSTILE_MAIN_INFO })
-
-// import { ADD_USER } from './types';
-// import axios from 'axios';
-
-// export const userLoginRequest = () => dispatch => {
-//     axios.post(`localhost:5000/api/users`)
-//     .then( userdata => 
-//         dispatch({
-//             type: ADD_USER,
-//             payload: userdata
-//         })
-//     )
-//     .catch( error => {
-//         console.log(error);
-//     });
-// };
+export const togglePopupWindowMainInfoTurnstile = () => ({ type: TOGGLE_MODAL_TURNSTILE_MAIN_INFO });

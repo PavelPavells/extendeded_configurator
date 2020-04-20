@@ -1,39 +1,33 @@
 /** ************* IMPORT DEPENDENCIES ************* */
-import React, { Fragment, Suspense, lazy } from 'react';
+import React, { Fragment, lazy } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-/** ************* IMPORT ACTIONS FROM ACTION FOLDER ************* */
-import { fetchDataTurnstile } from '../../../../../actions/dataTurnstileActions';
+import { 
+    fetchDataTurnstile, 
+    togglePopupWindowTurnstile 
+} from '../../../../../actions/dataTurnstileActions';
 
 /** ************* IMPORT STYLES FOR MIFIRE SELECTOR TWO IN TURNSTILE COMPONENT ************* */
 import './selectorMifire.scss';
-
-/** ************* IMPORT __UTILS__ FOR MIFIRE SELECTOR TWO COMPONENT ************* */
-const Loader = lazy(() => import('../../../../../__utils__/Loader/Loader'));
 
 /** ************* IMPORT POPUP COMPONENT ************* */
 const PopUp = lazy(() => import('../../../../popup/popup'));
 
 class SelectorMifire extends React.PureComponent {
 
-    state = {
-        modal: false,
-        //selectOne: 0,
-        //selectTwo: 0,
-        selectThree: 0,
-        //selectFour: 0,
-        //selectFive: 0,
-        //selectSix: 0,
-        //selectSeven: 0,
-        //selectEight: 0,
+    state = { selectThree: 0 };
+
+    /** ************* TOGGLE MODAL ************* */
+    handleToggleModal = () => {
+        this.props.togglePopupWindowTurnstile();
     }
 
     /** ************* CHOICE MIFIRE SELECTOR ************* */
-    handleClickMifireSelector = () => {
+    handleClickThreeSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         this.setState({ 
-            selectThree: +!this.state.selectThree 
+            selectThree: +!page_view.module_selectors[2].state 
         }, () => {
             let data = {
                 app_id: 'id',
@@ -41,26 +35,23 @@ class SelectorMifire extends React.PureComponent {
                 trigger_state: this.state.selectThree,
                 button_seria_state: page_view.btn_seria,
                 button_corpse_state: page_view.btn_corpse,
-                //selectOne: this.state.selectOne,
-                //selectTwo: this.state.selectTwo,
-                selectThree: this.state.selectThree,
-                //selectFour: this.state.selectFour,
-                //selectFive: this.state.selectFive,
-                //selectSix: this.state.selectSix,
-                //selectSeven: this.state.selectSeven,
-                //selectEight: this.state.selectEight
+                selectOne: page_view.module_selectors[0].state,
+                selectTwo: page_view.module_selectors[1].state,
+                selectThree: page_view.module_selectors[2].state,
+                selectFour: page_view.module_selectors[3].state,
+                selectFive: page_view.module_selectors[4].state,
+                selectSix: page_view.module_selectors[5].state,
+                selectSeven: page_view.module_selectors[6].state,
+                selectEight: page_view.module_selectors[7].state
             }
-            this.props.fetchDataTurnstile(data);
+            this.props.fetchDataTurnstile(data, data.trigger);
         })
     }
 
     render() {
         /** ************* DATA FROM STORE ************* */
-        const { turnstile, isFetching } = this.props.data;
+        const { turnstile } = this.props.data;
         //console.log(turnstile);
-        if (turnstile.data.length === 0 && !isFetching) {
-            return <Suspense fallback={<div><Loader /></div>}></Suspense>
-        }
         return (
             /** ************* MIFIRE SELECTOR ************* */
             <Fragment>
@@ -71,7 +62,7 @@ class SelectorMifire extends React.PureComponent {
                             <div className='selectors-module__text'>RFID идентификаторы Mifire 13.56MHz</div>
                             <div className='selectors-module__info'>
                                 <div className='selectors-module__info-text'>
-                                    <div onClick={this.handleModal}>ПОДРОБНЕЕ</div>
+                                    <div onClick={this.handleToggleModal}>ПОДРОБНЕЕ</div>
                                     {turnstile.modal ? <PopUp /> : null}
                                 </div>
                                 <div className='selectors-module__info-arrow'></div>
@@ -89,7 +80,7 @@ class SelectorMifire extends React.PureComponent {
                                     name="onoffswitch3" 
                                     className="onoffswitch3-checkbox" 
                                     id="header3-checkbox"
-                                    onChange={this.handleClickMifireSelector}
+                                    onChange={this.handleClickThreeSelect}
                                     checked={turnstile.data.page_view.module_selectors[2].state} 
                                 />
                                 <label className="onoffswitch3-label" htmlFor="header3-checkbox">
@@ -106,10 +97,13 @@ class SelectorMifire extends React.PureComponent {
     }
 }
 SelectorMifire.propTypes = {
+    togglePopupWindowTurnstile: PropTypes.func.isRequired,
     fetchDataTurnstile: PropTypes.func.isRequired,
-    data: PropTypes.object.isRequired
+    data: PropTypes.object.isRequired,
+    turnstile: PropTypes.object,
+    isFetching: PropTypes.bool
 }
 const mapStateToProps = state => ({
     data: state
 })
-export default connect(mapStateToProps, { fetchDataTurnstile })(SelectorMifire)
+export default connect(mapStateToProps, { fetchDataTurnstile, togglePopupWindowTurnstile })(SelectorMifire);

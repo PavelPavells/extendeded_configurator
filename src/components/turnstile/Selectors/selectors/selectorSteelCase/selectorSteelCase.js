@@ -1,39 +1,33 @@
 /** ************* IMPORT DEPENDENCIES ************* */
-import React, { Fragment, Suspense, lazy } from 'react';
+import React, { Fragment, lazy } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-/** ************* IMPORT ACTIONS FROM ACTION FOLDER ************* */
-import { fetchDataTurnstile } from '../../../../../actions/dataTurnstileActions';
+import { 
+    fetchDataTurnstile, 
+    togglePopupWindowTurnstile 
+} from '../../../../../actions/dataTurnstileActions';
 
 /** ************* IMPORT STYLES FOR STEEL CASE SELECTOR IN TURNSTILE COMPONENT ************* */
 import './selectorSteelCase.scss';
 
-/** ************* IMPORT __UTILS__ FOR STEEL CASE SELECTOR IN TURNSTILE COMPONENT ************* */
-const Loader = lazy(() => import('../../../../../__utils__/Loader/Loader'));
-
 /** ************* IMPORT POPUP COMPONENT ************* */
-//const PopUp = lazy(() => import('../../../../popup/popup'));
+const PopUp = lazy(() => import('../../../../popup/popup'));
 
 class SelectorSteelCase extends React.PureComponent {
 
-    state = {
-        modal: false,
-        //selectOne: 0,
-        //selectTwo: 0,
-        //selectThree: 0,
-        //selectFour: 0,
-        //selectFive: 0,
-        //selectSix: 0,
-        //selectSeven: 0,
-        selectEight: 0,
+    state = { selectEight: 0 };
+
+    /** ************* TOGGLE MODAL ************* */
+    handleToggleModal = () => {
+        this.props.togglePopupWindowTurnstile();
     }
 
     /** ************* CHOICE STEEL CASE SELECTOR ************* */
-    handleClickSteelCaseSelector = () => {
+    handleClickEightSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         this.setState({ 
-            selectEight: +!this.state.selectEight 
+            selectEight: +!page_view.module_selectors[7].state 
         }, () => {
             let data = {
                 app_id: 'id',
@@ -41,26 +35,23 @@ class SelectorSteelCase extends React.PureComponent {
                 trigger_state: this.state.selectEight,
                 button_seria_state: page_view.btn_seria,
                 button_corpse_state: page_view.btn_corpse,
-                //selectOne: this.state.selectOne,
-                //selectTwo: this.state.selectTwo,
-                //selectThree: this.state.selectThree,
-                //selectFour: this.state.selectFour,
-                //selectFive: this.state.selectFive,
-                //selectSix: this.state.selectSix,
-                //selectSeven: this.state.selectSeven,
-                selectEight: this.state.selectEight
+                selectOne: page_view.module_selectors[0].state,
+                selectTwo: page_view.module_selectors[1].state,
+                selectThree: page_view.module_selectors[2].state,
+                selectFour: page_view.module_selectors[3].state,
+                selectFive: page_view.module_selectors[4].state,
+                selectSix: page_view.module_selectors[5].state,
+                selectSeven: page_view.module_selectors[6].state,
+                selectEight: page_view.module_selectors[7].state
             }
-            this.props.fetchDataTurnstile(data);
+            this.props.fetchDataTurnstile(data, data.trigger);
         })
     }
 
     render() {
         /** ************* DATA FROM STORE ************* */
-        const { turnstile, isFetching } = this.props.data;
-        console.log(turnstile);
-        if (turnstile.data.length === 0 && !isFetching) {
-            return <Suspense fallback={<div><Loader /></div>}></Suspense>
-        }
+        const { turnstile } = this.props.data;
+        //console.log(turnstile);
         return(
             /** ************* MODULE STEEL CASE SELECTOR ************* */
             <Fragment>
@@ -94,7 +85,10 @@ class SelectorSteelCase extends React.PureComponent {
                                         <div className='selectors-module__icon steel'></div>
                                         <div className='selectors-module__text'>Корпус кожуха из нержавеющей стали</div>
                                         <div className='selectors-module__info'>
-                                            <div className='selectors-module__info-text'>ПОДРОБНЕЕ</div>
+                                            <div className='selectors-module__info-text'>
+                                                <div onClick={this.handleToggleModal}>ПОДРОБНЕЕ</div>
+                                                {turnstile.modal ? <PopUp /> : null}
+                                            </div>
                                             <div className='selectors-module__info-arrow'></div>
                                         </div>
                                     </div>
@@ -115,7 +109,7 @@ class SelectorSteelCase extends React.PureComponent {
                                                 name="onoffswitch8" 
                                                 className="onoffswitch8-checkbox" 
                                                 id="header8-checkbox" 
-                                                onChange={this.handleClickSteelCaseSelector}
+                                                onChange={this.handleClickEightSelect}
                                                 checked={turnstile.data.page_view.module_selectors[7].state}    
                                             />
                                             <label className="onoffswitch8-label" htmlFor="header8-checkbox">
@@ -134,10 +128,13 @@ class SelectorSteelCase extends React.PureComponent {
     }
 }
 SelectorSteelCase.propTypes = {
+    togglePopupWindowTurnstile: PropTypes.func.isRequired,
     fetchDataTurnstile: PropTypes.func.isRequired,
-    data: PropTypes.object.isRequired
+    data: PropTypes.object.isRequired,
+    turnstile: PropTypes.object,
+    isFetching: PropTypes.bool
 }
 const mapStateToProps = state => ({
     data: state
 })
-export default connect(mapStateToProps, { fetchDataTurnstile })(SelectorSteelCase)
+export default connect(mapStateToProps, { fetchDataTurnstile, togglePopupWindowTurnstile })(SelectorSteelCase);

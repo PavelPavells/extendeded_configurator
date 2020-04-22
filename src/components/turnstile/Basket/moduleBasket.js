@@ -1,22 +1,32 @@
-/** ************* IMPORT DEPENDENCIES ************* */
+/**
+ * Импорт зависимостей из NPM
+ */
 import React, { Suspense, lazy } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-/** ************* IMPORT ACTIONS FROM ACTION FOLDER ************* */
+/**
+ * Импорт экшенов
+ */
 import { fetchDataTurnstile } from '../../../actions/dataTurnstileActions';
 
-/** ************* IMPORT STYLES FOR MODULE BASKET IN TURNSTILE COMPONENT ************* */
+/**
+ * Импорт стилей
+ */
 import './moduleBasket.scss';
 
-/** ************* IMPORT __UTILS__ FOR BASKET IN TURNSTILE COMPONENT ************* */
+/**
+ * Импорт прелоадера 
+ */
 const Loader = lazy(() => import('../../../__utils__/Loader/Loader'));
 
 class ModuleBasket extends React.PureComponent {
     render() {
         
-        /** ************* DATA FROM STORE ************* */
+        /**
+        * Данные из Глобального Стора
+        */
         const { turnstile, isFetching } = this.props.data;
         //console.log(turnstile);
         if(turnstile.data.length === 0 && !isFetching) {
@@ -26,13 +36,19 @@ class ModuleBasket extends React.PureComponent {
         }
         return (
 
-            /** ************* MODULE BASKET ************* */
+            /** 
+             *  Модуль Корзина
+             */
             <section className='basket'>
 
-                {/** ************* DESCRIPTION ************* */}
+                {/** 
+                 *Описание 
+                 */}
                 <p className='basket-description'>Конфигуратор</p>
 
-                {/** ************* BASKET INFO ************* */}
+                {/**
+                 *Информация о корзине
+                 */}
                 <div className='basket-data'>
                     <Link to='/turnstile/offer' className='basket-data__wrapper'>
                         <div className='basket-data__wrapper-info'>

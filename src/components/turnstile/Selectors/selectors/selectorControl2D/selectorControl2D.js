@@ -1,29 +1,42 @@
-/** ************* IMPORT DEPENDENCIES ************* */
+/**
+ * Импорт зависимостей из NPM
+ */
 import React, { Fragment, lazy } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+/**
+ * Импорт экшенов
+ */
 import { 
     fetchDataTurnstile, 
     togglePopupWindowTurnstile 
 } from '../../../../../actions/dataTurnstileActions';
 
-/** ************* IMPORT STYLES FOR CONTROL 2D SELECTOR ONE IN TURNSTILE COMPONENT ************* */
+/**
+ * Импорт стилей
+ */
 import './selectorControl2D.scss';
 
-/** ************* IMPORT POPUP COMPONENT ************* */
+/**
+ * Импорт прелоадера 
+ */
 const PopUp = lazy(() => import('../../../../popup/popup'));
 
 class SelectorControl2D extends React.PureComponent {
 
     state = { selectSix: 0 };
 
-    /** ************* TOGGLE MODAL ************* */
+    /**
+     * Открыть/Закрыть модальное окно
+     */
     handleToggleModal = () => {
         this.props.togglePopupWindowTurnstile();
     }
 
-    /** ************* CHOICE CONTROL 2D SELECTOR ************* */
+    /**
+    * Хэндлер для обработки запроса селектора 'Контроля по 2D-штрихкодам'
+    */
     handleClickSixSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         this.setState({ 
@@ -49,12 +62,17 @@ class SelectorControl2D extends React.PureComponent {
     }
 
     render() {
-        /** ************* DATA FROM STORE ************* */
+        
+        /** 
+         * Данные из глобального стора
+         */
         const { turnstile } = this.props.data;
         //console.log(turnstile);
         return(
+            /**
+             * Селектор 'Контроль по 2D-штрихкодам'
+             */
             <Fragment>
-                {/** ************* CONTROL 2D SELECTOR ************* */}
                 {turnstile.data.page_view.module_selectors.slice(5, 6).map((index, key) => {
                     if(index.state === -1) {
                             return (

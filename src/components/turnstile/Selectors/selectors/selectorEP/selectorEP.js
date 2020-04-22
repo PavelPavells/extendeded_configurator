@@ -1,30 +1,42 @@
-/** ************* IMPORT DEPENDENCIES ************* */
+/**
+ * Импорт зависимостей из NPM
+ */
 import React, { Fragment, lazy } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-/** ************* IMPORT ACTIONS FROM ACTION FOLDER ************* */
+/**
+ * Импорт экшенов
+ */
 import { 
     fetchDataTurnstile, 
     togglePopupWindowTurnstile 
 } from '../../../../../actions/dataTurnstileActions';
 
-/** ************* IMPORT STYLES FOR EP SELECTOR ONE IN TURNSTILE COMPONENT ************* */
+/**
+ * Импорт стилей
+ */
 import './selectorEP.scss';
 
-/** ************* IMPORT POPUP COMPONENT ************* */
+/**
+ * Импорт прелоадера 
+ */
 const PopUp = lazy(() => import('../../../../popup/popup'));
 
 class SelectorEP extends React.PureComponent {
 
     state = { selectOne: 0 };
 
-    /** ************* TOGGLE MODAL ************* */
+    /**
+     * Открыть/Закрыть модальное окно
+     */
     handleToggleModal = () => {
         this.props.togglePopupWindowTurnstile();
     }
 
-    /** ************* CHOICE EP-2000 SELECTOR ************* */
+    /**
+    * Хэндлер для обработки запроса селектора 'EP-2000'
+    */
     handleClickOneSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         this.setState({ 
@@ -50,11 +62,17 @@ class SelectorEP extends React.PureComponent {
     }
 
     render () {
-        /** ************* DATA FROM STORE ************* */
+        
+        /** 
+         * Данные из глобального стора
+         */
         const { turnstile } = this.props.data;
         //console.log(turnstile);
         return (
-            /** ************* EP SELECTOR ************* */
+            
+            /**
+             * Селектор 'EP-2000'
+             */
             <Fragment>
                 {turnstile.data.page_view.module_selectors.slice(0, 1).map((index, key) => (
                     <div key={index.index} className='selectors-module'>

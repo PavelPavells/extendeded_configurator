@@ -1,23 +1,33 @@
-/** ************* IMPORT DEPENDENCIES ************* */
+/**
+ * Импорт зависимостей из NPM
+ */
 import React, { Suspense, lazy } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-/** ************* IMPORT ACTIONS FROM ACTION FOLDER ************* */
+/**
+ * Импорт экшенов
+ */
 import { fetchDataTurnstile } from '../../../actions/dataTurnstileActions';
 
-/** ************* IMPORT STYLES FOR OFFER IN TURNSTILE COMPONENT ************* */
+/**
+ * Импорт стилей
+ */
 import './Offer.scss';
 
-/** ************* IMPORT __UTILS__ FOR OFFER COMPONENT ************* */
+/**
+ * Импорт прелоадера 
+ */
 const Loader = lazy(() => import('../../../__utils__/Loader/Loader'));
 
 class Offer extends React.PureComponent {
 
     state = { modalOne: false, modalTwo: false };
 
-    /** ************* FETCHING DATA ************* */
+    /**
+    * Запрос данных
+    */
     componentDidMount() {
         const {page_view} = this.props.data.turnstile.data;
         let data = {
@@ -48,7 +58,9 @@ class Offer extends React.PureComponent {
     }
 
     render() {
-        /** ************* DATA FROM STORE ************* */
+        /**
+        * Данные из Глобального Стора
+        */
         const { turnstile, isFetching } = this.props.data;
         //console.log(turnstile);
         if(turnstile.data.length === 0 && !isFetching) {
@@ -58,10 +70,14 @@ class Offer extends React.PureComponent {
         }
         return (
 
-            /** ************* MODULE OFFER ************* */
+            /** 
+             *  Модуль Предложение
+             */
             <section className='offer'>
 
-                {/** ************* OFFER DESCRIPTION ************* */}
+                {/** 
+                    * Описание 
+                 */}
                 <div className="offer-description">
                     <div className="left">
                         <Link to='/turnstile' className="left-arrow"></Link>
@@ -82,7 +98,9 @@ class Offer extends React.PureComponent {
                     </div>
                 </div>
 
-                {/** ************* MAIN BLOCK OFFER ************* */}
+                {/** 
+                    * Блок Основное Предложение 
+                 */}
                 <div className="offer-goods">
                     <div className='offer-category'>
                         <div className='category-wrapper'>
@@ -123,7 +141,9 @@ class Offer extends React.PureComponent {
                                 </div>
                             </div>
 
-                            {/** ************* MAIN BLOCK OFFER POPUP ************* */}
+                            {/** 
+                             * Блок Popup
+                             */}
                             <div className='offer-popup'>
                                 {this.state.modal && key === 0 
                                     ? 
@@ -164,7 +184,9 @@ class Offer extends React.PureComponent {
                     ))}
                 </div>
 
-                {/** ************* DOWNLOAD OFFER ************* */}
+                {/** 
+                    * Блок Цена/Предложение 
+                 */}
                 <div className="offer-price">
                     <div className='offer-price__wrapper'>
                         <div className='offer-price__image'></div>

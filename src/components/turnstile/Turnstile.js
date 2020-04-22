@@ -1,11 +1,17 @@
-/** ************* IMPORT DEPENDENCIES ************* */
+/**
+ * Импорт зависимостей из NPM
+ */
 import React, { lazy } from 'react';
 import { connect } from 'react-redux';
 
-/** ************* IMPORT STYLES FOR TURNSTILE COMPONENT ************* */
+/**
+ * Импорт стилей
+ */
 import './Turnstile.scss';
 
-/** ************* IMPORT MODULES FOR TURNSTILE COMPONENT ************* */
+/**
+ * Импорт основных подмодулей
+ */
 const ModuleImage = lazy(() => import('./Image/moduleImage'));
 const ModuleList = lazy(() => import('./List/moduleList'));
 const ModuleButtons = lazy(() => import('./Buttons/moduleButtons'));
@@ -19,46 +25,62 @@ class Turnstile extends React.PureComponent {
     render() {
         return (
 
-            /** ************* TURNSTILE COMPONENT ************* */
+            /** 
+             *  Модуль Турникеты
+             */
             <section className='turnstile'>
 
-                {/** ************* WRAPPER BASKET COMPONENT ************* */}
+                {/** 
+                 * Обертка компонента 'Корзина'
+                 */}
                 <div className='turnstile-basket'>
                     <ModuleBasket />
                 </div>
                 <div className='turnstile-main'>
                     <div className='turnstile-main__slider'>
 
-                        {/** ************* WRAPPER IMAGE COMPONENT ************* */}
+                        {/** 
+                         * Обертка компонента 'Изображение'
+                         */}
                         <div className='turnstile-main__slider-image'>
                             <ModuleImage />
                         </div>
 
-                        {/** ************* WRAPPER LIST COMPONENT ************* */}
+                        {/** 
+                         * Обертка компонента 'Список'
+                         */}
                         <div className='turnstile-main__slider-list'>
                             <ModuleList />
                         </div>
                     </div>
                     <div className='turnstile-main__basis'>
 
-                        {/** ************* WRAPPER BUTTONS COMPONENT ************* */}
+                        {/** 
+                         * Обертка компонента выбора 'Серии/Исполнения'
+                         */}
                         <div className='turnstile-main__basis-buttons'>
                             <ModuleButtons />
                         </div>
 
-                        {/** ************* WRAPPER SELECTORS COMPONENT ************* */}
+                        {/** 
+                         * Обертка компонента 'Селекторы'
+                         */}
                         <div className='turnstile-main__basis-selectors'>
                             <ModuleSelectors />
                         </div>
                     </div>
                 </div>
 
-                {/** ************* WRAPPER CONFIGURATION COMPONENT ************* */}
+                {/** 
+                 * Обертка компонента 'Конфигурация'
+                 */}
                 <div className='turnstile-configuration'>
                     <ModuleConfiguration />
                 </div>
 
-                {/** ************* WRAPPER EQUIPMENT COMPONENT ************* */}
+                {/** 
+                 * Обертка компонента 'Комплектующие'
+                 */}
                 <div className='turnstile-equipment'>
                     <ModuleEquipment />
                 </div>

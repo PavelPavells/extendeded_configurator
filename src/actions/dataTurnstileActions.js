@@ -1,7 +1,12 @@
-/** ********** IMPORT LIBRARIES ********** */
+/**
+ * Импорт зависимостей из NPM
+*/
 import axios from 'axios';
 import site from '../constants/constants';
 
+/**
+ * Импорт основных констант для экшенов
+ */
 import { 
     FETCHING_DATA_TURNSTILE_REQUEST, 
     FETCHING_DATA_TURNSTILE_SUCCESS, 
@@ -10,22 +15,31 @@ import {
     TOGGLE_MODAL_TURNSTILE_MAIN_INFO
 } from '../constants/constants';
 
-/** ********** ACTION FOR FETCH REQUEST ********** */
+/**
+ * Экшен для инациализации асинхронного запроса
+ */
 export const fetchingDataTurnstileRequest = () => ({ type: FETCHING_DATA_TURNSTILE_REQUEST });
 
-/** ********** ACTION FOR FETCH SUCCESS ********** */
+/**
+ *  Экшен для обработки и запись полученных данных в редьюсер  
+ */
 export const fetchingDataTurnstileSuccess = (data, trigger) => ({
     type: FETCHING_DATA_TURNSTILE_SUCCESS,
     trigger: trigger,
-    payload: data.data
+    payload: data.data 
 });
 
-/** ********** ACTION FOR FETCH_FAILURE ********** */
+/** 
+ * Экшен для обработки запроса с ошибкой 
+ */
 export const fetchingDataTurnstileFailure = error => ({
     type: FETCHING_DATA_TURNSTILE_FAILURE,
     payload: error
 });
 
+/**  
+ * Экшен для вызовов в Компонентах
+ */
 export const fetchDataTurnstile = (data, trigger) => {
     return async dispatch => {
         dispatch(fetchingDataTurnstileRequest());
@@ -95,8 +109,12 @@ export const fetchDataTurnstile = (data, trigger) => {
     }
 };
 
-/** ********** ACTIONS FOR TOGGLE POPUP WINDOW ********** */
+/**  
+ * Экшен для открытия/закрытия Попап-окна в Компоненте Selectors
+ */
 export const togglePopupWindowTurnstile = () => ({ type: TOGGLE_MODAL_TURNSTILE });
 
-/** ********** ACTIONS FOR TOGGLE POPUP WINDOW MAIN INFO ********** */
+/**  
+ * Экшен для открытия/закрытия Попап-окна в Компоненте Equipment
+ */
 export const togglePopupWindowMainInfoTurnstile = () => ({ type: TOGGLE_MODAL_TURNSTILE_MAIN_INFO });

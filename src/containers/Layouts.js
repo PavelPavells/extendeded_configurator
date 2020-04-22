@@ -1,15 +1,23 @@
-/** ************* IMPORT DEPENDENCIES ************* */
+/**
+ * Импорт зависимостей из NPM
+ */
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-/** ************* IMPORT __UTILS__ FOR LAYOUT COMPONENT ************* */
+/**
+ * Импорт прелоадера 
+ */
 import Loader from '../__utils__/Loader/Loader';
 
-/** ************* IMPORT STYLES FOR LAYOUT COMPONENT ************* */
+/**
+ * Импорт стилей
+ */
 import './Layouts.scss';
 
-/** ************* IMPORT COMPONENTS ************* */
+/**
+ * Импорт Компонентов
+ */
 const Main = lazy(() => import('../components/main/Main'));
 const Barrier = lazy(() => import('../components/barrier/Barrier'));
 const Turnstile = lazy(() => import('../components/turnstile/Turnstile'));
@@ -22,7 +30,9 @@ class Layout extends React.PureComponent {
             <Router>
                 <Suspense fallback={<div><Loader /></div>}>
 
-                    {/** ************* WRAPPER COMPONENTS ************* */}
+                    {/** 
+                     * Обертка для Компонентов 
+                     */}
                     <div className="components">
                         <Switch>
                             <Route path='/main' component={Main} />

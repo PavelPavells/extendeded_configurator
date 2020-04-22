@@ -1,26 +1,38 @@
-/** ************* IMPORT DEPENDENCIES ************* */
+/**
+ * Импорт зависимостей из NPM
+ */
 import React, { Suspense, lazy } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-/** ************* IMPORT ACTIONS FROM ACTION FOLDER ************* */
+/**
+ * Импорт экшенов
+ */
 import { fetchDataTurnstile } from '../../../actions/dataTurnstileActions';
 
-/** ************* IMPORT STYLES FOR MODULE LIST IN TURNSTILE COMPONENT ************* */
+/**
+ * Импорт стилей
+ */
 import './moduleList.scss';
 
-/** ************* IMPORT __UTILS__ FOR LIST COMPONENT ************* */
+/**
+ * Импорт прелоадера 
+ */
 const Loader = lazy(() => import('../../../__utils__/Loader/Loader'));
 
 class ModuleList extends React.PureComponent {
 
-    /** ************* FETCHING DATA ************* */
+    /**
+    * Запрос данных
+    */
     componentDidMount() {
         this.props.fetchDataTurnstile();
     }
     render() {
         
-        /** ************* DATA FROM STORE ************* */
+        /**
+        * Данные из Глобального Стора
+        */
         const { turnstile, isFetching } = this.props.data;
 
         if(turnstile.data.length === 0 && !isFetching) {
@@ -30,7 +42,9 @@ class ModuleList extends React.PureComponent {
         }
         return (
             
-            /** ************* MODULE LIST ************* */
+            /** 
+             *  Модуль Список
+             */
             <div className='list'>
                 <p className='list-description'>Состав модели:</p>
                 {turnstile.data.page_view.model_module_list.map(index => (

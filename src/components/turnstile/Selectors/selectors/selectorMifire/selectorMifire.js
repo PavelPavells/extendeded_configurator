@@ -1,29 +1,42 @@
-/** ************* IMPORT DEPENDENCIES ************* */
+/**
+ * Импорт зависимостей из NPM
+ */
 import React, { Fragment, lazy } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+/**
+ * Импорт экшенов
+ */
 import { 
     fetchDataTurnstile, 
     togglePopupWindowTurnstile 
 } from '../../../../../actions/dataTurnstileActions';
 
-/** ************* IMPORT STYLES FOR MIFIRE SELECTOR TWO IN TURNSTILE COMPONENT ************* */
+/**
+ * Импорт стилей
+ */
 import './selectorMifire.scss';
 
-/** ************* IMPORT POPUP COMPONENT ************* */
+/**
+ * Импорт прелоадера 
+ */
 const PopUp = lazy(() => import('../../../../popup/popup'));
 
 class SelectorMifire extends React.PureComponent {
 
     state = { selectThree: 0 };
 
-    /** ************* TOGGLE MODAL ************* */
+    /**
+     * Открыть/Закрыть модальное окно
+     */
     handleToggleModal = () => {
         this.props.togglePopupWindowTurnstile();
     }
 
-    /** ************* CHOICE MIFIRE SELECTOR ************* */
+    /**
+    * Хэндлер для обработки запроса селектора 'Mifire'
+    */
     handleClickThreeSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         this.setState({ 
@@ -49,11 +62,16 @@ class SelectorMifire extends React.PureComponent {
     }
 
     render() {
-        /** ************* DATA FROM STORE ************* */
+        
+        /** 
+         * Данные из глобального стора
+         */
         const { turnstile } = this.props.data;
         //console.log(turnstile);
         return (
-            /** ************* MIFIRE SELECTOR ************* */
+            /**
+             * Селектор 'Mifire'
+             */
             <Fragment>
                 {turnstile.data.page_view.module_selectors.slice(2, 3).map((index, key) => (
                     <div key={index.index} className='selectors-module'>

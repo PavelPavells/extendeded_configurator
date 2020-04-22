@@ -1,30 +1,45 @@
-/** ************* IMPORT DEPENDENCIES ************* */
+/**
+ * Импорт зависимостей из NPM
+ */
 import React, { Suspense, lazy } from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-/** ************* IMPORT ACTIONS FROM ACTION FOLDER ************* */
+/**
+ * Импорт экшенов
+ */
 import { fetchDataMain } from '../../actions/dataMainActions';
 
-/** ************* IMPORT PHOTOS ************* */
+/**
+ * Импорт фотографий
+ */
 import barrier_photo from '../../images/barrier_main.png';
 import turnstile_photo from '../../images/turnstile_main.png';
 
-/** ************* IMPORT STYLES FOR MAIN COMPONENT ************* */
+/**
+ * Импорт стилей
+ */
 import './Main.scss';
 
-/** ************* IMPORT __UTILS__ FOR MAIN COMPONENT ************* */
+/**
+ * Импорт прелоадера 
+ */
 const Loader = lazy(() => import('../../__utils__/Loader/Loader'));
 
 class Main extends React.PureComponent {
 
-    /** ************* FETCHING DATA ************* */
+    /**
+     * Запрос данных
+     */
     componentDidMount() {
         this.props.fetchDataMain();
     }
 
     render() {
+        /**
+        * Данные из Глобального Стора
+        */
         const { main, isFetching } = this.props.data;
         //console.log(main);
         if (main.data.length === 0 && !isFetching) {
@@ -33,7 +48,9 @@ class Main extends React.PureComponent {
             )
         }
         return (
-            /** ****************** MAIN ****************** */
+            /**
+            * Компонент Main
+            */
             <section className='main'>
                 <p className='main-header'>
                     {main.data.page_view.caption}
@@ -44,7 +61,9 @@ class Main extends React.PureComponent {
 
                 <div className='main-blocks'>
 
-                    {/** ****************** BARRIER ****************** */}
+                    {/**
+                    * Шлагбаумы
+                    */}
                     {main.data.page_view.device_buttons.slice(0, 1).map((index, key) => {
                         return (
                             <NavLink to='/main' key={index.index} className='main-block'>
@@ -64,7 +83,9 @@ class Main extends React.PureComponent {
                         )
                     })}
 
-                    {/** ****************** TURNTILE ****************** */}
+                    {/**
+                    * Турникеты
+                    */}
                     {main.data.page_view.device_buttons.slice(1, 2).map((index, key) => {
                         return (
                             <NavLink to='/turnstile' key={index.index} className='main-block'>

@@ -1,33 +1,47 @@
-/** ************* IMPORT DEPENDENCIES ************* */
+/**
+ * Импорт зависимостей из NPM
+ */
 import React, { Suspense, lazy } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-/** ************* IMPORT ACTIONS FROM ACTION FOLDER ************* */
+/**
+ * Импорт экшенов
+ */
 import { fetchDataTurnstile } from '../../../actions/dataTurnstileActions';
 
-/** ************* IMPORT STYLES FOR MODULE IMAGE IN TURNSTILE COMPONENT ************* */
+/**
+ * Импорт стилей
+ */
 import './moduleImage.scss';
 
-/** ************* IMPORT __UTILS__ FOR IMAGE COMPONENT ************* */
+/**
+ * Импорт прелоадера 
+ */
 const Loader = lazy(() => import('../../../__utils__/Loader/Loader'));
 
 class ModuleImage extends React.PureComponent {
 
-    /** ************* FETCHING DATA ************* */
+    /**
+    * Запрос данных
+    */
     componentDidMount() {
         this.props.fetchDataTurnstile();
     }
     render() {
         
-        /** ************* DATA FROM STORE ************* */
+        /**
+        * Данные из Глобального Стора
+        */
         const { turnstile, isFetching } = this.props.data;
         if (turnstile.data.length === 0 && !isFetching) {
             return <Suspense fallback={<div><Loader /></div>}></Suspense>
         }
         return (
             
-            /** ************* MODULE IMAGE ************* */
+            /** 
+             *  Модуль Изображение
+             */
             <div className='image'>
                 <img 
                     src={turnstile.data.page_view.model_main_photo} 

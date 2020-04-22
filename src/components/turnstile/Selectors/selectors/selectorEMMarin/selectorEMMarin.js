@@ -1,30 +1,42 @@
-/** ************* IMPORT DEPENDENCIES ************* */
+/**
+ * Импорт зависимостей из NPM
+ */
 import React, { Fragment, lazy } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-/** ************* IMPORT ACTIONS FROM ACTION FOLDER ************* */
+/**
+ * Импорт экшенов
+ */
 import { 
     fetchDataTurnstile, 
     togglePopupWindowTurnstile 
 } from '../../../../../actions/dataTurnstileActions';
 
-/** ************* IMPORT STYLES FOR EMMARIN SELECTOR IN TURNSTILE COMPONENT ************* */
+/**
+ * Импорт стилей
+ */
 import './selectorEMMarin.scss';
 
-/** ************* IMPORT POPUP COMPONENT ************* */
+/**
+ * Импорт прелоадера 
+ */
 const PopUp = lazy(() => import('../../../../popup/popup'));
 
 class SelectorEMMarin extends React.PureComponent {
 
-    state = { selectTwo: 2 };
+    state = { selectTwo: 0 };
 
-    /** ************* TOGGLE MODAL ************* */
+    /**
+     * Открыть/Закрыть модальное окно
+     */
     handleToggleModal = () => {
         this.props.togglePopupWindowTurnstile();
     }
 
-    /** ************* CHOICE EMMARIN SELECTOR ************* */
+    /**
+    * Хэндлер для обработки запроса селектора 'EMMarin'
+    */
     handleClickTwoSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         this.setState({ 
@@ -50,11 +62,16 @@ class SelectorEMMarin extends React.PureComponent {
     }
 
     render() {
-        /** ************* DATA FROM STORE ************* */
+        
+        /** 
+         * Данные из глобального стора
+         */
         const { turnstile } = this.props.data;
         //console.log(turnstile);
         return (
-            /** ************* EMMARIN SELECTOR ************* */
+            /**
+             * Селектор 'EMMarin'
+             */
             <Fragment>
                 {turnstile.data.page_view.module_selectors.slice(1, 2).map((index, key) => (
                     <div key={index.index} className='selectors-module'>

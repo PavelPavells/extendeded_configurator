@@ -1,28 +1,42 @@
-/** ********** IMPORT LIBRARIES ********** */
+/**
+ * Импорт зависимостей из NPM
+*/
 import axios from 'axios';
 import site from '../constants/constants';
 
+/**
+ * Импорт основных констант для экшенов
+ */
 import { 
     FETCHING_DATA_MAIN_REQUEST, 
     FETCHING_DATA_MAIN_SUCCESS, 
     FETCHING_DATA_MAIN_FAILURE 
 } from '../constants/constants';
 
-/** ********** FUNCTION FOR FETCH REQUEST ********** */
+/**
+ * Экшен для инациализации асинхронного запроса
+ */
 export const fetchingDataMainRequest = () => ({ type: FETCHING_DATA_MAIN_REQUEST });
 
-/** ********** FUNCTION FOR FETCH SUCCESS ********** */
+/**
+ *  Экшен для обработки и запись полученных данных в редьюсер  
+ */
 export const fetchingDataMainSuccess = data => ({
     type: FETCHING_DATA_MAIN_SUCCESS,
     payload: data.data
 });
 
-/** ********** FUNCTION FOR FETCH_FAILURE ********** */
+/** 
+ * Экшен для обработки запроса с ошибкой 
+ */
 export const fetchingDataMainFailure = error => ({
     type: FETCHING_DATA_MAIN_FAILURE,
     payload: error
 });
 
+/**  
+ * Экшен для вызовов в Компонентах
+ */
 export const fetchDataMain = () => {
     return async dispatch => {
         dispatch(fetchingDataMainRequest());

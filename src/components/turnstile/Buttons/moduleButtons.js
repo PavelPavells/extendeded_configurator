@@ -1,20 +1,30 @@
-/** ************* IMPORT DEPENDENCIES ************* */
+/**
+ * Импорт зависимостей из NPM
+ */
 import React, { Fragment, Suspense, lazy } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-/** ************* IMPORT ACTIONS FROM ACTION FOLDER ************* */
+/**
+ * Импорт экшенов
+ */
 import { fetchDataTurnstile } from '../../../actions/dataTurnstileActions';
 
-/** ************* IMPORT STYLES FOR MODULE BUTTONS IN TURNSTILE COMPONENT ************* */
+/**
+ * Импорт стилей
+ */
 import './moduleButtons.scss';
 
-/** ************* IMPORT __UTILS__ FOR BUTTONS TURNSTILE COMPONENT ************* */
+/**
+ * Импорт прелоадера 
+ */
 const Loader = lazy(() => import('../../../__utils__/Loader/Loader'));
 
 class ModuleButtons extends React.PureComponent {
 
-    /** ************* FETCHING DATA ************* */
+    /**
+    * Запрос данных
+    */
     componentDidMount() {
         const {page_view} = this.props.data.turnstile.data
         let data = {
@@ -36,7 +46,9 @@ class ModuleButtons extends React.PureComponent {
         this.props.fetchDataTurnstile(data);
     }
 
-    /** ************* HANDLE CLICK SERIA STR ************* */
+    /**
+    * Хэндлер для обработки запроса Серии STR
+    */
     handleClickSeriaSTR = () => {
         const { page_view } = this.props.data.turnstile.data;
             let data = {
@@ -59,7 +71,9 @@ class ModuleButtons extends React.PureComponent {
             this.props.fetchDataTurnstile(data, data.trigger);
     }
 
-    /** ************* HANDLE CLICK SERIA STX ************* */
+    /**
+    * Хэндлер для обработки запроса Серии STX
+    */
     handleClickSeriaSTX = () => {
         const { page_view } = this.props.data.turnstile.data;
             let data = {
@@ -81,7 +95,9 @@ class ModuleButtons extends React.PureComponent {
             this.props.fetchDataTurnstile(data, data.trigger);
     }
 
-    /** ************* HANDLE CLICK SERIA STR ************* */
+    /**
+    * Хэндлер для обработки запроса Исполнение STR
+    */
     handleClickExecutionCompact = () => {
         const { page_view } = this.props.data.turnstile.data;
             let data = {
@@ -103,7 +119,9 @@ class ModuleButtons extends React.PureComponent {
             this.props.fetchDataTurnstile(data, data.trigger);
     }
 
-    /** ************* HANDLE CLICK SERIA STR ************* */
+    /**
+    * Хэндлер для обработки запроса Исполнение STR
+    */
     handleClickExecutionThumb = () => {
         const { page_view } = this.props.data.turnstile.data;
             let data = {
@@ -144,7 +162,9 @@ class ModuleButtons extends React.PureComponent {
     }
     render() {
         
-        /** ************* DATA FROM STORE ************* */
+        /**
+        * Данные из Глобального Стора
+        */
         const { turnstile, isFetching } = this.props.data;
         //console.log(turnstile);
         if(turnstile.data.length === 0 && !isFetching) {
@@ -152,11 +172,15 @@ class ModuleButtons extends React.PureComponent {
         }
         return (
 
-            /** ************* MODULE BUTTONS ************* */
+            /** 
+             *  Модуль выбора Серии/Исполнения
+             */
             <div className='buttons'>
                 <div className='top'>
 
-                    {/** ************* CAPTION ************* */}
+                    {/** 
+                     * Описание 
+                     */}
                     <div className='top-captions'>
                         <div className='top-captions__description'>Модель</div>
                         <div className='top-captions__description'>Серия</div>
@@ -165,7 +189,9 @@ class ModuleButtons extends React.PureComponent {
                     <div className='top-select'>
                     <div className='top-select__model'>{turnstile.data.page_view.model_name}</div>
 
-                        {/** ************* SERIA BLOCK ************* */}
+                        {/** 
+                         * Серия STR/STX
+                         */}
                         <div className='top-select__seria'>
                             {turnstile.data.page_view.btn_seria === 0
                                 ?
@@ -192,7 +218,9 @@ class ModuleButtons extends React.PureComponent {
                         <div className='top-select__price'>{turnstile.data.page_view.model_price}</div>
                     </div>
 
-                    {/** ************* OPTIONS ************* */}
+                    {/** 
+                     * Серия STR/STX
+                     */}
                     <div className='top-info'>
                         <a
                             href={turnstile.data.page_view.download_broshure_button_link} 
@@ -224,7 +252,9 @@ class ModuleButtons extends React.PureComponent {
                 <div className='bottom'>
                     <div className='bottom-execution'>Исполнение</div>
 
-                    {/** ************* EXECUTION BLOCK ************* */}
+                    {/** 
+                     * Исполнение Компактный/Тумбовый
+                     */}
                     <div className='bottom-buttons'>
                         {turnstile.data.page_view.btn_corpse === 0
                             ?

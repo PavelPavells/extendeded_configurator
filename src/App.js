@@ -1,15 +1,23 @@
-/** ************* IMPORT DEPENDENCIES ************* */
+/**
+ * Импорт зависимостей из NPM
+ */
 import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
-/** ************* IMPORT COMPONENTS ************* */
+/**
+ * Импорт Компонентов-слоев
+ */
 import Layouts from './containers/Layouts';
 
-/** ************* IMPORT STORE ************* */
+/**
+ * Импорт Глобального Стора
+ */
 import store from './store/store';
 
-/** ************* IMPORT STYLES FOR APP COMPONENT ************* */
+/**
+ * Импорт стилей
+ */
 import './App.scss';
 
 class App extends React.PureComponent {
@@ -18,7 +26,9 @@ class App extends React.PureComponent {
     return (
       <Provider store={store}>
         <BrowserRouter>
-          {/** ************* WRAPPER-CONFIGURATOR ************* */}
+          {/** 
+           * Обертка Приложения
+           */}
           <div className="wrapper">
             <Layouts />
           </div>

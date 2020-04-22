@@ -1,18 +1,28 @@
-/** ************* IMPORT DEPENDENCIES ************* */
+/**
+ * Импорт зависимостей из NPM
+ */
 import React, { Suspense, lazy } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-/** ************* IMPORT ACTIONS FROM ACTION FOLDER ************* */
+/**
+ * Импорт экшенов
+ */
 import { fetchDataTurnstile } from '../../../actions/dataTurnstileActions';
 
-/** ************* IMPORT MODULES FOR EQUIPMENT COMPONENT ************* */
+/**
+ * Импорт модулей
+ */
 import EquipmentModal from './EquipmentModal/equipmentModal';
 
-/** ************* IMPORT STYLES FOR MODULE BUTTONS IN EQUIPMENT COMPONENT ************* */
+/**
+ * Импорт стилей
+ */
 import './moduleEquipment.scss';
 
-/** ************* IMPORT __UTILS__ FOR EQUIPMENT COMPONENT ************* */
+/**
+ * Импорт прелоадера 
+ */
 const Loader = lazy(() => import('../../../__utils__/Loader/Loader'));
 
 class ModuleEquipment extends React.PureComponent {
@@ -24,26 +34,34 @@ class ModuleEquipment extends React.PureComponent {
         listEquipmentFour: false
     }
 
-    /** ************* FETCHING DATA ************* */
+    /**
+    * Запрос данных
+    */
     //componentDidMount() {
     //    this.props.fetchDataTurnstile();
     //}
 
-    /** ************* REDUCE THE NUMBER OF SELECTED ************* */
+    /**
+    * Хэндлер удаления количетсва товара
+    */
     handleMinusOptions = () => {
         //const { page_view } = this.props.data.turnstile.data;
         //console.log(page_view);
         // some code
     }
 
-    /** ************* INCREASE THE NUMBER OF SELECTED ************* */
+    /**
+    * Хэндлер добавления количества товара
+    */
     handlePlusOptions = () => {
         //const { page_view } = this.props.data.turnstile.data;
         //console.log(page_view);
         // some code
     }
 
-    /** ************* HANDLE CHANGE MODAL ONE ************* */
+    /**
+    * Хэндлер обработки запросов для блока 'Пульты Управления'
+    */
     handleChangeModalWindowOne = () => {
         this.setState({ listEquipmentOne: !this.state.listEquipmentOne });
         let text = document.getElementsByClassName('text-remote')[0];
@@ -56,7 +74,9 @@ class ModuleEquipment extends React.PureComponent {
         arrow.classList.toggle('block-info__arrow-hover');
     }
 
-    /** ************* HANDLE CHANGE MODAL TWO ************* */
+    /**
+    * Хэндлер обработки запросов для блока 'Пульты Управления'
+    */
     handleChangeModalWindowTwo = () => {
         this.setState({ listEquipmentTwo: !this.state.listEquipmentTwo });
         let text = document.getElementsByClassName('text-slats')[0];
@@ -69,7 +89,9 @@ class ModuleEquipment extends React.PureComponent {
         arrow.classList.toggle('block-info__arrow-hover');
     }
 
-    /** ************* HANDLE CHANGE MODAL THREE ************* */
+    /**
+    * Хэндлер обработки запросов для блока 'Преграждающие планки'
+    */
     handleChangeModalWindowThree = () => {
         this.setState({ listEquipmentThree: !this.state.listEquipmentThree });
         let text = document.getElementsByClassName('text-suply')[0];
@@ -82,7 +104,9 @@ class ModuleEquipment extends React.PureComponent {
         arrow.classList.toggle('block-info__arrow-hover');
     }
 
-    /** ************* HANDLE CHANGE MODAL FOUR ************* */
+    /**
+    * Хэндлер обработки запросов для блока 'Ограждения прохода и секции "Антипаника"'
+    */
     handleChangeModalWindowFour = () => {
         this.setState({ listEquipmentFour: !this.state.listEquipmentFour });
         let text = document.getElementsByClassName('text-awarding')[0];
@@ -96,7 +120,10 @@ class ModuleEquipment extends React.PureComponent {
     }
 
     render() {
-        /** ************* DATA FROM STORE ************* */
+
+        /**
+        * Данные из Глобального Стора
+        */
         const { turnstile, isFetching } = this.props.data;
         //console.log(turnstile);
         if(turnstile.data.length === 0 && !isFetching) {
@@ -104,12 +131,16 @@ class ModuleEquipment extends React.PureComponent {
         }
         return (
 
-            /** ************* MODULE EQUIPMENT ************* */
+            /** 
+             *  Модуль Комплектующие
+             */
             <div className='equipment'>
                 <p className='equipment-description'>Дополнительное оборудование</p>
                 <div className='equipment-list'>
 
-                    {/** ************* EQUIPMENT BLOCKS ************* */}
+                    {/** 
+                        * Блок 'Пульты Управления' 
+                     */}
                     <div className='equipment-list__block'>
                         <div onClick={this.handleChangeModalWindowOne} className='block-info'>
                             <div className='block-info__wrap'>
@@ -128,7 +159,9 @@ class ModuleEquipment extends React.PureComponent {
                         }
                     </div>
 
-                    {/** ************* EQUIPMENT BLOCKS ************* */}
+                    {/** 
+                        * Блок 'Преграждающие планки' 
+                     */}
                     <div className='equipment-list__block'>
                         <div onClick={this.handleChangeModalWindowTwo} className='block-info'>
                             <div className='block-info__wrap'>
@@ -147,7 +180,9 @@ class ModuleEquipment extends React.PureComponent {
                         }
                     </div>
 
-                    {/** ************* EQUIPMENT BLOCKS ************* */}
+                    {/** 
+                        * Блок 'Блоки питания' 
+                     */}
                     <div className='equipment-list__block'>
                         <div onClick={this.handleChangeModalWindowThree} className='block-info'>
                             <div className='block-info__wrap'>
@@ -166,7 +201,9 @@ class ModuleEquipment extends React.PureComponent {
                         }
                     </div>
 
-                    {/** ************* EQUIPMENT BLOCKS ************* */}
+                    {/** 
+                        * Блок 'Ограждения прохода и секции "Антипаника"' 
+                     */}
                     <div className='equipment-list__block'>
                         <div onClick={this.handleChangeModalWindowFour} className='block-info'>
                             <div className='block-info__wrap'>

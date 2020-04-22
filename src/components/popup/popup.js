@@ -1,26 +1,38 @@
-/** ************* IMPORT DEPENDENCIES ************* */
+/**
+ * Импорт зависимостей из NPM
+ */
 import React, { Suspense } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-/** ************* IMPORT ACTIONS FROM ACTION FOLDER ************* */
+/**
+ * Импорт экшенов
+ */
 import { 
   togglePopupWindowTurnstile, 
   togglePopupWindowMainInfoTurnstile 
 } from '../../actions/dataTurnstileActions';
 
-/** ************* IMPORT __UTILS__ FOR LAYOUT COMPONENT ************* */
+/**
+ * Импорт прелоадера 
+ */
 import Loader from "../../__utils__/Loader/Loader";
 
-/** ************* IMPORT STYLES FOR LAYOUT COMPONENT ************* */
+/**
+ * Импорт фото
+ */
 import photo from "../../images/str-compact1.png";
 
-/** ************* IMPORT STYLES FOR LAYOUT COMPONENT ************* */
+/**
+ * Импорт стилей
+ */
 import './popup.scss';
 
 class Popup extends React.PureComponent {
 
-  /** ************* FETCHING DATA ************* */
+  /**
+   * Запрос данных
+   */
   componentDidMount() {
     //this.props.fetchDataTurnstile();
   }
@@ -36,13 +48,17 @@ class Popup extends React.PureComponent {
    });
   };
 
-  /** ************* TOGGLE MAIN INFO ************* */
+  /**
+   * Открыть/Закрыть Popup
+   */
   handleToggleMainInfo = event => {
     this.props.togglePopupWindowMainInfoTurnstile();
   };
 
   render() {
-    /** ************* DATA FROM STORE ************* */
+    /**
+     * Данные из Глобального Стора
+     */
     const { turnstile, isFetching } = this.props.data;
     //console.log(turnstile);
     if (turnstile.data.length === 0 && !isFetching) {
@@ -52,7 +68,9 @@ class Popup extends React.PureComponent {
     }
     return (
 
-      /** ************* POPUP ************* */
+      /**
+       * Компонент Popup
+      */
       <section className="popup">
         <div className="left">
           <div className="left__image">

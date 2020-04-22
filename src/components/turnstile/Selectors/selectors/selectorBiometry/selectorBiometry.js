@@ -1,29 +1,42 @@
-/** ************* IMPORT DEPENDENCIES ************* */
+/**
+ * Импорт зависимостей из NPM
+ */
 import React, { Fragment, lazy } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+/**
+ * Импорт экшенов
+ */
 import { 
     fetchDataTurnstile, 
     togglePopupWindowTurnstile 
 } from '../../../../../actions/dataTurnstileActions';
 
-/** ************* IMPORT STYLES FOR MODULE BIOMETRY SELECTOR TWO IN TURNSTILE COMPONENT ************* */
+/**
+ * Импорт стилей
+ */
 import './selectorBiometry.scss';
 
-/** ************* IMPORT POPUP COMPONENT ************* */
+/**
+ * Импорт прелоадера 
+ */
 const PopUp = lazy(() => import('../../../../popup/popup'));
 
 class SelectorBiometry extends React.PureComponent {
 
     state = { selectFour: 0 };
 
-    /** ************* TOGGLE MODAL ************* */
+    /**
+     * Открыть/Закрыть модальное окно
+     */
     handleToggleModal = () => {
         this.props.togglePopupWindowTurnstile();
     }
     
-    /** ************* CHOICE BIOMETRY SELECTOR ************* */
+    /**
+    * Хэндлер для обработки запроса селектора 'Биометрия'
+    */
     handleClickFourSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         this.setState({ 
@@ -49,11 +62,17 @@ class SelectorBiometry extends React.PureComponent {
     }
 
     render() {
-        /** ************* DATA FROM STORE ************* */
+
+        /** 
+         * Данные из глобального стора
+         */
         const { turnstile } = this.props.data;
         //console.log(turnstile);
         return(
-            /** ************* BIOMETRY SELECTOR ************* */
+            
+            /**
+             * Селектор 'Биометрия'
+             */
             <Fragment>
                 {turnstile.data.page_view.module_selectors.slice(3, 4).map((index, key) => (
                     <div key={index.index} className='selectors-module'>

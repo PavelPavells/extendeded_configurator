@@ -1,29 +1,42 @@
-/** ************* IMPORT DEPENDENCIES ************* */
+/**
+ * Импорт зависимостей из NPM
+ */
 import React, { Fragment, lazy } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+/**
+ * Импорт экшенов
+ */
 import { 
     fetchDataTurnstile, 
     togglePopupWindowTurnstile 
 } from '../../../../../actions/dataTurnstileActions';
 
-/** ************* IMPORT STYLES FOR STEEL CASE SELECTOR IN TURNSTILE COMPONENT ************* */
+/**
+ * Импорт стилей
+ */
 import './selectorSteelCase.scss';
 
-/** ************* IMPORT POPUP COMPONENT ************* */
+/**
+ * Импорт прелоадера 
+ */
 const PopUp = lazy(() => import('../../../../popup/popup'));
 
 class SelectorSteelCase extends React.PureComponent {
 
     state = { selectEight: 0 };
 
-    /** ************* TOGGLE MODAL ************* */
+    /**
+     * Открыть/Закрыть модальное окно
+     */
     handleToggleModal = () => {
         this.props.togglePopupWindowTurnstile();
     }
 
-    /** ************* CHOICE STEEL CASE SELECTOR ************* */
+    /**
+    * Хэндлер для обработки запроса селектора 'Корпус'
+    */
     handleClickEightSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         this.setState({ 
@@ -49,11 +62,17 @@ class SelectorSteelCase extends React.PureComponent {
     }
 
     render() {
-        /** ************* DATA FROM STORE ************* */
+
+        /** 
+         * Данные из глобального стора
+         */
         const { turnstile } = this.props.data;
         //console.log(turnstile);
         return(
-            /** ************* MODULE STEEL CASE SELECTOR ************* */
+            
+            /**
+             * Селектор 'Корпус'
+             */
             <Fragment>
                 {turnstile.data.page_view.module_selectors.slice(7, 8).map((index, key) => {
                     if(index.state === -1) {

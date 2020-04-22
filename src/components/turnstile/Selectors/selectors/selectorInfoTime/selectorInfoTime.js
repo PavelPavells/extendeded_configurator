@@ -1,29 +1,42 @@
-/** ************* IMPORT DEPENDENCIES ************* */
+/**
+ * Импорт зависимостей из NPM
+ */
 import React, { Fragment, lazy } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+/**
+ * Импорт экшенов
+ */
 import { 
     fetchDataTurnstile, 
     togglePopupWindowTurnstile 
 } from '../../../../../actions/dataTurnstileActions';
 
-/** ************* IMPORT STYLES FOR INFO TIME MODULE SELECTOR TWO IN TURNSTILE COMPONENT ************* */
+/**
+ * Импорт стилей
+ */
 import './selectorInfoTime.scss';
 
-/** ************* IMPORT POPUP COMPONENT ************* */
+/**
+ * Импорт прелоадера 
+ */
 const PopUp = lazy(() => import('../../../../popup/popup'));
 
 class SelectorInfoTime extends React.PureComponent {
 
     state = { selectFive: 0 };
 
-    /** ************* TOGGLE MODAL ************* */
+    /**
+     * Открыть/Закрыть модальное окно
+     */
     handleToggleModal = () => {
         this.props.togglePopupWindowTurnstile();
     }
 
-    /** ************* CHOICE INFO TIME SELECTOR ************* */
+    /**
+     * Хэндлер для обработки запроса селектора 'Информационный дисплей учета рабочего времени'
+     */
     handleClickFiveSelect = () => {
         const { page_view } = this.props.data.turnstile.data;
         this.setState({ 
@@ -49,10 +62,17 @@ class SelectorInfoTime extends React.PureComponent {
     }
 
     render() {
+
+        /** 
+         * Данные из глобального стора
+         */
         const { turnstile } = this.props.data;
         //console.log(turnstile);
         return(
-            /** ************* INFO TIME SELECTOR ************* */
+            
+            /**
+             * Селектор 'Информационный дисплей учета рабочего времени'
+             */
             <Fragment>
                 {turnstile.data.page_view.module_selectors.slice(4, 5).map((index, key) => {
                     if(index.state === -1) {

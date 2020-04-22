@@ -1,4 +1,6 @@
-// ********** IMPORT VARIABLES FROM TYPES ********** //
+/**
+ * Импорт глобальных переменных
+ */
 import { 
     FETCHING_DATA_MAIN_REQUEST, 
     FETCHING_DATA_MAIN_SUCCESS, 
@@ -11,7 +13,9 @@ const initialState = {
     data: []
 }
 
-// ********** REDUCER FOR DATA MAIN REQUEST ********** //
+/**
+ * Редьюсер Компонента Main
+ */
 export default function(state = initialState, action) {
     switch(action.type) {
         case FETCHING_DATA_MAIN_REQUEST:

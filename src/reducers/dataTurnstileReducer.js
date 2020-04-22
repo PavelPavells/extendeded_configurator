@@ -1,4 +1,6 @@
-// ********** IMPORT VARIABLES FROM TYPES ********** //
+/**
+ * Импорт глобальных переменных
+ */
 import { 
     FETCHING_DATA_TURNSTILE_REQUEST, 
     FETCHING_DATA_TURNSTILE_SUCCESS, 
@@ -16,7 +18,9 @@ const initialState = {
     trigger: 0,
 }
 
-// ********** REDUCER FOR DATA MAIN REQUEST ********** //
+/**
+ * Редьюсер Компонента Турникеты
+ */
 export default function(state = initialState, action) {
     switch(action.type) {
         case FETCHING_DATA_TURNSTILE_REQUEST:

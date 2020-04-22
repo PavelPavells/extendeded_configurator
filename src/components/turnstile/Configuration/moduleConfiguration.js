@@ -1,27 +1,39 @@
-/** ************* IMPORT DEPENDENCIES ************* */
+/**
+ * Импорт зависимостей из NPM
+ */
 import React, { Suspense, lazy } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-/** ************* IMPORT ACTIONS FROM ACTION FOLDER ************* */
+/**
+ * Импорт экшенов
+ */
 import { fetchDataTurnstile } from '../../../actions/dataTurnstileActions';
 
-/** ************* IMPORT STYLES FOR MODULE BUTTONS IN CONFIGURATION COMPONENT ************* */
+/**
+ * Импорт стилей
+ */
 import './moduleConfiguration.scss';
 
-/** ************* IMPORT __UTILS__ FOR CONFIGURATION COMPONENT ************* */
+/**
+ * Импорт прелоадера 
+ */
 const Loader = lazy(() => import('../../../__utils__/Loader/Loader'));
 
 class ModuleConfiguration extends React.PureComponent {
 
-    /** ************* REDUCE THE NUMBER OF SELECTED ************* */
+    /** 
+     * //
+     */
     handleMinusOptions = () => {
         //const { page_view } = this.props.data.turnstile.data;
         //console.log(page_view);
         // some code
     }
 
-    /** ************* INCREASE THE NUMBER OF SELECTED ************* */
+    /** 
+     * //
+     */
     handlePlusOptions = () => {
         //const { page_view } = this.props.data.turnstile.data;
         //console.log(page_view);
@@ -30,7 +42,9 @@ class ModuleConfiguration extends React.PureComponent {
 
     render() {
         
-        /** ************* DATA FROM STORE ************* */
+        /**
+        * Данные из Глобального Стора
+        */
         const { turnstile, isFetching } = this.props.data;
         //console.log(turnstile);
         if(turnstile.data.length === 0 && !isFetching) {
@@ -40,17 +54,23 @@ class ModuleConfiguration extends React.PureComponent {
         }
         return (
 
-            /** ************* MODULE CONFIGURATION ************* */
+            /** 
+             *  Модуль Конфигурация
+             */
             <section className='configuration'>
                 <div className='configuration-options'>
 
-                    {/** ************* AMOUNT ************* */}
+                    {/** 
+                        * Количество 
+                     */}
                     <div className='configuration-options__amount'>
                         <p className='configuration-options__amount-text'>Количество:</p>
                         <span className='configuration-options__amount-value'>{turnstile.data.page_view.model_module_list.length}</span>
                     </div>
 
-                    {/** ************* AMOUNT ADD / DELETE  ************* */}
+                    {/** 
+                        * Добавить/Удалить Количетсво 
+                     */}
                     <div className='configuration-options__more'>
                         <div onClick={this.handleMinusOptions} className='configuration-options__more-minus'></div>
                         <div onClick={this.handlePlusOptions} className='configuration-options__more-plus'></div>
@@ -61,7 +81,9 @@ class ModuleConfiguration extends React.PureComponent {
                     </div>
                 </div>
 
-                {/** ************* BUTTON ADD CONFIGURATION ************* */}
+                {/** 
+                    * Кнопка добавления конфигурации 
+                */}
                 <div className='configuration-button'>
                     <div className='configuration-button__icon'></div>
                     <div className='configuration-button__text'>ДОБАВИТЬ ЭТУ КОНФИГУРАЦИЮ</div>
